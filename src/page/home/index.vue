@@ -1,8 +1,10 @@
 <template>
   <div class="home_container">
-    <router-link to="item" >跳转其他页面</router-link>
-    <div>{{ num }}</div>
-    <div @click="addNum">自增</div>
+    <div class="header">
+      <div class="top"></div>
+      <div class="nav"></div>
+    </div>
+    <div class="channel"></div>
   </div>
 </template>
 
