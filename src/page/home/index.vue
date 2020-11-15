@@ -27,15 +27,16 @@
         <swiper-slide>
           <div class="img_container">
             <img lazyload src="https://puui.qpic.cn/tv/0/1224894060_1080607/0?max_age=7776000" alt="">
+            
+            <div class="top_left_corner">
+              <div class="triangle"></div>
+              自制
+            </div>
+            <div class="bottom_right_corner">
+              2020-11-14
+            </div>
           </div>
           <span class="title">【演员·郭敬明新作】改编聊斋！男狐妖遇女将军</span>
-          <!-- <div class="top_left_corner">
-            <div class="triangle"></div>
-            自制
-          </div>
-          <div class="bottom_right_corner">
-            2020-11-14
-          </div> -->
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
@@ -265,6 +266,47 @@ export default {
           object-fit: contain;
           width: 100%;
           height: 100%;
+        }
+        .top_left_corner {
+          position: absolute;
+          border: 1px solid #f09;
+          /* width: 164px; */
+          height: 20px;
+          top: 0;
+          left: 0;
+          margin: 1px 0 0 16px;
+          font-size: 10px;
+          font-weight: 400;
+          color: #fff;
+          padding: 0 0 0 8px;
+          background-color: rgba(162,162,182,.5);
+          .triangle {
+            // border: 6px solid;
+            // border-color: transparent transparent transparent #FF6600;
+            border-left: 7px solid #FF6600;
+            border-right: 7px solid transparent;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            width: 0;
+            height: 0;
+            position: absolute;
+            display: inline-block;
+            top: 3px;
+            right: 18px;
+          }
+        }
+        .bottom_right_corner {
+          position: absolute;
+          border: 1px solid #f09;
+          // width: 30px;
+          height: 20px;
+          bottom: 0;
+          right: 0;
+          margin: 0 23px 48px 0;
+          font-size: 10px;
+          font-weight: 400;
+          color: #fff;
+          background-color: rgba(162,162,182,.5);
         }
       }
       .title {
