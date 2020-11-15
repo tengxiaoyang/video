@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const apiBaseUrl = 'https://www.shuipingguo.com/news/'
+const apiBaseUrl = 'https://www.shuipingguo.com/getvideo/'
 const urlMap = {
   getList: apiBaseUrl + ''
 }

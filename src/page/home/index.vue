@@ -29,6 +29,13 @@
             <img lazyload src="https://puui.qpic.cn/tv/0/1224894060_1080607/0?max_age=7776000" alt="">
           </div>
           <span class="title">【演员·郭敬明新作】改编聊斋！男狐妖遇女将军</span>
+          <!-- <div class="top_left_corner">
+            <div class="triangle"></div>
+            自制
+          </div>
+          <div class="bottom_right_corner">
+            2020-11-14
+          </div> -->
         </swiper-slide>
         <swiper-slide>Slide 2</swiper-slide>
         <swiper-slide>Slide 3</swiper-slide>
@@ -78,19 +85,19 @@ export default {
         },
         {
           type: 1,
-          option_name: "电视剧",
-        },
-        {
-          type: 2,
-          option_name: "VIP",
-        },
-        {
-          type: 3,
           option_name: "电影",
         },
         {
-          type: 4,
+          type: 2,
+          option_name: "电视剧",
+        },
+        {
+          type: 3,
           option_name: "综艺",
+        },
+        {
+          type: 4,
+          option_name: "娱乐",
         },
         {
           type: 5,
@@ -102,7 +109,7 @@ export default {
         },
         {
           type: 7,
-          option_name: "娱乐",
+          option_name: "VIP",
         },
         {
           type: 8,
@@ -140,6 +147,7 @@ export default {
         params: { type:  e },  
         callback: (res) => {
           console.log("执行callback");
+          console.log(res.data.data);
           // this.video_content = res.data.data;
           this.selected_type = e;
           console.log("执行完callback");
@@ -241,16 +249,18 @@ export default {
 }
 .channel {
   .video_swiper {
+    background: -webkit-linear-gradient(90deg,#f2f4f5,#fff 59%);
     .swiper-slide {
-      width: 100%;
-      height: 240px;
+      // width: 100%;
+      // height: 240px;
       border: 1px solid #000;
       .img_container {
-        width: 100%;
-        height: 195px;
+        // width: 100%;
+        // height: 195px;
         display: flex;
         justify-content: center;
         border: 1px solid #000;
+        padding: 0 15px;
         img {
           object-fit: contain;
           width: 100%;
@@ -258,7 +268,7 @@ export default {
         }
       }
       .title {
-        display: inline-block;
+        display: block;
         border: 1px solid #000;
         padding: 0 0 0 13px;
         height: 43px;
@@ -267,25 +277,24 @@ export default {
         color: #000028;
         font-size: 14px;
         font-weight: 400;
-        position: absolute;
+        position: relative;
       }
     }
     .swiper-pagination {
       font-size: 14px;
-      font-weight: 800;
-      color: #000;
-      padding: 0;
-      margin: 0;
-      word-spacing: -5px;
-      letter-spacing: 0px;
-      display: inline-block;
-      border: 1px solid #000;
-      width: 29px;
-      height: 44px;
-      position: absolute;
-      left: calc(100% - 30px);
-      top: 195px;
-      line-height: 44px;
+        font-weight: 800;
+        color: #000;
+        padding: 0;
+        margin: 0;
+        word-spacing: -5px;
+        letter-spacing: 0px;
+        display: inline-block;
+        border: 1px solid #000;
+        width: 29px;
+        height: 44px;
+        left: calc(100% - 30px);
+        bottom: 0;
+        line-height: 44px;
     }
   }
 }
