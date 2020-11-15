@@ -24,24 +24,19 @@
     </div>
     <div class="channel">
       <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions">
-        <swiper-slide>
+        <swiper-slide v-for="(item, index) of swiper_content" :key="index" @click="route_to('video_details')">
           <div class="img_container">
-            <img lazyload src="https://puui.qpic.cn/tv/0/1224894060_1080607/0?max_age=7776000" alt="">
-            
+            <img lazyload :src="item.img" alt="">
             <div class="top_left_corner">
               <div class="triangle"></div>
-              自制
+              <span>自制</span>
             </div>
             <div class="bottom_right_corner">
               2020-11-14
             </div>
           </div>
-          <span class="title">【演员·郭敬明新作】改编聊斋！男狐妖遇女将军</span>
+          <span class="title">{{item.summary}}</span>
         </swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
       <div class="feeds_block"></div>
@@ -72,18 +67,14 @@ export default {
           prevEl: '.swiper-button-prev'
         },
         // autoplay: {
-        //   delay: 2000,
+        //   delay: 4000,
         //   disableOnInteraction: false,
         // },
         loop: true
       },
       search_text: "使徒行者3",
-      selected_type: 0,
+      selected_type: 1,
       video_option: [
-        {
-          type: 0,
-          option_name: "精选",
-        },
         {
           type: 1,
           option_name: "电影",
@@ -120,7 +111,10 @@ export default {
           type: 9,
           option_name: "游戏",
         },
-      ]
+      ],
+      // video_content: [],
+      swiper_content: [],
+
     }
   },
   computed: {
@@ -133,7 +127,7 @@ export default {
   },
   mounted() {
     console.log('Current Swiper instance object', this.swiper)
-    // this.swiper.slideTo(0, 1000, false)
+    this.swiper.slideTo(1, 1000, false)
     this.get_video(this.selected_type)
   },
   methods: {
@@ -148,8 +142,11 @@ export default {
         params: { type:  e },  
         callback: (res) => {
           console.log("执行callback");
+          console.log(res);
           console.log(res.data.data);
-          // this.video_content = res.data.data;
+          this.video_content = res.data.data;
+          console.log(res.data.data[0].list)
+          this.swiper_content = res.data.data[0].list
           this.selected_type = e;
           console.log("执行完callback");
         } 
@@ -215,11 +212,12 @@ export default {
       overflow-x: scroll;
       white-space: nowrap;
       position: relative;
+      margin: 0 0 0 6px;
       .active_option {
         display: inline-block;
         width: 51px;
         height: 38px;
-        margin: 0 9px 0 0;
+        margin: 0 15px 0 0;
         text-align: center;
         line-height: 38px;
         font-size: 17px;
@@ -230,7 +228,7 @@ export default {
         display: inline-block;
         width: 51px;
         height: 38px;
-        margin: 0 9px 0 0;
+        margin: 0 15px 0 0;
         text-align: center;
         line-height: 38px;
         font-size: 17px;
@@ -251,16 +249,17 @@ export default {
 .channel {
   .video_swiper {
     background: -webkit-linear-gradient(90deg,#f2f4f5,#fff 59%);
+    margin: 6px 0 0 0;
     .swiper-slide {
       // width: 100%;
       // height: 240px;
-      border: 1px solid #000;
+      // border: 1px solid #000;
       .img_container {
         // width: 100%;
         // height: 195px;
         display: flex;
         justify-content: center;
-        border: 1px solid #000;
+        // border: 1px solid #000;
         padding: 0 15px;
         img {
           object-fit: contain;
@@ -269,9 +268,9 @@ export default {
         }
         .top_left_corner {
           position: absolute;
-          border: 1px solid #f09;
+          // border: 1px solid #f09;
           /* width: 164px; */
-          height: 20px;
+          height: 15px;
           top: 0;
           left: 0;
           margin: 1px 0 0 16px;
@@ -279,7 +278,7 @@ export default {
           font-weight: 400;
           color: #fff;
           padding: 0 0 0 8px;
-          background-color: rgba(162,162,182,.5);
+          // background-color: rgba(162,162,182,.5);
           .triangle {
             // border: 6px solid;
             // border-color: transparent transparent transparent #FF6600;
@@ -294,10 +293,15 @@ export default {
             top: 3px;
             right: 18px;
           }
+          span {
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+          }
         }
         .bottom_right_corner {
           position: absolute;
-          border: 1px solid #f09;
+          // border: 1px solid #f09;
           // width: 30px;
           height: 20px;
           bottom: 0;
@@ -311,10 +315,10 @@ export default {
       }
       .title {
         display: block;
-        border: 1px solid #000;
-        padding: 0 0 0 13px;
+        // border: 1px solid #000;
+        padding: 0 0 0 21px;
         height: 43px;
-        width: calc(100% - 28px);
+        width: calc(100% - 54px);
         line-height: 43px;
         color: #000028;
         font-size: 14px;
@@ -331,12 +335,13 @@ export default {
         word-spacing: -5px;
         letter-spacing: 0px;
         display: inline-block;
-        border: 1px solid #000;
-        width: 29px;
-        height: 44px;
-        left: calc(100% - 30px);
+        // border: 1px solid #000;
+        width: 54px;
+        height: 43px;
+        left: calc(100% - 54px);
         bottom: 0;
         line-height: 44px;
+        background: #f2f4f5;
     }
   }
 }
