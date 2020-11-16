@@ -59,10 +59,10 @@
               </div>
               <div class="bottom_right_corner">{{item.score}}</div>
             </div>
-            <span class="title">
+            <span class="name">
               {{item.name}}
             </span>
-            <span class="title">
+            <span class="summary">
               {{item.summary}}
             </span>
           </div>
@@ -387,6 +387,7 @@ export default {
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1px solid #000;
+      padding: 9px 11px;
       .video_list {
         border: 1px solid #000;
         .img_container {
@@ -395,7 +396,7 @@ export default {
           display: flex;
           justify-content: center;
           // border: 1px solid #000;
-          padding: 0 15px;
+          padding: 0 3px;
           position: relative;
           img {
             object-fit: contain;
@@ -409,7 +410,7 @@ export default {
             height: 15px;
             top: 0;
             left: 0;
-            margin: 1px 0 0 16px;
+            margin: 1px 0 0 4px;
             font-size: 10px;
             font-weight: 400;
             color: #fff;
@@ -437,19 +438,17 @@ export default {
           }
           .bottom_right_corner {
             position: absolute;
-            // border: 1px solid #f09;
-            // width: 30px;
-            height: 20px;
+            height: 17px;
             bottom: 0;
             right: 0;
-            margin: 0 23px 48px 0;
+            margin: 0 10px 4px 0;
             font-size: 10px;
             font-weight: 400;
             color: #fff;
-            background-color: rgba(162,162,182,.5);
+            background-color: rgba(162, 162, 182, 0.5);
           }
         }
-        .title {
+        .name {
           display: block;
           // border: 1px solid #000;
           padding: 0 0 0 21px;
@@ -461,7 +460,18 @@ export default {
           font-weight: 400;
           position: relative;
         }
-    
+        .summary {
+          display: block;
+          // border: 1px solid #000;
+          padding: 0 0 0 21px;
+          height: 43px;
+          width: calc(100% - 54px);
+          line-height: 43px;
+          color: #000028;
+          font-size: 14px;
+          font-weight: 400;
+          position: relative;
+        }
       }
     }    
   }
