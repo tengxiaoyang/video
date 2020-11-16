@@ -24,18 +24,21 @@
     </div>
     <div class="channel">
       <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions">
-        <swiper-slide v-for="(item, index) of swiper_content" :key="index" @click="route_to('video_details')">
+        <swiper-slide 
+        v-for="(item, index) of swiper_content" 
+        :key="index" 
+        @click="route_to('video_details')"
+        >
           <div class="img_container">
             <img lazyload :src="item.img" alt="">
             <div class="top_left_corner">
               <div class="triangle"></div>
-              <span>自制</span>
+              <span class="free" v-if="item.vip===0">免费</span>
+              <span class="vip" v-if="item.vip===10">VIP</span>
             </div>
-            <div class="bottom_right_corner">
-              2020-11-14
-            </div>
+            <div class="bottom_right_corner">{{item.score}}</div>
           </div>
-          <span class="title">{{item.summary}}</span>
+          <span class="title">【{{item.name}}】{{item.summary}}</span>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -291,7 +294,7 @@ export default {
             position: absolute;
             display: inline-block;
             top: 3px;
-            right: 18px;
+            left: 0;
           }
           span {
             font-size: 10px;
@@ -328,20 +331,20 @@ export default {
     }
     .swiper-pagination {
       font-size: 14px;
-        font-weight: 800;
-        color: #000;
-        padding: 0;
-        margin: 0;
-        word-spacing: -5px;
-        letter-spacing: 0px;
-        display: inline-block;
-        // border: 1px solid #000;
-        width: 54px;
-        height: 43px;
-        left: calc(100% - 54px);
-        bottom: 0;
-        line-height: 44px;
-        background: #f2f4f5;
+      font-weight: 800;
+      color: #000;
+      padding: 0;
+      margin: 0;
+      word-spacing: -5px;
+      letter-spacing: 0px;
+      display: inline-block;
+      // border: 1px solid #000;
+      width: 54px;
+      height: 43px;
+      left: calc(100% - 54px);
+      bottom: 0;
+      line-height: 44px;
+      background: #f2f4f5;
     }
   }
 }
