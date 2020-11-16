@@ -42,7 +42,16 @@
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
-      <div class="feeds_block"></div>
+      <div class="feeds_block">
+        <span class="title">重磅热播</span>
+        <div class="video_option" 
+          v-for="(item, index) of video_option" 
+          :key="index" 
+          @click="route_to('video_details')"
+        >
+        
+        </div>
+      </div>
       <div class="feeds_block"></div>
       <div class="feeds_block"></div>
       <div class="feeds_block"></div>
@@ -69,10 +78,10 @@ export default {
           nextEl: '.swiper-button-next', 
           prevEl: '.swiper-button-prev'
         },
-        // autoplay: {
-        //   delay: 4000,
-        //   disableOnInteraction: false,
-        // },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
         loop: true
       },
       search_text: "使徒行者3",
@@ -346,6 +355,16 @@ export default {
       line-height: 44px;
       background: #f2f4f5;
     }
+  }
+  .feeds_block {
+    .title {
+      color: #000;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 15px 0 0 16px;
+      display: block;
+    }
+    
   }
 }
 </style>
