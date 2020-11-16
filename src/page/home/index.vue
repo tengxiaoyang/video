@@ -44,12 +44,28 @@
       </swiper>
       <div class="feeds_block">
         <span class="title">重磅热播</span>
-        <div class="video_option" 
-          v-for="(item, index) of video_option" 
-          :key="index" 
-          @click="route_to('video_details')"
-        >
-        
+        <div class="video_list_container">
+          <div class="video_list" 
+            v-for="(item, index) of blockbuster_hit" 
+            :key="index" 
+            @click="route_to('video_details')"
+          >
+            <div class="img_container">
+              <img lazyload :src="item.img" alt="">
+              <div class="top_left_corner">
+                <div class="triangle"></div>
+                <span class="free" v-if="item.vip===0">免费</span>
+                <span class="vip" v-if="item.vip===10">VIP</span>
+              </div>
+              <div class="bottom_right_corner">{{item.score}}</div>
+            </div>
+            <span class="title">
+              {{item.name}}
+            </span>
+            <span class="title">
+              {{item.summary}}
+            </span>
+          </div>
         </div>
       </div>
       <div class="feeds_block"></div>
@@ -126,6 +142,7 @@ export default {
       ],
       // video_content: [],
       swiper_content: [],
+      blockbuster_hit: [],
 
     }
   },
@@ -158,7 +175,9 @@ export default {
           console.log(res.data.data);
           this.video_content = res.data.data;
           console.log(res.data.data[0].list)
-          this.swiper_content = res.data.data[0].list
+          this.swiper_content = res.data.data[0].list;
+          console.log(res.data.data[1].list)
+          this.blockbuster_hit = res.data.data[1].list;
           this.selected_type = e;
           console.log("执行完callback");
         } 
@@ -364,7 +383,87 @@ export default {
       margin: 15px 0 0 16px;
       display: block;
     }
+    .video_list_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid #000;
+      .video_list {
+        border: 1px solid #000;
+        .img_container {
+          // width: 100%;
+          // height: 195px;
+          display: flex;
+          justify-content: center;
+          // border: 1px solid #000;
+          padding: 0 15px;
+          position: relative;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+          .top_left_corner {
+            position: absolute;
+            // border: 1px solid #f09;
+            /* width: 164px; */
+            height: 15px;
+            top: 0;
+            left: 0;
+            margin: 1px 0 0 16px;
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+            padding: 0 0 0 8px;
+            // background-color: rgba(162,162,182,.5);
+            .triangle {
+              // border: 6px solid;
+              // border-color: transparent transparent transparent #FF6600;
+              border-left: 7px solid #FF6600;
+              border-right: 7px solid transparent;
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent;
+              width: 0;
+              height: 0;
+              position: absolute;
+              display: inline-block;
+              top: 3px;
+              left: 0;
+            }
+            span {
+              font-size: 10px;
+              font-weight: 400;
+              color: #fff;
+            }
+          }
+          .bottom_right_corner {
+            position: absolute;
+            // border: 1px solid #f09;
+            // width: 30px;
+            height: 20px;
+            bottom: 0;
+            right: 0;
+            margin: 0 23px 48px 0;
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+            background-color: rgba(162,162,182,.5);
+          }
+        }
+        .title {
+          display: block;
+          // border: 1px solid #000;
+          padding: 0 0 0 21px;
+          height: 43px;
+          width: calc(100% - 54px);
+          line-height: 43px;
+          color: #000028;
+          font-size: 14px;
+          font-weight: 400;
+          position: relative;
+        }
     
+      }
+    }    
   }
 }
 </style>
