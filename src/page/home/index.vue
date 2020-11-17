@@ -43,10 +43,10 @@
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
       <div class="feeds_block">
-        <span class="title">重磅热播</span>
+        <span class="title">{{video_content[1].title}}</span>
         <div class="video_list_container">
           <div class="video_list" 
-            v-for="(item, index) of blockbuster_hit" 
+            v-for="(item, index) of feeds_block_01" 
             :key="index" 
             @click="route_to('video_details')"
           >
@@ -140,9 +140,16 @@ export default {
           option_name: "游戏",
         },
       ],
-      // video_content: [],
+      video_content: [
+        {
+
+        },
+        {
+          title:"",
+        }
+      ],
       swiper_content: [],
-      blockbuster_hit: [],
+      feeds_block_01: [],
 
     }
   },
@@ -171,13 +178,21 @@ export default {
         params: { type:  e },  
         callback: (res) => {
           console.log("执行callback");
+          console.log(e)
           console.log(res);
           console.log(res.data.data);
           this.video_content = res.data.data;
+          if (e === 1) {
+            console.log(this.video_content[1].title)
+            this.video_content[1].title = "重磅热播";
+            console.log(this.video_content[1].title)
+          }
+          console.log(this.video_content[1].title)
           console.log(res.data.data[0].list)
           this.swiper_content = res.data.data[0].list;
           console.log(res.data.data[1].list)
-          this.blockbuster_hit = res.data.data[1].list;
+          this.feeds_block_01 = res.data.data[1].list;
+
           this.selected_type = e;
           console.log("执行完callback");
         } 
@@ -450,11 +465,9 @@ export default {
         }
         .name {
           display: block;
-          // border: 1px solid #000;
-          padding: 0 0 0 21px;
-          height: 43px;
-          width: calc(100% - 54px);
-          line-height: 43px;
+          padding: 0 0 0 4px;
+          width: calc(100% - 0px);
+          line-height: 33px;
           color: #000028;
           font-size: 14px;
           font-weight: 400;
@@ -462,13 +475,11 @@ export default {
         }
         .summary {
           display: block;
-          // border: 1px solid #000;
-          padding: 0 0 0 21px;
-          height: 43px;
-          width: calc(100% - 54px);
-          line-height: 43px;
-          color: #000028;
-          font-size: 14px;
+          padding: 0 0 11px 4px;
+          width: calc(100% - 0px);
+          line-height: 14px;
+          color: #a2a2b6;
+          font-size: 13px;
           font-weight: 400;
           position: relative;
         }
