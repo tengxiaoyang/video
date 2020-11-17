@@ -42,38 +42,78 @@
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
-      <div class="feeds_block">
-        <span class="title">{{video_content[1].title}}</span>
-        <div class="video_list_container">
-          <div class="video_list" 
-            v-for="(item, index) of feeds_block_01" 
-            :key="index" 
-            @click="route_to('video_details')"
-          >
-            <div class="img_container">
-              <img lazyload :src="item.img" alt="">
-              <div class="top_left_corner">
-                <div class="triangle"></div>
-                <span class="free" v-if="item.vip===0">免费</span>
-                <span class="vip" v-if="item.vip===10">VIP</span>
+
+      <div class="feeds_block" 
+        v-for="(video_content_item, video_content_index) of video_content" 
+        :key="video_content_index"  
+      >
+        <div class="feeds_block_container" 
+          v-if="video_content.indexOf(video_content_item)!==0"
+        >
+          <span class="title">{{video_content_item.title}}</span>
+          <div v-if="video_content">
+            <!-- <div class="video_list_container"> -->
+            <div class="video_list_container" 
+              v-if="!video_content_item.change_block_list"
+            >
+              <div class="video_list" 
+                v-for="(video_list_item, video_list_index) of video_content_item.list"
+                :key="video_list_index" 
+                @click="route_to('video_details')"
+              >
+                <div class="img_container">
+                  <img lazyload :src="video_list_item.img" alt="">
+                  <div class="top_left_corner">
+                    <div class="triangle"></div>
+                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                  </div>
+                  <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                </div>
+                <span class="name">
+                  {{video_list_item.name}}
+                </span>
+                <span class="summary">
+                  {{video_list_item.summary}}
+                </span>
               </div>
-              <div class="bottom_right_corner">{{item.score}}</div>
             </div>
-            <span class="name">
-              {{item.name}}
-            </span>
-            <span class="summary">
-              {{item.summary}}
-            </span>
+
+            <div class="video_list_container" 
+              v-if="video_content_item.change_block_list"
+            >
+              <div class="video_list" 
+                v-for="(video_list_item, video_list_index) of video_content_item.list.slice().reverse()"
+                :key="video_list_index" 
+                @click="route_to('video_details')"
+              >
+                <div class="img_container">
+                  <img lazyload :src="video_list_item.img" alt="">
+                  <div class="top_left_corner">
+                    <div class="triangle"></div>
+                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                  </div>
+                  <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                </div>
+                <span class="name">
+                  {{video_list_item.name}}
+                </span>
+                <span class="summary">
+                  {{video_list_item.summary}}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="change">
+            <div class="change_button" @click="show_change_list(video_content_index,$event)">
+              <img src="../../../public/static/img/change.png" alt="">
+              <span>换一换</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="feeds_block"></div>
-      <div class="feeds_block"></div>
-      <div class="feeds_block"></div>
-      <div class="feeds_block"></div>
-      <div class="feeds_block"></div>
-      <div class="feeds_block"></div>
     </div>
   </div>
 </template>
@@ -140,16 +180,8 @@ export default {
           option_name: "游戏",
         },
       ],
-      video_content: [
-        {
-
-        },
-        {
-          title:"",
-        }
-      ],
       swiper_content: [],
-      feeds_block_01: [],
+      video_content: [],
 
     }
   },
@@ -161,10 +193,11 @@ export default {
       return this.$store.state.num;
     }
   },
-  mounted() {
-    console.log('Current Swiper instance object', this.swiper)
-    this.swiper.slideTo(1, 1000, false)
+  created() {
     this.get_video(this.selected_type)
+  },
+  mounted() {
+    this.swiper.slideTo(1, 0, false)
   },
   methods: {
     addNum() {
@@ -178,27 +211,52 @@ export default {
         params: { type:  e },  
         callback: (res) => {
           console.log("执行callback");
-          console.log(e)
+          console.log(e);
           console.log(res);
+          console.log(res.data);
           console.log(res.data.data);
+          console.log(this.video_content);
           this.video_content = res.data.data;
           if (e === 1) {
             console.log(this.video_content[1].title)
             this.video_content[1].title = "重磅热播";
             console.log(this.video_content[1].title)
           }
-          console.log(this.video_content[1].title)
+          console.log(this.video_content.length);
+          for (let i = 0; i < this.video_content.length; ++ i) {
+            console.log(this.video_content[i])
+            if (!this.video_content[i].change_block_list) {
+              this.$set(this.video_content[i], "change_block_list", false)
+            } 
+          }
+          console.log(this.video_content)
           console.log(res.data.data[0].list)
           this.swiper_content = res.data.data[0].list;
-          console.log(res.data.data[1].list)
-          this.feeds_block_01 = res.data.data[1].list;
-
+          console.log(this.video_content)
           this.selected_type = e;
+          this.swiper.slideTo(1, 0, false)
           console.log("执行完callback");
         } 
       });
       console.log("执行完get_video")
     },
+    show_change_list(video_content_index,$event) {
+      this.current = video_content_index;
+      console.log(this.current)
+      let el = event.currentTarget;
+      console.log(el.innerHTML);
+
+      console.log(this.video_content[this.current]);
+      console.log(this.video_content[this.current]. change_block_list);
+      if (this.video_content[this.current]. change_block_list) {
+        this.$set(this.video_content[this.current], "change_block_list", false)
+      } else {
+        this.$set(this.video_content[this.current], "change_block_list", true)
+      }
+      
+      console.log(this.video_content[this.current].change_block_list)
+      console.log(this.video_content)
+    }
   }
 }
 </script>
@@ -374,11 +432,12 @@ export default {
     }
     .swiper-pagination {
       font-size: 14px;
-      font-weight: 800;
+      font-weight: 700;
+      font-family: Century Gothic;
       color: #000;
       padding: 0;
       margin: 0;
-      word-spacing: -5px;
+      word-spacing: -4.5px;
       letter-spacing: 0px;
       display: inline-block;
       // border: 1px solid #000;
@@ -401,17 +460,17 @@ export default {
     .video_list_container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border: 1px solid #000;
+      // border: 1px solid #000;
       padding: 9px 11px;
       .video_list {
-        border: 1px solid #000;
+        // border: 1px solid #000;
         .img_container {
           // width: 100%;
           // height: 195px;
           display: flex;
           justify-content: center;
           // border: 1px solid #000;
-          padding: 0 3px;
+          padding: 0 4px;
           position: relative;
           img {
             object-fit: contain;
@@ -482,6 +541,30 @@ export default {
           font-size: 13px;
           font-weight: 400;
           position: relative;
+        }
+      }
+    }
+    .change {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 14px;
+      // border: 1px solid #000;
+      .change_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 14px;
+        // border: 1px solid #000;
+        img {
+          object-fit: contain;
+          width: 23px;
+          height: 100%;
+        }
+        span {
+          color: #a2a2b6;
+          font-size: 12px;
+          width: 43px;
         }
       }
     }    
