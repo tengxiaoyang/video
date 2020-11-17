@@ -22,7 +22,7 @@
         </div>
       </div>
     </div>
-    <div class="channel">
+    <div class="channel" v-if="selected_type!==5">
       <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions">
         <swiper-slide 
         v-for="(item, index) of swiper_content" 
@@ -215,31 +215,6 @@
                 </span>
               </div>
             </div>
-            <!-- <div class="video_list_container" 
-              v-if="video_content_item.change_block_list"
-            >
-              <div class="video_list" 
-                v-for="(video_list_item, video_list_index) of video_content_item.list.slice().reverse()"
-                :key="video_list_index" 
-                @click="route_to('video_details')"
-              >
-                <div class="img_container">
-                  <img lazyload :src="video_list_item.img" alt="">
-                  <div class="top_left_corner">
-                    <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
-                    <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                  </div>
-                  <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                </div>
-                <span class="name">
-                  {{video_list_item.name}}
-                </span>
-                <span class="summary">
-                  {{video_list_item.summary}}
-                </span>
-              </div>
-            </div> -->
           </div>
 
           <div class="change">
@@ -251,6 +226,8 @@
         </div>
       </div>
     </div>
+
+    <div class="list_view" v-if="selected_type===5"></div>
   </div>
 </template>
 
@@ -293,11 +270,11 @@ export default {
         },
         {
           type: 4,
-          option_name: "娱乐",
+          option_name: "动漫",
         },
         {
           type: 5,
-          option_name: "动漫",
+          option_name: "娱乐",
         },
         {
           type: 6,
