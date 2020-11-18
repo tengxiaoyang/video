@@ -40,7 +40,7 @@
               <img lazyload :src="item.img" alt="">
               <div class="top_left_corner">
                 <div class="triangle"></div>
-                <span class="free" v-if="item.vip===0">免费</span>
+                <span class="free" v-if="item.vip===0">独播</span>
                 <span class="vip" v-if="item.vip===10">VIP</span>
               </div>
               <div class="bottom_right_corner">{{item.score}}</div>
@@ -74,7 +74,7 @@
                   <img lazyload :src="video_list_item.img" alt="">
                   <div class="top_left_corner">
                     <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="free" v-if="video_list_item.vip===0">独播</span>
                     <span class="vip" v-if="video_list_item.vip===10">VIP</span>
                   </div>
                   <div class="bottom_right_corner">{{video_list_item.score}}</div>
@@ -100,7 +100,7 @@
                   <img lazyload :src="video_list_item.img" alt="">
                   <div class="top_left_corner">
                     <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="free" v-if="video_list_item.vip===0">独播</span>
                     <span class="vip" v-if="video_list_item.vip===10">VIP</span>
                   </div>
                   <div class="bottom_right_corner">{{video_list_item.score}}</div>
@@ -130,7 +130,7 @@
                   <img lazyload :src="video_list_item.img" alt="">
                   <div class="top_left_corner">
                     <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="free" v-if="video_list_item.vip===0">独播</span>
                     <span class="vip" v-if="video_list_item.vip===10">VIP</span>
                   </div>
                   <div class="bottom_right_corner">{{video_list_item.score}}</div>
@@ -157,7 +157,7 @@
                   <img lazyload :src="video_list_item.img" alt="">
                   <div class="top_left_corner">
                     <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="free" v-if="video_list_item.vip===0">独播</span>
                     <span class="vip" v-if="video_list_item.vip===10">VIP</span>
                   </div>
                   <div class="bottom_right_corner">{{video_list_item.score}}</div>
@@ -184,7 +184,7 @@
                   <img lazyload :src="video_list_item.img" alt="">
                   <div class="top_left_corner">
                     <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="free" v-if="video_list_item.vip===0">独播</span>
                     <span class="vip" v-if="video_list_item.vip===10">VIP</span>
                   </div>
                   <div class="bottom_right_corner">{{video_list_item.score}}</div>
@@ -211,7 +211,7 @@
                   <img lazyload :src="video_list_item.img" alt="">
                   <div class="top_left_corner">
                     <div class="triangle"></div>
-                    <span class="free" v-if="video_list_item.vip===0">免费</span>
+                    <span class="free" v-if="video_list_item.vip===0">独播</span>
                     <span class="vip" v-if="video_list_item.vip===10">VIP</span>
                   </div>
                   <div class="bottom_right_corner">{{video_list_item.score}}</div>
@@ -251,7 +251,7 @@
             <img lazyload :src="video_list_item.img" alt="">
             <div class="top_left_corner">
               <div class="triangle"></div>
-              <span class="free" v-if="video_list_item.vip===0">免费</span>
+              <span class="free" v-if="video_list_item.vip===0">独播</span>
               <span class="vip" v-if="video_list_item.vip===10">VIP</span>
             </div>
             <div class="bottom_right_corner">{{video_list_item.score}}</div>
