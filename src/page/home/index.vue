@@ -250,15 +250,10 @@
           <div class="img_container">
             <img lazyload :src="video_list_item.img" alt="">
             <div class="top_left_corner">
-              <div class="triangle"></div>
-              <span class="free" v-if="video_list_item.vip===0">独播</span>
-              <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+              <span class="free">{{video_list_item.name}}</span>
             </div>
             <div class="bottom_right_corner">{{video_list_item.score}}</div>
           </div>
-          <span class="name">
-            {{video_list_item.name}}
-          </span>
         </div>
       </div>
 
@@ -876,7 +871,7 @@ export default {
   top: 99px;
   .video_list_top_container {
     width: 100%;
-    height: 259px;
+    height: 252px;
     border: 1px solid #000;
     background: #fff;
     margin: 11px 0 0 0;
@@ -887,7 +882,7 @@ export default {
         display: flex;
         justify-content: center;
         // border: 1px solid #000;
-        padding: 0 4px;
+        padding: 0 0;
         position: relative;
         img {
           object-fit: contain;
@@ -899,32 +894,21 @@ export default {
           // border: 1px solid #f09;
           /* width: 164px; */
           height: 15px;
-          bottom: 0;
+          top: 0;
           left: 0;
-          margin: 1px 0 0 4px;
+          margin: 1px 0 0 0;
           font-size: 10px;
           font-weight: 400;
           color: #fff;
-          padding: 0 0 0 8px;
+          padding: 0 0 0 0;
           // background-color: rgba(162,162,182,.5);
-          .triangle {
-            // border: 6px solid;
-            // border-color: transparent transparent transparent #FF6600;
-            border-left: 7px solid #FF6600;
-            border-right: 7px solid transparent;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-            width: 0;
-            height: 0;
-            position: absolute;
-            display: inline-block;
-            top: 3px;
-            left: 0;
-          }
           span {
-            font-size: 10px;
-            font-weight: 400;
+            font-size: 17px;
+            font-weight: 700;
             color: #fff;
+            line-height: 22px;
+            display: block;
+            margin: 11px 16px;
           }
         }
         .bottom_right_corner {
@@ -938,17 +922,6 @@ export default {
           color: #fff;
           background-color: rgba(162, 162, 182, 0.5);
         }
-      }
-      .name {
-        display: block;
-        padding: 0 0 0 4px;
-        width: calc(100% - 0px);
-        line-height: 33px;
-        color: #000028;
-        font-size: 14px;
-        font-weight: 400;
-        position: relative;
-        border: 1px solid #f09;
       }
     }
   }
