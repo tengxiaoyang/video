@@ -23,25 +23,30 @@
       </div>
     </div>
     <div class="channel" v-if="selected_type!==5">
-      <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions">
-        <swiper-slide 
-        v-for="(item, index) of swiper_content" 
-        :key="index" 
-        @click="route_to('video_details')"
-        >
-          <div class="img_container">
-            <img lazyload :src="item.img" alt="">
-            <div class="top_left_corner">
-              <div class="triangle"></div>
-              <span class="free" v-if="item.vip===0">免费</span>
-              <span class="vip" v-if="item.vip===10">VIP</span>
+      <div class="swiper_container"
+        v-for="(video_content_item, video_content_index) of video_content" 
+        :key="'swiper-'+video_content_index"
+      >
+        <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions" v-if="video_content.indexOf(video_content_item)===0">
+          <swiper-slide 
+          v-for="(item, index) of video_content_item.list" 
+          :key="index" 
+          @click="route_to('video_details')"
+          >
+            <div class="img_container">
+              <img lazyload :src="item.img" alt="">
+              <div class="top_left_corner">
+                <div class="triangle"></div>
+                <span class="free" v-if="item.vip===0">免费</span>
+                <span class="vip" v-if="item.vip===10">VIP</span>
+              </div>
+              <div class="bottom_right_corner">{{item.score}}</div>
             </div>
-            <div class="bottom_right_corner">{{item.score}}</div>
-          </div>
-          <span class="title">【{{item.name}}】{{item.summary}}</span>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+            <span class="title">【{{item.name}}】{{item.summary}}</span>
+          </swiper-slide>
+          <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+      </div>
 
       <div class="feeds_block" 
         v-for="(video_content_item, video_content_index) of video_content" 
@@ -227,7 +232,9 @@
       </div>
     </div>
 
-    <div class="list_view" v-if="selected_type===5"></div>
+    <div class="list_view" v-if="selected_type===5">
+      
+    </div>
   </div>
 </template>
 
@@ -310,7 +317,7 @@ export default {
     this.get_video(this.selected_type)
   },
   mounted() {
-    this.swiper.slideTo(1, 0, false)
+    // this.swiper.slideTo(1, 0, false)
   },
   methods: {
     addNum() {
@@ -344,7 +351,7 @@ export default {
           }
           console.log(this.video_content)
           console.log(res.data.data[0].list)
-          this.swiper_content = res.data.data[0].list;
+          // this.swiper_content = res.data.data[0].list;
           console.log(this.video_content)
           this.selected_type = e;
           this.swiper.slideTo(1, 0, false)
