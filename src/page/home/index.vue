@@ -18,7 +18,9 @@
             @click="get_video(item.type)"
           >
             {{item.option_name}}
-            <i></i>
+            <span>
+              <i></i>
+            </span>
           </a>
         </div>
       </div>
@@ -280,10 +282,10 @@ export default {
           nextEl: '.swiper-button-next', 
           prevEl: '.swiper-button-prev'
         },
-        // autoplay: {
-        //   delay: 4000,
-        //   disableOnInteraction: false,
-        // },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
         loop: true
       },
       search_text: "使徒行者3",
@@ -479,56 +481,79 @@ export default {
     top: 6px;
     // border: 1px solid #000;
     .option_outside {
-      width: 100vw;
+      width: 97vw;
       height: 47px;
       overflow: hidden;
       overflow-x: scroll;
       white-space: nowrap;
       position: relative;
-      margin: 0 0 0 6px;
+      // padding: 0 0 0 13px;
+      // left: 13px;
       display: flex;
       align-items: center;
       // border: 1px solid #000;
       .active_option {
         display: inline-block;
-        width: 51px;
+        // width: 51px;
         height: 45px;
-        margin: 0 15px 0 0;
-        text-align: center;
+        // margin: 0 20px 0 0;
+        // text-align: center;
+        // border: 1px solid #000;
         line-height: 38px;
         font-size: 17px;
         color: #ff6022;
         font-weight: 800;
-        // border: 1px solid #000;
-        i {
-          display: block;
-          width: 12px;
-          border-bottom: 2px solid #ff6022;
-          margin: 0 19px;
-          position: relative;
-          bottom: 5px;
-          // border: 1px solid #000;
+        margin: 0 10px;
+        span {
+          line-height: 38px;
+          font-size: 17px;
+          color: #ff6022;
+          font-weight: 800;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          
+          i {
+            display: block;
+            width: 12px;
+            border-bottom: 2px solid #ff6022;
+            // margin: 0 11px;
+            position: relative;
+            bottom: 5px;
+            // border: 1px solid #000;
+          }
         }
       }
       a {
         display: inline-block;
-        width: 51px;
+        // width: 51px;
         height: 45px;
-        margin: 0 15px 0 0;
-        text-align: center;
+        // margin: 0 20px 0 0;
+        // text-align: center;
+        // border: 1px solid #000;
         line-height: 38px;
         font-size: 17px;
         color: #000;
         font-weight: 800;
-        // border: 1px solid #000;
-        i {
-          display: block;
-          width: 12px;
-          border-bottom: 2px solid #fff;
-          margin: 0 19px;
-          position: relative;
-          bottom: 5px;
-          // border: 1px solid #000;
+        margin: 0 10px;
+        span {
+          line-height: 38px;
+          font-size: 17px;
+          color: #000;
+          font-weight: 800;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          
+          i {
+            display: block;
+            width: 12px;
+            border-bottom: 2px solid #fff;
+            // margin: 0 11px;
+            position: relative;
+            bottom: 5px;
+            // border: 1px solid #000;
+          }
         }
       }
     }
