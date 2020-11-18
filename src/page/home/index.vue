@@ -2,7 +2,7 @@
   <div class="home_container">
     <div class="header">
       <div class="top">
-        <div class="logo"></div>
+        <div class="logo" @click="return_home"></div>
         <div class="blank"></div>
         <div class="search">
           <span class="text">{{search_text}}</span>
@@ -424,6 +424,10 @@ export default {
       
       console.log(this.video_content[this.current].change_block_list)
       console.log(this.video_content)
+    },
+    return_home() {
+      this.selected_type = 1;
+      this.get_video(this.selected_type)
     }
   }
 }
