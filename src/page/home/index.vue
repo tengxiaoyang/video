@@ -252,7 +252,9 @@
             <div class="top_left_corner">
               <span class="free">{{video_list_item.name}}</span>
             </div>
-            <div class="bottom_right_corner">{{video_list_item.score}}</div>
+            <div class="bottom_right_corner">
+              <!-- {{video_list_item.score}} -->
+            </div>
             <div class="play_button_container">
               <img class="play_button" src="../../../public/static/img/play.png" alt="">
             </div>
