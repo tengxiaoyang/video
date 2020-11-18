@@ -3,6 +3,7 @@
     <div class="header">
       <div class="top">
         <div class="logo"></div>
+        <div class="blank"></div>
         <div class="search">
           <span class="text">{{search_text}}</span>
           <div class="icon"></div>
@@ -57,6 +58,7 @@
         >
           <span class="title">{{video_content_item.title}}</span>
           <div v-if="video_content_item.list.length%2===0">
+
             <!-- <div class="video_list_container"> -->
             <div class="video_list_container" 
               v-if="!video_content_item.change_block_list"
@@ -234,6 +236,30 @@
 
     <div class="list_view" v-if="selected_type===5">
       
+      <div class="video_list_top_container" 
+        v-for="(video_content_item, video_content_index) of video_content" 
+        :key="'list_view-'+video_content_index"
+      >
+        <div class="video_list_top" 
+          v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, 1)"
+          :key="video_list_index" 
+          @click="route_to('video_details')"
+        >
+          <div class="img_container">
+            <img lazyload :src="video_list_item.img" alt="">
+            <div class="top_left_corner">
+              <div class="triangle"></div>
+              <span class="free" v-if="video_list_item.vip===0">免费</span>
+              <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+            </div>
+            <div class="bottom_right_corner">{{video_list_item.score}}</div>
+          </div>
+          <span class="name">
+            {{video_list_item.name}}
+          </span>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -254,10 +280,10 @@ export default {
           nextEl: '.swiper-button-next', 
           prevEl: '.swiper-button-prev'
         },
-        autoplay: {
-          delay: 4000,
-          disableOnInteraction: false,
-        },
+        // autoplay: {
+        //   delay: 4000,
+        //   disableOnInteraction: false,
+        // },
         loop: true
       },
       search_text: "使徒行者3",
@@ -383,22 +409,40 @@ export default {
 
 <style lang="less" scoped>
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: #fff;
+  height: 91px;
   .top {
+    position: relative;
     height: 45px;
+    background: #fff;
+    width: 100vw;
+    // display: flex;
+    // align-items: center;
+    // border: 1px solid #000;
     .logo {
-      position: relative;
-      top: 15px;
+      display: inline-block;
+      position: absolute;
+      top: 14px;
       left: 12px;
       width: 103px;
       height: 24px;
-      float: left;
+      // float: left;
       background: url(//puui.qpic.cn/vupload/0/1570516378024_vr59hnsql8.png/0) no-repeat;
       background-size: 100%;
     }
+    .blank {
+      display: inline-block;
+      // flex: 1;
+    }
     .search {
-      float: right;
-      position: relative;
-      top: 12px;
+      display: inline-block;
+      // float: right;
+      position: absolute;
+      top: 14px;
       right: 12px;
       width: 150px;
       height: 30px;
@@ -425,52 +469,75 @@ export default {
   }
   .nav {
     display: flex;
+    align-items: center;
     width: 100%;
-    height: 40px;
+    height: 35px;
     overflow: hidden;
     background: #fff;
+    margin: 3px 0 0 0;
+    position: relative;
+    top: 6px;
+    // border: 1px solid #000;
     .option_outside {
-      width: 100%;
-      height: 51px;
+      width: 100vw;
+      height: 47px;
       overflow: hidden;
       overflow-x: scroll;
       white-space: nowrap;
       position: relative;
       margin: 0 0 0 6px;
+      display: flex;
+      align-items: center;
+      // border: 1px solid #000;
       .active_option {
         display: inline-block;
         width: 51px;
-        height: 38px;
+        height: 45px;
         margin: 0 15px 0 0;
         text-align: center;
         line-height: 38px;
         font-size: 17px;
         color: #ff6022;
         font-weight: 800;
+        // border: 1px solid #000;
+        i {
+          display: block;
+          width: 12px;
+          border-bottom: 2px solid #ff6022;
+          margin: 0 19px;
+          position: relative;
+          bottom: 5px;
+          // border: 1px solid #000;
+        }
       }
       a {
         display: inline-block;
         width: 51px;
-        height: 38px;
+        height: 45px;
         margin: 0 15px 0 0;
         text-align: center;
         line-height: 38px;
         font-size: 17px;
         color: #000;
         font-weight: 800;
-      }
-      .active_option i {
-        display: block;
-        width: 12px;
-        border-bottom: 2px solid #ff6022;
-        margin: 0 19px;
-        position: relative;
-        bottom: 5px;
+        // border: 1px solid #000;
+        i {
+          display: block;
+          width: 12px;
+          border-bottom: 2px solid #fff;
+          margin: 0 19px;
+          position: relative;
+          bottom: 5px;
+          // border: 1px solid #000;
+        }
       }
     }
   }
 }
 .channel {
+  position: relative;
+  margin: 100px 0 0 0;
+  // top: 91px;
   .video_swiper {
     background: -webkit-linear-gradient(90deg,#f2f4f5,#fff 59%);
     margin: 6px 0 0 0;
@@ -762,6 +829,7 @@ export default {
         justify-content: center;
         align-items: center;
         height: 14px;
+        margin: 0 0 11px 0;
         // border: 1px solid #000;
         img {
           object-fit: contain;
@@ -775,6 +843,89 @@ export default {
         }
       }
     }    
+  }
+}
+.list_view {
+  background-color: #f5f7f9;
+  position: relative;
+  top: 99px;
+  .video_list_top_container {
+    width: 100%;
+    height: 259px;
+    border: 1px solid #000;
+    background: #fff;
+    margin: 11px 0 0 0;
+    .video_list_top {
+      .img_container {
+        // width: 100%;
+        // height: 195px;
+        display: flex;
+        justify-content: center;
+        // border: 1px solid #000;
+        padding: 0 4px;
+        position: relative;
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+        }
+        .top_left_corner {
+          position: absolute;
+          // border: 1px solid #f09;
+          /* width: 164px; */
+          height: 15px;
+          bottom: 0;
+          left: 0;
+          margin: 1px 0 0 4px;
+          font-size: 10px;
+          font-weight: 400;
+          color: #fff;
+          padding: 0 0 0 8px;
+          // background-color: rgba(162,162,182,.5);
+          .triangle {
+            // border: 6px solid;
+            // border-color: transparent transparent transparent #FF6600;
+            border-left: 7px solid #FF6600;
+            border-right: 7px solid transparent;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            width: 0;
+            height: 0;
+            position: absolute;
+            display: inline-block;
+            top: 3px;
+            left: 0;
+          }
+          span {
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+          }
+        }
+        .bottom_right_corner {
+          position: absolute;
+          height: 17px;
+          bottom: 0;
+          right: 0;
+          margin: 0 10px 4px 0;
+          font-size: 10px;
+          font-weight: 400;
+          color: #fff;
+          background-color: rgba(162, 162, 182, 0.5);
+        }
+      }
+      .name {
+        display: block;
+        padding: 0 0 0 4px;
+        width: calc(100% - 0px);
+        line-height: 33px;
+        color: #000028;
+        font-size: 14px;
+        font-weight: 400;
+        position: relative;
+        border: 1px solid #f09;
+      }
+    }
   }
 }
 </style>
