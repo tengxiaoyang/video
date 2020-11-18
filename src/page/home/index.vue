@@ -268,8 +268,13 @@
               </div>
             </div>
             <div class="right">
-              <div class="comment"></div>
-              <div class="more"></div>
+              <div class="comment">
+                <img class="comment_icon" src="../../../public/static/img/letter.png" alt="">
+              </div>
+              <span class="num_of_comments">{{video_list_item.score}}</span>
+              <div class="more">
+                <img class="more_icon" src="../../../public/static/img/more.png" alt="">
+              </div>
             </div>
           </div>
         </div>
@@ -867,27 +872,6 @@ export default {
           word-break: break-all;
         }
       }
-      // .video_list_bottom {
-      //   width: 100%;
-      //   height: 39px;
-      //   display: flex;
-      //   border: 1px solid #000;
-      //   .left {
-      //     height: 39px;
-      //     .user_info {
-      //       display: flex;
-      //       height: 39px;
-      //       .user_icon_container {
-      //         img {
-
-      //         }
-      //       }
-      //       .user_name {
-      //         font-size: 20px;
-      //       }
-      //     }
-      //   }
-      // }
     }
     .change {
       display: flex;
@@ -919,12 +903,12 @@ export default {
 .list_view {
   background-color: #f5f7f9;
   position: relative;
-  border: 1px solid #000;
+  // border: 1px solid #000;
   top: 99px;
   .video_list_container {
     width: 100%;
     // height: 259px;
-    border: 1px solid #000;
+    // border: 1px solid #000;
     background: #fff;
     margin: 11px 0 0 0;
     .video_list {
@@ -989,14 +973,14 @@ export default {
         height: 49px;
         display: flex;
         padding: 0 12px;
-        border: 1px solid #000;
+        // border: 1px solid #000;
         .left {
           flex: 1;
           height: 49px;
           display: flex;
           align-items: center;
           // padding: 0 12px;
-          border: 1px solid #000;
+          // border: 1px solid #000;
           .user_info {
             display: flex;
             align-items: center;
@@ -1025,16 +1009,32 @@ export default {
           }
         }
         .right {
-          width: 66px;
+          width: 74px;
           height: 49px;
           display: flex;
           align-items: center;
-          border: 1px solid #000;
+          // border: 1px solid #000;
           .comment {
-
+            .comment_icon {
+              width: 16px;
+              height: 16px;
+            }
+          }
+          .num_of_comments {
+            color: #999;
+            font-size: 12px;
+            display: block;
+            width: 33px;
+            height: 10px;
+            // border: 1px solid #000;
+            line-height: 12px;
+            padding: 0 0 0 3px;
           }
           .more {
-
+            .more_icon {
+              width: 17px;
+              height: 17px;
+            }
           }
         }
       }
