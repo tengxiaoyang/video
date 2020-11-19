@@ -41,7 +41,24 @@
             <span class="episodes_in_total"> · 全37集 · </span>
             <span class="times_of_play">1.4亿次播放</span>
           </div>
-          <div class="video_option"></div>
+          <div class="video_function">
+            <div class="left">
+              <div class="blue_ray">
+                <img class="blue_ray_icon" src="../../../public/static/img/blue_ray.png" alt="">
+              </div>
+            </div>
+            <div class="right">
+              <div class="add_to_favorites">
+                <img class="add_to_favorites_icon" src="../../../public/static/img/add_to_favorites.png" alt="">
+              </div>
+              <div class="download">
+                <img class="download_icon" src="../../../public/static/img/download.png" alt="">
+              </div>
+              <div class="option">
+                <img class="option_icon" src="../../../public/static/img/option.png" alt="">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
   	</div>
@@ -190,12 +207,14 @@ export default {
         width: 38px;
         height: 38px;
         background: #f5f5f5;
+        position: relative;
         .icon_img {
           border: 1px solid rgba(0,0,40,.1);
           border-radius: 6px;
           object-fit: contain;
           width: 100%;
           height: 100%;
+          position: absolute;
         }
       }
       .text {
@@ -218,6 +237,83 @@ export default {
       text-align: center;
       border-radius: 16px;
       font-weight: 400;
+    }
+  }
+  .video_introduction {
+    margin: 24px 0 0 0;
+    .video_name {
+      color: #000028;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 0 0 10px;
+    }
+    .video_info {
+      margin: 0 0 0 10px;
+      .score {
+        color: #848494;
+        font-size: 13px;
+        font-weight: 400;
+      }
+      .member_needs {
+        color: #ff7b00;
+        font-size: 13px;
+        font-weight: 400;
+      }
+      .episodes_in_total {
+        color: #848494;
+        font-size: 13px;
+        font-weight: 400;
+      }
+      .times_of_play {
+        color: #848494;
+        font-size: 13px;
+        font-weight: 400;
+      }
+    }
+    .video_function {
+      display: flex;
+      border-bottom: 1px solid #F0F0F0;
+      .left {
+        flex: 1;
+        .blue_ray {
+          width: 55px;
+          margin: 0 0 0 10px;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .right {
+        width: 150px;
+        display: flex;
+        .add_to_favorites {
+          width: 37px;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .download {
+          width: 30px;
+          margin: 0px 21px;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .option {
+          width: 30px;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
     }
   }
 }
