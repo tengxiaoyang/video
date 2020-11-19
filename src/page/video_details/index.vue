@@ -65,7 +65,8 @@
             </div>
           </div>
           <div class="episode">
-            
+            <div class="title"></div>
+            <div class="option_container"></div>
           </div>
         </div>
       </div>
