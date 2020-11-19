@@ -19,6 +19,7 @@
       <div class="player_container">
         <img class="video_img" src="https://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideohori/m/mzc00200x0no5q6_big.jpg" alt="">
         <img class="button_img" src="../../../public/static/img/detail_play.png" alt="">
+        <img class="button_img_center" src="../../../public/static/img/detail_play_center.png" alt="">
       </div>
       <div class="footer"></div>
   	</div>
@@ -137,10 +138,15 @@ export default {
     height: 100%;
   }
   .button_img {
-    width: 86px;
-    height: 86px;
+    width: 68px;
+    height: 68px;
     position: absolute;
     opacity: 0.8;
+  }
+  .button_img_center {
+    width: 36px;
+    height: 32px;
+    position: absolute;
   }
 }
 </style>
