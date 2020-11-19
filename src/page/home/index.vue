@@ -309,7 +309,7 @@ export default {
         loop: true
       },
       search_text: "使徒行者3",
-      selected_type: 5,
+      selected_type: 1,
       video_option: [
         {
           type: 1,
@@ -428,7 +428,10 @@ export default {
     return_home() {
       this.selected_type = 1;
       this.get_video(this.selected_type)
-    }
+    },
+    route_to(e) {
+      this.$router.push({path: e})
+    },
   }
 }
 </script>
@@ -643,7 +646,7 @@ export default {
           position: absolute;
           // border: 1px solid #f09;
           // width: 30px;
-          height: 20px;
+          height: 16px;
           bottom: 0;
           right: 0;
           margin: 0 23px 48px 0;
