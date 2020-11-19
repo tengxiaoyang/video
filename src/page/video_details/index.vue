@@ -21,7 +21,29 @@
         <img class="button_img" src="../../../public/static/img/detail_play.png" alt="">
         <img class="button_img_center" src="../../../public/static/img/detail_play_center.png" alt="">
       </div>
-      <div class="footer"></div>
+      <div class="footer">
+        <div class="open_app">
+          <div class="left">
+            <div class="icon">
+              <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
+            </div>
+            <span class="text">看全集高清完整版</span>
+          </div>
+          <div class="right">打开</div>
+        </div>
+        <div class="video_introduction">
+          <div class="video_name">
+            使徒行者3[粤语版]
+          </div>
+          <div class="video_info">
+            <span class="score">7.8 分 · </span>
+            <span class="member_needs">VIP</span>
+            <span class="episodes_in_total"> · 全37集 · </span>
+            <span class="times_of_play">1.4亿次播放</span>
+          </div>
+          <div class="video_option"></div>
+        </div>
+      </div>
   	</div>
 </template>
 
@@ -147,6 +169,56 @@ export default {
     width: 36px;
     height: 32px;
     position: absolute;
+  }
+}
+.footer {
+  .open_app {
+    // border: 1px solid #000;
+    border-bottom: 1px solid #F0F0F0;
+    width: 100%;
+    height: 68px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    .left {
+      // border: 1px solid #000;
+      flex: 1;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      .icon {
+        width: 38px;
+        height: 38px;
+        background: #f5f5f5;
+        .icon_img {
+          border: 1px solid rgba(0,0,40,.1);
+          border-radius: 6px;
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .text {
+        // border: 1px solid #000;
+        display: block;
+        color: #000028;
+        font-size: 13px;
+        font-weight: 400;
+        padding: 0 10px;
+      }
+    }
+    .right {
+      // border: 1px solid #000;
+      width: 56px;
+      height: 28px;
+      background: rgba(255,96,34,.06);
+      color: #ff6022;
+      font-size: 12px;
+      line-height: 28px;
+      text-align: center;
+      border-radius: 16px;
+      font-weight: 400;
+    }
   }
 }
 </style>
