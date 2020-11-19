@@ -37,7 +37,9 @@
           @click="route_to('video_details')"
           >
             <div class="img_container">
-              <img lazyload :src="item.img" alt="">
+              <img lazyload 
+                :src="item.img" alt="" @click="route_to('video_details')"
+              >
               <div class="top_left_corner">
                 <div class="triangle"></div>
                 <span class="free" v-if="item.vip===0">独播</span>

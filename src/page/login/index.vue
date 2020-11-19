@@ -7,10 +7,10 @@
 
 <script>
 export default {
-  name: 'item',
+  name: 'login',
   data() {
     return {
-      name: 'helloworld vue'
+      
     }
   },
   created(){
