@@ -59,6 +59,14 @@
               </div>
             </div>
           </div>
+          <div class="great_deals">
+            <div class="content">
+              <span class="text">超值特惠！VIP首季40元，开会员抢先看热剧大片</span>
+            </div>
+          </div>
+          <div class="episode">
+            
+          </div>
         </div>
       </div>
   	</div>
@@ -193,7 +201,7 @@ export default {
     // border: 1px solid #000;
     border-bottom: 1px solid #F0F0F0;
     width: 100%;
-    height: 68px;
+    height: 65px;
     padding: 0 12px;
     display: flex;
     align-items: center;
@@ -245,10 +253,10 @@ export default {
       color: #000028;
       font-size: 18px;
       font-weight: 800;
-      margin: 0 0 0 10px;
+      margin: 0 0 0 14px;
     }
     .video_info {
-      margin: 0 0 0 10px;
+      margin: 0 0 0 14px;
       .score {
         color: #848494;
         font-size: 13px;
@@ -312,6 +320,21 @@ export default {
             width: 100%;
             height: 100%;
           }
+        }
+      }
+    }
+    .great_deals {
+      padding: 16px 16px 16px;
+      .content {
+        background: #e5c057;
+        width: 100%;
+        height: 40px;
+        border-radius: 4px;
+        text-align: center;
+        .text {
+          color: #fff;
+          font-size: 15px;
+          font-weight: 400;
         }
       }
     }
