@@ -123,7 +123,7 @@
           :key="video_content_index"  
         >
           <div class="feeds_block_container" 
-            v-if="video_content.indexOf(video_content_item)!==0"
+            v-if="video_content.indexOf(video_content_item)===1"
           >
             <span class="title">{{video_content_item.title}}</span>
             <div v-if="video_content_item.list.length%2===0">
@@ -133,7 +133,7 @@
                 v-if="!video_content_item.change_block_list"
               >
                 <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list"
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, video_content_item.list.length/2)"
                   :key="video_list_index" 
                   @click="route_to('video_details')"
                 >
@@ -159,7 +159,7 @@
                 v-if="video_content_item.change_block_list"
               >
                 <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice().reverse()"
+                  v-for="(video_list_item, video_list_index) of video_content_item.list"
                   :key="video_list_index" 
                   @click="route_to('video_details')"
                 >
@@ -216,7 +216,7 @@
                 v-if="!video_content_item.change_block_list"
               >
                 <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1, video_content_item.list.length)"
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1, (video_content_item.list.length)/2)"
                   :key="video_list_index" 
                   @click="route_to('video_details')"
                 >
@@ -243,7 +243,7 @@
                 v-if="video_content_item.change_block_list"
               >
                 <div class="video_list_top" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(video_content_item.list.length-1, video_content_item.list.length)"
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, 1)"
                   :key="video_list_index" 
                   @click="route_to('video_details')"
                 >
@@ -270,7 +270,7 @@
                 v-if="video_content_item.change_block_list"
               >
                 <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, video_content_item.list.length-1).reverse()"
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1,video_content_item.list.length)"
                   :key="video_list_index" 
                   @click="route_to('video_details')"
                 >
@@ -293,9 +293,21 @@
               </div>
             </div>
 
-            <div class="change">
+            <div class="change" 
+              v-if="!video_content_item.change_block_list"
+            >
               <div class="change_button" @click="show_change_list(video_content_index,$event)">
-                <img src="../../../public/static/img/change.png" alt="">
+                <img src="../../../public/static/img/down_arrow.png" alt="">
+                <!-- <span>换一换</span> -->
+              </div>
+            </div>
+
+            <div class="after_change" 
+              v-if="video_content_item.change_block_list"
+            >
+              <div class="open_app"></div>
+              <div class="change_button" @click="show_change_list(video_content_index,$event)">
+                <img src="../../../public/static/img/up_arrow.png" alt="">
                 <span>换一换</span>
               </div>
             </div>
@@ -1131,9 +1143,9 @@ export default {
         margin: 0 0 11px 0;
         // border: 1px solid #000;
         img {
-          object-fit: contain;
-          width: 23px;
-          height: 100%;
+          object-fit: fill;
+          width: 16px;
+          height: 13px;
         }
         span {
           color: #a2a2b6;
@@ -1141,7 +1153,35 @@ export default {
           width: 43px;
         }
       }
-    }    
+    }  
+    .after_change {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 14px;
+      // border: 1px solid #000;
+      .open_app {
+        
+      }
+      .change_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 14px;
+        margin: 0 0 11px 0;
+        // border: 1px solid #000;
+        img {
+          object-fit: fill;
+          width: 16px;
+          height: 13px;
+        }
+        span {
+          color: #a2a2b6;
+          font-size: 12px;
+          width: 43px;
+        }
+      }
+    }   
   }
 }
 </style>
