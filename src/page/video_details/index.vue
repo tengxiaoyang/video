@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class="footer">
-        <div class="open_app">
+        <div class="open_app_top">
           <div class="left">
             <div class="icon">
               <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
@@ -305,15 +305,26 @@
             <div class="after_change" 
               v-if="video_content_item.change_block_list"
             >
-              <div class="open_app"></div>
+              <div class="open_app">打开腾讯视频，看更多精彩内容</div>
               <div class="change_button" @click="show_change_list(video_content_index,$event)">
                 <img src="../../../public/static/img/up_arrow.png" alt="">
-                <span>换一换</span>
+                <!-- <span>换一换</span> -->
               </div>
             </div>
           </div>
         </div>
       </div>
+      
+      <div class="open_app_bottom" v-if="show_bottom_open_app">
+        <div class="left">
+          <div class="icon">
+            <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
+          </div>
+          <span class="text">看全集高清完整版</span>
+        </div>
+        <div class="right">打开</div>
+      </div>
+
   	</div>
 </template>
 
@@ -440,6 +451,7 @@ export default {
       ],
       video_content: [],
       selected_type: 2,
+      show_bottom_open_app: false,
     }
   },
   created() {
@@ -455,6 +467,10 @@ export default {
   },
   mounted() {
     // this.swiper.slideTo(1, 0, false)
+    window.addEventListener('scroll', this.set_bottom_open_app)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.set_bottom_open_app)
   },
   methods: {
     return_home() {
@@ -518,6 +534,18 @@ export default {
       console.log(this.video_content[this.current].change_block_list)
       console.log(this.video_content)
     },
+    set_bottom_open_app() {
+      let page_scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      let open_app_top_scroll_demand = document.querySelector(".open_app_top").offsetTop;
+      if (page_scroll > open_app_top_scroll_demand) {
+        this.show_bottom_open_app = true;
+      } else {
+        this.show_bottom_open_app = false;
+      };
+      // console.log(page_scroll)
+      // console.log(open_app_top_scroll_demand)
+      // console.log(this.show_bottom_open_app)
+    }
   }
 }
 
@@ -679,7 +707,7 @@ export default {
   }
 }
 .footer {
-  .open_app {
+  .open_app_top {
     // border: 1px solid #000;
     border-bottom: 1px solid #F0F0F0;
     width: 100%;
@@ -1155,13 +1183,24 @@ export default {
       }
     }  
     .after_change {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 14px;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      height: 68px;
       // border: 1px solid #000;
       .open_app {
-        
+        height: 36px;
+        margin: 12px auto 12px;
+        border: 1px solid #ebebeb;
+        border-radius: 18px;
+        color: #000028;
+        font-size: 13px;
+        line-height: 34px;
+        text-align: center;
+        font-weight: 400;
+        display: block;
+        padding: 0;
+        width: 90%;
       }
       .change_button {
         display: flex;
@@ -1182,6 +1221,60 @@ export default {
         }
       }
     }   
+  }
+}
+
+.open_app_bottom {
+  position: fixed;
+  bottom: -1px;
+  // border: 1px solid #000;
+  border-bottom: 1px solid #F0F0F0;
+  width: 100%;
+  height: 65px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  .left {
+    // border: 1px solid #000;
+    flex: 1;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    .icon {
+      width: 38px;
+      height: 38px;
+      background: #f5f5f5;
+      position: relative;
+      .icon_img {
+        border: 1px solid rgba(0,0,40,.1);
+        border-radius: 6px;
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    }
+    .text {
+      // border: 1px solid #000;
+      display: block;
+      color: #000028;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 0 10px;
+    }
+  }
+  .right {
+    // border: 1px solid #000;
+    width: 56px;
+    height: 28px;
+    background: rgba(255,96,34,.06);
+    color: #ff6022;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 16px;
+    font-weight: 400;
   }
 }
 </style>
