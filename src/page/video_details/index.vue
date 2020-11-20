@@ -104,12 +104,13 @@
                   :key="index" 
                   @click="get_episode(item.num_of_episode)"
                 >
-                  <span>
+                  <span class="top_right_corner">
                     <i 
                       v-if="item.num_of_episode > 2"
                     ></i>
                   </span>
-                  {{item.num_of_episode}}
+                  <span class="zero" v-if="item.num_of_episode < 10">0</span>
+                  <span class="num_of_episode">{{item.num_of_episode}}</span>
                 </a>
               </div>
             </div>
@@ -127,10 +128,10 @@ export default {
       selected_num: 1,
       video_option: [
         {
-          num_of_episode: 1,
+          num_of_episode: 1
         },
         {
-          num_of_episode: 2,
+          num_of_episode: 2
         },
         {
           num_of_episode: 3,
@@ -146,6 +147,96 @@ export default {
         },
         {
           num_of_episode: 7,
+        },
+        {
+          num_of_episode: 8,
+        },
+        {
+          num_of_episode: 9,
+        },
+        {
+          num_of_episode: 10,
+        },
+        {
+          num_of_episode: 11,
+        },
+        {
+          num_of_episode: 12,
+        },
+        {
+          num_of_episode: 13,
+        },
+        {
+          num_of_episode: 14,
+        },
+        {
+          num_of_episode: 15,
+        },
+        {
+          num_of_episode: 16,
+        },
+        {
+          num_of_episode: 17,
+        },
+        {
+          num_of_episode: 18,
+        },
+        {
+          num_of_episode: 19,
+        },
+        {
+          num_of_episode: 20,
+        },
+        {
+          num_of_episode: 21,
+        },
+        {
+          num_of_episode: 22,
+        },
+        {
+          num_of_episode: 23,
+        },
+        {
+          num_of_episode: 24,
+        },
+        {
+          num_of_episode: 25,
+        },
+        {
+          num_of_episode: 26,
+        },
+        {
+          num_of_episode: 27,
+        },
+        {
+          num_of_episode: 28,
+        },
+        {
+          num_of_episode: 29,
+        },
+        {
+          num_of_episode: 30,
+        },
+        {
+          num_of_episode: 31,
+        },
+        {
+          num_of_episode: 32,
+        },
+        {
+          num_of_episode: 33,
+        },
+        {
+          num_of_episode: 34,
+        },
+        {
+          num_of_episode: 35,
+        },
+        {
+          num_of_episode: 36,
+        },
+        {
+          num_of_episode: 37,
         }
       ],
     }
@@ -498,17 +589,28 @@ export default {
           padding: 0 8px 0 16px;
           .active_option {
             display: inline-block;
-            line-height: 38px;
-            font-size: 17px;
-            color: #ff6022;
-            font-weight: 800;
             width: 56px;
             height: 56px;
             background: #f6f8fa;
             margin: 0 8px 0 0px;
             vertical-align: middle;
             border-radius: 2px;
-            span {
+            text-align: center;
+            .zero {
+              line-height: 38px;
+              font-size: 14px;
+              color: #ff6022;
+              font-weight: 400;
+              display: inline-block;
+              width: 2px;
+            }
+            .num_of_episode {
+              line-height: 38px;
+              font-size: 14px;
+              color: #ff6022;
+              font-weight: 400;
+            }
+            .top_right_corner {
               width: 22px;
               height: 13px;
               line-height: 38px;
@@ -518,21 +620,33 @@ export default {
               width: 100%;
               display: flex;
               justify-content: flex-end;
+              text-align: center;
             }
           }
           a {
             display: inline-block;
-            line-height: 38px;
-            font-size: 17px;
-            color: #000;
-            font-weight: 800;
             width: 56px;
             height: 56px;
             background: #f6f8fa;
             margin: 0 8px 0 0px;
             vertical-align: middle;
             border-radius: 2px;
-            span {
+            text-align: center;
+            .zero {
+              line-height: 38px;
+              font-size: 14px;
+              color: #000028;
+              font-weight: 400;
+              display: inline-block;
+              width: 2px;
+            }
+            .num_of_episode {
+              line-height: 38px;
+              font-size: 14px;
+              color: #000028;
+              font-weight: 400;
+            }
+            .top_right_corner {
               width: 22px;
               height: 13px;
               line-height: 38px;
@@ -548,7 +662,6 @@ export default {
                 width: 22px;
                 height: 13px;
                 position: relative;
-                top: 5px;
                 background: url(https://puui.qpic.cn/vupload/0/20190920_z2zuiu904a/0?max_age=7776000);
                 background-size: 22px 13px;
               }
