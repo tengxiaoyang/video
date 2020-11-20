@@ -248,6 +248,8 @@ export default {
     justify-content: center;
     align-items: center;
     position: relative;
+    width: 100%;
+    height: 100%;
     .video_img {
       object-fit: contain;
       width: 100%;
