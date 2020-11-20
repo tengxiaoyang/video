@@ -88,7 +88,14 @@
             </div>
           </div>
           <div class="episode">
-            <div class="title"></div>
+            <div class="top">
+              <div class="title">剧集</div>
+              <span 
+                class="members_see_complete"
+              >
+                会员看全集
+              </span>
+            </div>
             <div class="option_container">
               <a class="option" 
                 :class="{ active_option: item.num_of_episode === selected_num }"
@@ -459,8 +466,21 @@ export default {
       }
     }
     .episode {
-      .title {
-
+      .top {
+        display: flex;
+        align-items: center;
+        margin: 0 17px;
+        .title {
+          color: #000028;
+          font-size: 15px;
+          font-weight: 800;
+          flex: 1;
+        }
+        .members_see_complete {
+          color: #848494;
+          font-size: 12px;
+          font-weight: 400;
+        }
       }
       .option_container {
         width: 97vw;
@@ -469,23 +489,18 @@ export default {
         overflow-x: scroll;
         white-space: nowrap;
         position: relative;
-        // padding: 0 0 0 13px;
-        // left: 13px;
-        display: flex;
-        align-items: center;
-        // border: 1px solid #000;
         .active_option {
           display: inline-block;
-          // width: 51px;
           height: 45px;
-          // margin: 0 20px 0 0;
-          // text-align: center;
-          // border: 1px solid #000;
           line-height: 38px;
           font-size: 17px;
           color: #ff6022;
           font-weight: 800;
-          margin: 0 10px;
+          width: 56px;
+          height: 56px;
+          background: #f6f8fa;
+          margin: 0 8px 0 0px;
+          vertical-align: middle;
           span {
             line-height: 38px;
             font-size: 17px;
@@ -494,30 +509,20 @@ export default {
             width: 100%;
             display: flex;
             justify-content: center;
-            
-            // i {
-            //   display: block;
-            //   width: 12px;
-            //   border-bottom: 2px solid #ff6022;
-            //   // margin: 0 11px;
-            //   position: relative;
-            //   bottom: 5px;
-            //   // border: 1px solid #000;
-            // }
           }
         }
         a {
           display: inline-block;
-          // width: 51px;
           height: 45px;
-          // margin: 0 20px 0 0;
-          // text-align: center;
-          // border: 1px solid #000;
           line-height: 38px;
           font-size: 17px;
           color: #000;
           font-weight: 800;
-          margin: 0 10px;
+          width: 56px;
+          height: 56px;
+          background: #f6f8fa;
+          margin: 0 8px 0 0px;
+          vertical-align: middle;
           span {
             line-height: 38px;
             font-size: 17px;
