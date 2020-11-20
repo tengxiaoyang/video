@@ -117,10 +117,197 @@
           </div>
         </div>
       </div>
+      <div class="channel">
+        <div class="feeds_block" 
+          v-for="(video_content_item, video_content_index) of video_content" 
+          :key="video_content_index"  
+        >
+          <div class="feeds_block_container" 
+            v-if="video_content.indexOf(video_content_item)!==0"
+          >
+            <span class="title">{{video_content_item.title}}</span>
+            <div v-if="video_content_item.list.length%2===0">
+
+              <!-- <div class="video_list_container"> -->
+              <div class="video_list_container" 
+                v-if="!video_content_item.change_block_list"
+              >
+                <div class="video_list" 
+                  v-for="(video_list_item, video_list_index) of video_content_item.list"
+                  :key="video_list_index" 
+                  @click="route_to('video_details')"
+                >
+                  <div class="img_container">
+                    <img lazyload :src="video_list_item.img" alt="">
+                    <div class="top_left_corner">
+                      <div class="triangle"></div>
+                      <span class="free" v-if="video_list_item.vip===0">独播</span>
+                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                    </div>
+                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                  </div>
+                  <span class="name">
+                    {{video_list_item.name}}
+                  </span>
+                  <span class="summary">
+                    {{video_list_item.summary}}
+                  </span>
+                </div>
+              </div>
+
+              <div class="video_list_container" 
+                v-if="video_content_item.change_block_list"
+              >
+                <div class="video_list" 
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice().reverse()"
+                  :key="video_list_index" 
+                  @click="route_to('video_details')"
+                >
+                  <div class="img_container">
+                    <img lazyload :src="video_list_item.img" alt="">
+                    <div class="top_left_corner">
+                      <div class="triangle"></div>
+                      <span class="free" v-if="video_list_item.vip===0">独播</span>
+                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                    </div>
+                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                  </div>
+                  <span class="name">
+                    {{video_list_item.name}}
+                  </span>
+                  <span class="summary">
+                    {{video_list_item.summary}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            
+            <div v-if="video_content_item.list.length%2!==0">
+
+              <div class="video_list_top_container"
+                v-if="!video_content_item.change_block_list"
+              >
+                <div class="video_list_top" 
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, 1)"
+                  :key="video_list_index" 
+                  @click="route_to('video_details')"
+                >
+                  <div class="img_container">
+                    <img lazyload :src="video_list_item.img" alt="">
+                    <div class="top_left_corner">
+                      <div class="triangle"></div>
+                      <span class="free" v-if="video_list_item.vip===0">独播</span>
+                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                    </div>
+                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                  </div>
+                  <span class="name">
+                    {{video_list_item.name}}
+                  </span>
+                  <span class="summary">
+                    {{video_list_item.summary}}
+                  </span>
+                </div>
+              </div>
+
+              <!-- <div class="video_list_container"> -->
+              <div class="video_list_container" 
+                v-if="!video_content_item.change_block_list"
+              >
+                <div class="video_list" 
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1, video_content_item.list.length)"
+                  :key="video_list_index" 
+                  @click="route_to('video_details')"
+                >
+                  <div class="img_container">
+                    <img lazyload :src="video_list_item.img" alt="">
+                    <div class="top_left_corner">
+                      <div class="triangle"></div>
+                      <span class="free" v-if="video_list_item.vip===0">独播</span>
+                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                    </div>
+                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                  </div>
+                  <span class="name">
+                    {{video_list_item.name}}
+                  </span>
+                  <span class="summary">
+                    {{video_list_item.summary}}
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="video_list_top_container"
+                v-if="video_content_item.change_block_list"
+              >
+                <div class="video_list_top" 
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(video_content_item.list.length-1, video_content_item.list.length)"
+                  :key="video_list_index" 
+                  @click="route_to('video_details')"
+                >
+                  <div class="img_container">
+                    <img lazyload :src="video_list_item.img" alt="">
+                    <div class="top_left_corner">
+                      <div class="triangle"></div>
+                      <span class="free" v-if="video_list_item.vip===0">独播</span>
+                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                    </div>
+                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                  </div>
+                  <span class="name">
+                    {{video_list_item.name}}
+                  </span>
+                  <span class="summary">
+                    {{video_list_item.summary}}
+                  </span>
+                </div>
+              </div>
+
+              <!-- <div class="video_list_container"> -->
+              <div class="video_list_container" 
+                v-if="video_content_item.change_block_list"
+              >
+                <div class="video_list" 
+                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, video_content_item.list.length-1).reverse()"
+                  :key="video_list_index" 
+                  @click="route_to('video_details')"
+                >
+                  <div class="img_container">
+                    <img lazyload :src="video_list_item.img" alt="">
+                    <div class="top_left_corner">
+                      <div class="triangle"></div>
+                      <span class="free" v-if="video_list_item.vip===0">独播</span>
+                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                    </div>
+                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                  </div>
+                  <span class="name">
+                    {{video_list_item.name}}
+                  </span>
+                  <span class="summary">
+                    {{video_list_item.summary}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="change">
+              <div class="change_button" @click="show_change_list(video_content_index,$event)">
+                <img src="../../../public/static/img/change.png" alt="">
+                <span>换一换</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   	</div>
 </template>
 
 <script>
+import HttpClient from '../../config/ajax.js';
+
 export default {
   name: 'video_details',
   data() {
@@ -239,6 +426,8 @@ export default {
           num_of_episode: 37,
         }
       ],
+      video_content: [],
+      selected_type: 2,
     }
   },
   created() {
@@ -249,6 +438,12 @@ export default {
     //   return value.toUpperCase();
     // }
   },
+  created() {
+    this.get_video(this.selected_type)
+  },
+  mounted() {
+    // this.swiper.slideTo(1, 0, false)
+  },
   methods: {
     return_home() {
       this.route_to("/");
@@ -258,6 +453,58 @@ export default {
     },
     get_episode(e) {
       this.selected_num = e
+    },
+    get_video(e) {
+      console.log("执行get_video")
+      HttpClient.getList({  
+        params: { type:  e },  
+        callback: (res) => {
+          console.log("执行callback");
+          console.log(e);
+          console.log(res);
+          console.log(res.data);
+          console.log(res.data.data);
+          console.log(this.video_content);
+          this.video_content = res.data.data;
+          if (e === 1) {
+            console.log(this.video_content[1].title)
+            this.video_content[1].title = "重磅热播";
+            console.log(this.video_content[1].title)
+          }
+          console.log(this.video_content.length);
+          for (let i = 0; i < this.video_content.length; ++ i) {
+            console.log(this.video_content[i])
+            if (!this.video_content[i].change_block_list) {
+              this.$set(this.video_content[i], "change_block_list", false)
+            } 
+          }
+          console.log(this.video_content)
+          console.log(res.data.data[0].list)
+          // this.swiper_content = res.data.data[0].list;
+          console.log(this.video_content)
+          this.selected_type = e;
+          this.swiper.slideTo(1, 0, false)
+          console.log("执行完callback");
+        } 
+      });
+      console.log("执行完get_video")
+    },
+    show_change_list(video_content_index,$event) {
+      this.current = video_content_index;
+      console.log(this.current)
+      let el = event.currentTarget;
+      console.log(el.innerHTML);
+
+      console.log(this.video_content[this.current]);
+      console.log(this.video_content[this.current]. change_block_list);
+      if (this.video_content[this.current]. change_block_list) {
+        this.$set(this.video_content[this.current], "change_block_list", false)
+      } else {
+        this.$set(this.video_content[this.current], "change_block_list", true)
+      }
+      
+      console.log(this.video_content[this.current].change_block_list)
+      console.log(this.video_content)
     },
   }
 }
@@ -296,7 +543,7 @@ export default {
     // float: right;
     position: absolute;
     top: 10px;
-    right: 12px;
+    right: 9px;
     width: 150px;
     height: 30px;
     background: #2d2d2e;
@@ -390,13 +637,15 @@ export default {
     .content {
       width: 100%;
       height: 68px;
-      position: absolute;
+      position: relative;
+      bottom: 10px;
       text-align: center;
       .title {
         display: block;
         color: #fff;
         font-size: 15px;
         font-weight: 500;
+        margin: 0 0 2px 0;
       }
       .button_container {
         display: flex;
@@ -406,10 +655,11 @@ export default {
         height: 100%;
         .button {
           color: #663d00;
-          font-size: 15px;
+          font-size: 14px;
           font-weight: 500;
+          font-family: PingFangSC-Regular,Helvetica Neue,tahoma,arial,sans-serif;
           background: linear-gradient(90deg,#ffdf89,#f2ca5b);
-          padding: 10px 20px;
+          padding: 9px 20px;
           border-radius: 50px;
         }
       }
@@ -670,6 +920,228 @@ export default {
         }
       }
     }
+  }
+}
+
+.channel {
+  position: relative;
+  margin: 26px 0 0 0;
+  // top: 91px;
+  .feeds_block {
+    .title {
+      color: #000028;
+      font-size: 15px;
+      font-weight: 800;
+      margin: 15px 0 0 16px;
+      display: block;
+    }
+    .video_list_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      // border: 1px solid #000;
+      padding: 9px 11px;
+      .video_list {
+        // border: 1px solid #000;
+        .img_container {
+          // width: 100%;
+          // height: 195px;
+          display: flex;
+          justify-content: center;
+          // border: 1px solid #000;
+          padding: 0 4px;
+          position: relative;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+          .top_left_corner {
+            position: absolute;
+            // border: 1px solid #f09;
+            /* width: 164px; */
+            height: 15px;
+            top: 0;
+            left: 0;
+            margin: 1px 0 0 4px;
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+            padding: 0 0 0 8px;
+            // background-color: rgba(162,162,182,.5);
+            .triangle {
+              // border: 6px solid;
+              // border-color: transparent transparent transparent #FF6600;
+              border-left: 7px solid #FF6600;
+              border-right: 7px solid transparent;
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent;
+              width: 0;
+              height: 0;
+              position: absolute;
+              display: inline-block;
+              top: 3px;
+              left: 0;
+            }
+            span {
+              font-size: 10px;
+              font-weight: 400;
+              color: #fff;
+            }
+          }
+          .bottom_right_corner {
+            position: absolute;
+            height: 17px;
+            bottom: 0;
+            right: 0;
+            margin: 0 10px 4px 0;
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+            background-color: rgba(162, 162, 182, 0.5);
+          }
+        }
+        .name {
+          display: block;
+          padding: 0 0 0 4px;
+          width: calc(100% - 0px);
+          line-height: 33px;
+          color: #000028;
+          font-size: 14px;
+          font-weight: 400;
+          position: relative;
+        }
+        .summary {
+          display: block;
+          padding: 0 0 11px 4px;
+          width: 46vw;
+          line-height: 14px;
+          color: #a2a2b6;
+          font-size: 13px;
+          font-weight: 400;
+          position: relative;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          word-break: break-all;
+        }
+      }
+    }
+    .video_list_top_container {
+      display: grid;
+      grid-template-columns: 1fr;
+      // border: 1px solid #000;
+      padding: 9px 11px;
+      .video_list_top {
+        // border: 1px solid #000;
+        .img_container {
+          // width: 100%;
+          // height: 195px;
+          display: flex;
+          justify-content: center;
+          // border: 1px solid #000;
+          padding: 0 4px;
+          position: relative;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+          .top_left_corner {
+            position: absolute;
+            // border: 1px solid #f09;
+            /* width: 164px; */
+            height: 15px;
+            top: 0;
+            left: 0;
+            margin: 1px 0 0 4px;
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+            padding: 0 0 0 8px;
+            // background-color: rgba(162,162,182,.5);
+            .triangle {
+              // border: 6px solid;
+              // border-color: transparent transparent transparent #FF6600;
+              border-left: 7px solid #FF6600;
+              border-right: 7px solid transparent;
+              border-top: 5px solid transparent;
+              border-bottom: 5px solid transparent;
+              width: 0;
+              height: 0;
+              position: absolute;
+              display: inline-block;
+              top: 3px;
+              left: 0;
+            }
+            span {
+              font-size: 10px;
+              font-weight: 400;
+              color: #fff;
+            }
+          }
+          .bottom_right_corner {
+            position: absolute;
+            height: 17px;
+            bottom: 0;
+            right: 0;
+            margin: 0 10px 4px 0;
+            font-size: 10px;
+            font-weight: 400;
+            color: #fff;
+            background-color: rgba(162, 162, 182, 0.5);
+          }
+        }
+        .name {
+          display: block;
+          padding: 0 0 0 4px;
+          width: calc(100% - 0px);
+          line-height: 33px;
+          color: #000028;
+          font-size: 14px;
+          font-weight: 400;
+          position: relative;
+        }
+        .summary {
+          display: block;
+          padding: 0 0 11px 4px;
+          width: 93vw;
+          line-height: 14px;
+          color: #a2a2b6;
+          font-size: 13px;
+          font-weight: 400;
+          position: relative;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          word-break: break-all;
+        }
+      }
+    }
+    .change {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 14px;
+      // border: 1px solid #000;
+      .change_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 14px;
+        margin: 0 0 11px 0;
+        // border: 1px solid #000;
+        img {
+          object-fit: contain;
+          width: 23px;
+          height: 100%;
+        }
+        span {
+          color: #a2a2b6;
+          font-size: 12px;
+          width: 43px;
+        }
+      }
+    }    
   }
 }
 </style>
