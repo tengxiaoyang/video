@@ -97,19 +97,21 @@
               </span>
             </div>
             <div class="option_container">
-              <a class="option" 
-                :class="{ active_option: item.num_of_episode === selected_num }"
-                v-for="(item, index) of video_option" 
-                :key="index" 
-                @click="get_episode(item.num_of_episode)"
-              >
-                {{item.num_of_episode}}
-                <span>
-                  <i 
-                    v-if="item.num_of_episode > 2"
-                  ></i>
-                </span>
-              </a>
+              <div class="option_outside">
+                <a class="option" 
+                  :class="{ active_option: item.num_of_episode === selected_num }"
+                  v-for="(item, index) of video_option" 
+                  :key="index" 
+                  @click="get_episode(item.num_of_episode)"
+                >
+                  <span>
+                    <i 
+                      v-if="item.num_of_episode > 2"
+                    ></i>
+                  </span>
+                  {{item.num_of_episode}}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -468,7 +470,7 @@ export default {
     .episode {
       .top {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         margin: 0 17px;
         .title {
           color: #000028;
@@ -483,63 +485,73 @@ export default {
         }
       }
       .option_container {
-        width: 97vw;
-        height: 47px;
+        height: 56px;
         overflow: hidden;
-        overflow-x: scroll;
-        white-space: nowrap;
-        position: relative;
-        .active_option {
-          display: inline-block;
-          height: 45px;
-          line-height: 38px;
-          font-size: 17px;
-          color: #ff6022;
-          font-weight: 800;
-          width: 56px;
-          height: 56px;
-          background: #f6f8fa;
-          margin: 0 8px 0 0px;
-          vertical-align: middle;
-          span {
+        margin: 20px 0 0 0;
+        .option_outside {
+          // width: 97vw;
+          height: 66px;
+          overflow: hidden;
+          overflow-x: scroll;
+          white-space: nowrap;
+          position: relative;
+          padding: 0 8px 0 16px;
+          .active_option {
+            display: inline-block;
             line-height: 38px;
             font-size: 17px;
             color: #ff6022;
             font-weight: 800;
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: #f6f8fa;
+            margin: 0 8px 0 0px;
+            vertical-align: middle;
+            border-radius: 2px;
+            span {
+              width: 22px;
+              height: 13px;
+              line-height: 38px;
+              font-size: 17px;
+              color: #ff6022;
+              font-weight: 800;
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;
+            }
           }
-        }
-        a {
-          display: inline-block;
-          height: 45px;
-          line-height: 38px;
-          font-size: 17px;
-          color: #000;
-          font-weight: 800;
-          width: 56px;
-          height: 56px;
-          background: #f6f8fa;
-          margin: 0 8px 0 0px;
-          vertical-align: middle;
-          span {
+          a {
+            display: inline-block;
             line-height: 38px;
             font-size: 17px;
             color: #000;
             font-weight: 800;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            
-            i {
-              display: block;
-              width: 12px;
-              border-bottom: 2px solid #ff6022;
-              // margin: 0 11px;
-              position: relative;
-              bottom: 5px;
-              // border: 1px solid #000;
+            width: 56px;
+            height: 56px;
+            background: #f6f8fa;
+            margin: 0 8px 0 0px;
+            vertical-align: middle;
+            border-radius: 2px;
+            span {
+              width: 22px;
+              height: 13px;
+              line-height: 38px;
+              font-size: 17px;
+              color: #000;
+              font-weight: 800;
+              width: 100%;
+              display: flex;
+              justify-content: flex-end;
+              
+              i {
+                display: block;
+                width: 22px;
+                height: 13px;
+                position: relative;
+                top: 5px;
+                background: url(https://puui.qpic.cn/vupload/0/20190920_z2zuiu904a/0?max_age=7776000);
+                background-size: 22px 13px;
+              }
             }
           }
         }
