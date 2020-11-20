@@ -17,9 +17,32 @@
         </div>
       </div>
       <div class="player_container">
-        <img class="video_img" src="https://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideohori/m/mzc00200x0no5q6_big.jpg" alt="">
-        <img class="button_img" src="../../../public/static/img/detail_play.png" alt="">
-        <img class="button_img_center" src="../../../public/static/img/detail_play_center.png" alt="">
+        <div class="video_img_container">
+          <img class="video_img" src="https://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideohori/m/mzc00200x0no5q6_big.jpg" alt=""
+          >
+          <div class="shade" 
+            v-if="selected_num > 2"
+          >
+          </div>
+        </div>
+        <div class="button" 
+          v-if="selected_num < 3"
+        >
+          <img class="button_img" src="../../../public/static/img/detail_play.png" alt="">
+          <img class="button_img_center" src="../../../public/static/img/detail_play_center.png" alt="">
+        </div>
+        <div class="open_vip" 
+          v-if="selected_num > 2"
+        >
+          <div class="content">
+            <span class="title">
+              VIP会员可免费观看，开通VIP会员前往APP看完整版
+            </span>
+            <div class="button_container">
+              <div class="button">登录/开通VIP会员</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="footer">
         <div class="open_app">
@@ -66,7 +89,21 @@
           </div>
           <div class="episode">
             <div class="title"></div>
-            <div class="option_container"></div>
+            <div class="option_container">
+              <a class="option" 
+                :class="{ active_option: item.num_of_episode === selected_num }"
+                v-for="(item, index) of video_option" 
+                :key="index" 
+                @click="get_episode(item.num_of_episode)"
+              >
+                {{item.num_of_episode}}
+                <span>
+                  <i 
+                    v-if="item.num_of_episode > 2"
+                  ></i>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +115,30 @@ export default {
   name: 'video_details',
   data() {
     return {
-      
+      selected_num: 1,
+      video_option: [
+        {
+          num_of_episode: 1,
+        },
+        {
+          num_of_episode: 2,
+        },
+        {
+          num_of_episode: 3,
+        },
+        {
+          num_of_episode: 4,
+        },
+        {
+          num_of_episode: 5,
+        },
+        {
+          num_of_episode: 6,
+        },
+        {
+          num_of_episode: 7,
+        }
+      ],
     }
   },
   created() {
@@ -95,6 +155,9 @@ export default {
     },
     route_to(e) {
       this.$router.push({path: e});
+    },
+    get_episode(e) {
+      this.selected_num = e
     },
   }
 }
@@ -180,21 +243,75 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  .video_img {
-    object-fit: contain;
+  .video_img_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .video_img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+    .shade {
+      background: rgba(0,0,0,.5);
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+  }
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 0 0 1px 0;
+    .button_img {
+      width: 68px;
+      height: 68px;
+      position: absolute;
+      opacity: 0.8;
+    }
+    .button_img_center {
+      width: 36px;
+      height: 32px;
+      position: absolute;
+    }
+  }
+  .open_vip {
     width: 100%;
-    height: 100%;
-  }
-  .button_img {
-    width: 68px;
-    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    opacity: 0.8;
-  }
-  .button_img_center {
-    width: 36px;
-    height: 32px;
-    position: absolute;
+    .content {
+      width: 100%;
+      height: 68px;
+      position: absolute;
+      text-align: center;
+      .title {
+        display: block;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .button_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        .button {
+          color: #663d00;
+          font-size: 15px;
+          font-weight: 500;
+          background: linear-gradient(90deg,#ffdf89,#f2ca5b);
+          padding: 10px 20px;
+          border-radius: 50px;
+        }
+      }
+    }
   }
 }
 .footer {
@@ -336,6 +453,88 @@ export default {
           color: #fff;
           font-size: 15px;
           font-weight: 400;
+        }
+      }
+    }
+    .episode {
+      .title {
+
+      }
+      .option_container {
+        width: 97vw;
+        height: 47px;
+        overflow: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+        position: relative;
+        // padding: 0 0 0 13px;
+        // left: 13px;
+        display: flex;
+        align-items: center;
+        // border: 1px solid #000;
+        .active_option {
+          display: inline-block;
+          // width: 51px;
+          height: 45px;
+          // margin: 0 20px 0 0;
+          // text-align: center;
+          // border: 1px solid #000;
+          line-height: 38px;
+          font-size: 17px;
+          color: #ff6022;
+          font-weight: 800;
+          margin: 0 10px;
+          span {
+            line-height: 38px;
+            font-size: 17px;
+            color: #ff6022;
+            font-weight: 800;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            
+            // i {
+            //   display: block;
+            //   width: 12px;
+            //   border-bottom: 2px solid #ff6022;
+            //   // margin: 0 11px;
+            //   position: relative;
+            //   bottom: 5px;
+            //   // border: 1px solid #000;
+            // }
+          }
+        }
+        a {
+          display: inline-block;
+          // width: 51px;
+          height: 45px;
+          // margin: 0 20px 0 0;
+          // text-align: center;
+          // border: 1px solid #000;
+          line-height: 38px;
+          font-size: 17px;
+          color: #000;
+          font-weight: 800;
+          margin: 0 10px;
+          span {
+            line-height: 38px;
+            font-size: 17px;
+            color: #000;
+            font-weight: 800;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            
+            i {
+              display: block;
+              width: 12px;
+              border-bottom: 2px solid #ff6022;
+              // margin: 0 11px;
+              position: relative;
+              bottom: 5px;
+              // border: 1px solid #000;
+            }
+          }
         }
       }
     }
