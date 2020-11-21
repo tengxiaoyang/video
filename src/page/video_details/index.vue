@@ -314,7 +314,7 @@
         </div>
       </div>
       
-      <!-- <div class="open_app_bottom" v-if="show_bottom_open_app">
+      <div class="open_app_bottom" v-if="show_bottom_open_app">
         <div class="left">
           <div class="icon">
             <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
@@ -322,7 +322,7 @@
           <span class="text">看全集高清完整版</span>
         </div>
         <div class="right">打开</div>
-      </div> -->
+      </div>
 
       <div class="trailer_information">
         <div class="trailer_content">
@@ -1448,20 +1448,26 @@ export default {
   // border: 1px solid #000;
   border-bottom: 1px solid #F0F0F0;
   width: 100%;
-  height: 65px;
-  padding: 0 12px;
+  height: 68px;
+  padding: 0 12px 11px 12px;
   display: flex;
   align-items: center;
   background: #fff;
+  z-index: 3;
+  box-shadow: 0 -2px 10px 0 rgba(0,0,0,.08);
+  -webkit-animation: fadeIn .3s ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation: fadeIn .3s ease-in-out;
+  animation-fill-mode: both;
   .left {
     // border: 1px solid #000;
     flex: 1;
-    height: 38px;
+    height: 36px;
     display: flex;
     align-items: center;
     .icon {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       background: #f5f5f5;
       position: relative;
       .icon_img {
@@ -1479,7 +1485,7 @@ export default {
       color: #000028;
       font-size: 13px;
       font-weight: 400;
-      padding: 0 10px;
+      padding: 2px 12px 0px 12px;
     }
   }
   .right {
