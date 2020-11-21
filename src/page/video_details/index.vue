@@ -351,6 +351,42 @@
         </div>
       </div>
 
+      <div class="comment">
+        <div class="top">
+          <div class="title">评论</div>
+        </div>
+        <div class="middle">
+          <div class="comment_content"
+            v-for="(item, index) of comment_content" 
+            :key="index" 
+            @click="show_comment(item.id)"
+          >
+            <div class="user">
+              <div class="user_icon">
+                <img :src="item.user_icon" alt="">
+              </div>
+              <div class="user_name">{{item.name}}</div>
+              <i class="user_rank_lv1" v-if="item.rank===1">
+                <i class="user_rank_lv1_num"></i>
+              </i>
+            </div>
+            <div class="user_comment">{{item.comment}}</div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="open_app">
+            <div class="icon">
+              <img src="https://puui.qpic.cn/vupload/0/common_logo_square.png/0" alt="">
+            </div>
+            <span>
+              打开腾讯视频，参与
+              {{number_of_hot_reviews}}
+              条热评大讨论
+            </span>
+          </div>
+        </div>
+      </div>
+
       <div class="blank"></div>
 
   	</div>
@@ -498,8 +534,134 @@ export default {
           img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
           duration: "02:36",
           name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vpic/0/d00342fcday_160_90_3.jpg/0?max_age=7776000",
+          duration: "01:10",
+          name: "《使徒行者3》片尾曲《低谷天堂》 情深缘浅令人心碎",
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 6,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 7,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 8,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 9,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 10,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 11,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 12,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 13,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 14,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 15,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 16,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 17,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 18,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 19,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        },
+        {
+          id: 20,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
         }
       ],
+      comment_content: [
+        {
+          id: 1,
+          user_icon: "https://thirdwx.qlogo.cn/mmopen/vi_32/lcH7XX5w9HdUqiaVAib6JVNxhE6MBw2ge4lVJ5fnECD5StFOCeQfYAyz1b3ZBoEgytglB29QYaKzHIAvhibLBicGQA/132?max_age=7776000",
+          name: "乐少",
+          rank: 1,
+          comment: "第四部卓可能要黑化了！",
+        },
+        {
+          id: 2,
+          user_icon: "https://thirdqq.qlogo.cn/g?b=sdk&k=wnsl0JWXqYAAibdCwSUGK7Q&s=140&t=1566612549?max_age=7776000",
+          name: "热心市民",
+          rank: 1,
+          comment: "这个陪打球的老女人是内鬼",
+        },
+        {
+          id: 3,
+          user_icon: "https://thirdqq.qlogo.cn/g?b=sdk&k=PeKs1u9rVIAZKZ3icq2ZdMw&s=140&t=1556712611?max_age=7776000",
+          name: "清晨的风",
+          rank: 1,
+          comment: "你",
+        }
+      ],
+      number_of_hot_reviews: 437,
     }
   },
   created() {
@@ -897,6 +1059,8 @@ export default {
       }
     }
     .episode {
+      padding: 0 0 14px 0;
+      border-bottom: 1px solid #F0F0F0;
       .top {
         display: flex;
         align-items: flex-end;
@@ -977,12 +1141,16 @@ export default {
               font-weight: 400;
               display: inline-block;
               width: 2px;
+              position: relative;
+              bottom: 3px;
             }
             .num_of_episode {
               line-height: 38px;
               font-size: 14px;
               color: #000028;
               font-weight: 400;
+              position: relative;
+              bottom: 3px;
             }
             .top_right_corner {
               width: 22px;
@@ -1013,7 +1181,9 @@ export default {
 
 .channel {
   position: relative;
-  margin: 26px 0 0 0;
+  margin: 16px 0 0 0;
+  padding: 0 0 13px 0;
+  border-bottom: 1px solid #F0F0F0;
   // top: 91px;
   .feeds_block {
     .title {
@@ -1327,6 +1497,9 @@ export default {
 }
 
 .trailer_information {
+  margin: 15px 0 0 0;
+  padding: 0 0 13px 0;
+  border-bottom: 1px solid #F0F0F0;
   .trailer_content {
     .top {
       display: flex;
@@ -1380,11 +1553,11 @@ export default {
               font-size: 12px;
               font-weight: 400;
               color: #fff;
-              z-index: 2;
+              z-index: 1;
               
               // text-shadow: 0 0 4px rgba(0,0,0,.5);
               
-              text-shadow: 0 0px 4px #000, 0 0px 4px #000;
+              text-shadow: 0 0 4.5px #000, 0 0 4.5px #000;
               /* For IE 8 */
               // -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000')";
               /* For IE 5.5 - 7 */
@@ -1413,7 +1586,7 @@ export default {
             position: relative;
             text-align: left;
 
-            font: 14px/1.5 PingFangSC-Regular,Helvetica Neue,tahoma,arial,sans-serif;
+            font: 14px/1.5em PingFangSC-Regular,Helvetica Neue,tahoma,arial,sans-serif;
             
             display: -webkit-box;
             /* -webkit-box-orient: vertical; */
@@ -1427,6 +1600,116 @@ export default {
           }
           
         }
+      }
+    }
+  }
+}
+
+.comment {
+  margin: 15px 0 0 0;
+  padding: 0 0 2px 0;
+  border-bottom: 1px solid #F0F0F0;
+  .top {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 15px;
+    .title {
+      color: #000028;
+      font-size: 15px;
+      font-weight: 800;
+      flex: 1;
+    }
+  }
+  .middle {
+    margin: 13px 18px 0;
+    .comment_content {
+      .user {
+        display: flex;
+        align-items: center;
+        .user_icon {
+          width: 30px;
+          height: 30px;
+          img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+          }
+        }
+        .user_name {
+          color: #000028;
+          font-size: 13px;
+          font-weight: 400;
+          margin: 0 0 0 10px;
+        }
+        .user_rank_lv1 {
+          background: url(//vm.gtimg.cn/tencentvideo/vstyle/mobile/msite/style/img/sprite_icon_vip_lv.svg) 0 0 no-repeat;
+          background-size: 240px auto;
+          -webkit-background-size: 240px auto;
+          -webkit-transform: scale(.5);
+          display: inline-block;
+          position: relative;
+          width: 18px;
+          height: 18px;
+          transform: scale(.5);
+          width: 41px;
+          background-position: -60px 0;
+          position: relative;
+          bottom: 6px;
+          .user_rank_lv1_num {
+            -webkit-background-size: 240px auto;
+            position: absolute;
+            top: 7px;
+            left: 8px;
+            width: 10px;
+            height: 10px;
+            background: url(//vm.gtimg.cn/tencentvideo/vstyle/mobile/msite/style/img/sprite_icon_vip_lv.svg) 0 -46px no-repeat;
+            background-size: 240px auto;
+
+            top: 8px;
+            left: 24px;
+            width: 5px;
+            height: 6px;
+            background-position: 0 -66px;
+          }
+        }
+      }
+      .user_comment {
+        color: #000028;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 21px;
+        margin: 6px 0 22px 0;
+      }
+    }
+  }
+  .bottom {
+    .open_app {
+      height: 36px;
+      margin: 12px auto 12px;
+      border: 1px solid #ebebeb;
+      border-radius: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      width: 90%;
+      .icon {
+        width: 25px;
+        height: 38px;
+        margin: 0 6px 0 0;
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      span {
+        color: #222;
+        font-size: 13px;
+        line-height: 34px;
+        text-align: center;
+        font-weight: 400;
       }
     }
   }
