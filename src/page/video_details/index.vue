@@ -1455,10 +1455,6 @@ export default {
   background: #fff;
   z-index: 3;
   box-shadow: 0 -2px 10px 0 rgba(0,0,0,.08);
-  -webkit-animation: fadeIn .3s ease-in-out;
-  -webkit-animation-fill-mode: both;
-  animation: fadeIn .3s ease-in-out;
-  animation-fill-mode: both;
   .left {
     // border: 1px solid #000;
     flex: 1;
