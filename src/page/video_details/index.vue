@@ -2,7 +2,6 @@
   	<div class="main">
       <div class="header">
         <div class="logo" @click="return_home"></div>
-        <div class="blank"></div>
         <div class="right">
           <img class="search_icon" 
             src="../../../public/static/img/zoom_white.png" alt="" 
@@ -315,7 +314,7 @@
         </div>
       </div>
       
-      <div class="open_app_bottom" v-if="show_bottom_open_app">
+      <!-- <div class="open_app_bottom" v-if="show_bottom_open_app">
         <div class="left">
           <div class="icon">
             <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
@@ -323,7 +322,36 @@
           <span class="text">看全集高清完整版</span>
         </div>
         <div class="right">打开</div>
+      </div> -->
+
+      <div class="trailer_information">
+        <div class="trailer_content">
+          <div class="top">
+            <div class="title">片花资讯</div>
+          </div>
+          <div class="trailer_container">
+            <div class="trailer_outside">
+              <a class="trailer" 
+                v-for="(item, index) of trailer_content" 
+                :key="index" 
+                @click="get_trailer(item.id)"
+              >
+              
+                <div class="img_container">
+                  <img lazyload :src="item.img" alt="">
+                  <div class="bottom_right_corner">{{item.duration}}</div>
+                </div>
+                <span class="name">
+                  {{item.name}}
+                </span>
+                  
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <div class="blank"></div>
 
   	</div>
 </template>
@@ -452,6 +480,26 @@ export default {
       video_content: [],
       selected_type: 2,
       show_bottom_open_app: false,
+      trailer_content: [
+        {
+          id: 1,
+          img: "https://puui.qpic.cn/vpic/0/s0034z6f4mk_160_90_3.jpg/0?max_age=7776000",
+          duration: "01:25",
+          name: "【剧透】爆seed带着儿子掰手腕 竟有人主动来叫板？",
+        },
+        {
+          id: 2,
+          img: "https://puui.qpic.cn/vpic/0/n00344o49zn_160_90_3.jpg/0?max_age=7776000",
+          duration: "01:30",
+          name: "《使徒行者3》片尾曲《不能放手》MV 是爱情还是罪疚",
+        },
+        {
+          id: 3,
+          img: "https://puui.qpic.cn/vpic/0/h0034lt0thg_160_90_3.jpg/0?max_age=7776000",
+          duration: "02:36",
+          name: "【剧透】爆seed得知钉姐去向 含泪假装毫不在意！",
+        }
+      ],
     }
   },
   created() {
@@ -1276,5 +1324,116 @@ export default {
     border-radius: 16px;
     font-weight: 400;
   }
+}
+
+.trailer_information {
+  .trailer_content {
+    .top {
+      display: flex;
+      align-items: flex-end;
+      margin: 0 15px;
+      .title {
+        color: #000028;
+        font-size: 15px;
+        font-weight: 800;
+        flex: 1;
+      }
+    }
+    .trailer_container {
+      overflow: hidden;
+      margin: 14px 0 0 0;
+      height: 126px;
+      white-space: nowrap;
+      .trailer_outside {
+        overflow: hidden;
+        overflow-x: scroll;
+        position: relative;
+        padding: 0 8px 0 16px;
+        height: 136px;
+        .trailer {
+          display: inline-block;
+          width: 135px;
+          margin: 0 10px 0 0px;
+          vertical-align: middle;
+          border-radius: 2px;
+          text-align: center;
+          height: 126px;
+          
+          .img_container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            border-radius: 4px;
+            img {
+              object-fit: contain;
+              width: 100%;
+              height: 100%;
+              border-radius: 4px;
+            }
+            .bottom_right_corner {
+              display: block;
+              position: absolute;
+              height: 17px;
+              bottom: 0;
+              right: 0;
+              margin: 0 8px 4px 0;
+              font-size: 12px;
+              font-weight: 400;
+              color: #fff;
+              z-index: 2;
+              
+              // text-shadow: 0 0 4px rgba(0,0,0,.5);
+              
+              text-shadow: 0 0px 4px #000, 0 0px 4px #000;
+              /* For IE 8 */
+              // -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000')";
+              /* For IE 5.5 - 7 */
+              // filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000');
+              // filter:DropShadow(Color=#000, OffX=0, OffY=4);
+              // zoom: 1;
+            }
+          }
+          .img_container::before {
+            z-index: 1;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 30px;
+            background: -webkit-gradient(linear,left bottom,left top,from(#000),to(#2d2d2d));
+            background: -webkit-gradient(linear,left bottom,left top,from(rgba(0,0,0,.45)),to(rgba(45,45,45,0)));
+            background: linear-gradient(0deg,rgba(0,0,0,.45),rgba(45,45,45,0));
+            content: "";
+          }
+          .name {
+            padding: 5px 0 0 0;
+            width: calc(100% - 0px);
+            color: #000000;
+            font-weight: 400;
+            position: relative;
+            text-align: left;
+
+            font: 14px/1.5 PingFangSC-Regular,Helvetica Neue,tahoma,arial,sans-serif;
+            
+            display: -webkit-box;
+            /* -webkit-box-orient: vertical; */
+            /*! autoprefixer: off */
+            -webkit-box-orient: vertical;
+            /* autoprefixer: on */
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+
+            white-space: normal;
+          }
+          
+        }
+      }
+    }
+  }
+}
+
+.blank {
+  width: 100px;
+  height: 400px;
 }
 </style>
