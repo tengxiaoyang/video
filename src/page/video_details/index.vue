@@ -417,107 +417,71 @@
       </div>
 
       <div class="vip_all_privileges">
-        <div class="feeds_block" 
-          v-for="(video_content_item, video_content_index) of video_content" 
-          :key="video_content_index"  
-        >
-          <div class="feeds_block_container" 
-            v-if="video_content.indexOf(video_content_item)===4"
-          >
-            <span class="title">{{video_content_item.title}}</span>
-            <div v-if="video_content_item.list.length%2===0">
+        
+        <span class="title">VIP全部特权</span>
 
-              <!-- <div class="video_list_container"> -->
-              
-              <div class="video_list_container">
-                <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-            </div>
+        <div class="privilege_container">
+          <div class="privilege">
 
             
-            <div class="video_list_container_outside" v-if="video_content_item.list.length%2!==0">
-
-              <!-- <div class="video_list_container"> -->
+            <div 
+              class="privilege_list_container_outside"
+            >
               
-              <div class="video_list_top_container">
-                <div class="video_list_top" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, 1)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
+              <div class="privilege_list_top_container">
+                <div class="privilege_list_top" 
+                  v-for="(privilege_content_item, privilege_content_index) of privilege_content.slice(0, 1)"
+                  :key="privilege_content_index" 
+                  @click="route_to('privilege_details')"
                 >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                  <div class="list_header">
+
+                    <div class="img_container">
+                      <img lazyload :src="privilege_content_item.img" alt="">
                     </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                    <span class="name">
+                      {{privilege_content_item.name}}
+                    </span>
                   </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
+                  <div class="ad">
+                    <span class="ad_name">
+                      {{privilege_content_item.ad_name}}
+                    </span>
+                    <span class="ad_summary">
+                      {{privilege_content_item.ad_summary}}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <!-- <div class="video_list_container"> -->
-              <div class="video_list_container">
-                <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1,video_content_item.list.length)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
+
+              <div class="privilege_list_container">
+                <div class="privilege_list" 
+                  v-for="(privilege_content_item, privilege_content_index) of privilege_content.slice(1,privilege_content.length)"
+                  :key="privilege_content_index" 
+                  @click="route_to('privilege_details')"
                 >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
+                  <div class="list_header">
+
+                    <div class="img_container">
+                      <img lazyload :src="privilege_content_item.img" alt="">
                     </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
+                    <span class="name">
+                      {{privilege_content_item.name}}
+                    </span>
                   </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
                   <span class="summary">
-                    {{video_list_item.summary}}
+                    {{privilege_content_item.summary}}
                   </span>
                 </div>
               </div>
             </div>
-
-            <div class="after_change">
-              <div class="open_app">打开腾讯视频，看更多精彩内容</div>
-              <div class="change_button" @click="show_change_list(video_content_index,$event)">
-                <img src="../../../public/static/img/up_arrow.png" alt="">
-                <!-- <span>换一换</span> -->
-              </div>
-            </div>
+            
           </div>
         </div>
+
+          
+        
       </div>
 
 
@@ -810,6 +774,27 @@ export default {
           name: "王爵使徒开启猎杀模式",
           ad: "VIP享5折购线上观影票"
         },
+      ],
+      privilege_content: [
+        {
+          id: 1,
+          img: "https://puui.qpic.cn/vupload/0/20181221_9mv7a2peqvf/0",
+          name: "积分商城",
+          ad_name: "今日特权",
+          ad_summary: "全新VIP积分商城上线！超值好礼兑不停！"
+        },
+        {
+          id: 2,
+          img: "https://puui.qpic.cn/vupload/0/20180802_hcs3huo3pfi/0",
+          name: "1080P",
+          summary: "畅享蓝光清晰度"
+        },
+        {
+          id: 3,
+          img: "https://puui.qpic.cn/vupload/0/20181221_vru23f4m80d/0",
+          name: "线下活动",
+          summary: "享专属线下活动"
+        }
       ],
     }
   },
@@ -1209,6 +1194,7 @@ export default {
           color: #fff;
           font-size: 15px;
           font-weight: 400;
+          line-height: 40px;
         }
       }
     }
@@ -1975,261 +1961,145 @@ export default {
   padding: 0 0 13px 0;
   border-bottom: 1px solid #F0F0F0;
   // top: 91px;
-  .feeds_block {
-    .title {
-      color: #000028;
-      font-size: 15px;
-      font-weight: 800;
-      margin: 15px 0 0 16px;
-      display: block;
-    }
-    .video_list_container {
-      display: grid;
-      grid-template-rows: 100px 100px;
-      grid-template-columns: repeat(16, 178px);
-      grid-auto-flow: column;
-      .video_list {
-        // border: 1px solid #000;
-        .img_container {
-          // width: 100%;
-          // height: 195px;
-          display: flex;
-          justify-content: center;
-          // border: 1px solid #000;
-          padding: 0 4px;
-          position: relative;
-          img {
-            object-fit: contain;
-            width: 100%;
-            height: 100%;
-          }
-          .top_left_corner {
-            position: absolute;
-            // border: 1px solid #f09;
-            /* width: 164px; */
-            height: 15px;
-            top: 0;
-            left: 0;
-            margin: 1px 0 0 4px;
-            font-size: 10px;
-            font-weight: 400;
-            color: #fff;
-            padding: 0 0 0 8px;
-            // background-color: rgba(162,162,182,.5);
-            .triangle {
-              // border: 6px solid;
-              // border-color: transparent transparent transparent #FF6600;
-              border-left: 7px solid #FF6600;
-              border-right: 7px solid transparent;
-              border-top: 5px solid transparent;
-              border-bottom: 5px solid transparent;
-              width: 0;
-              height: 0;
-              position: absolute;
-              display: inline-block;
-              top: 3px;
-              left: 0;
-            }
-            span {
-              font-size: 10px;
-              font-weight: 400;
-              color: #fff;
-            }
-          }
-          .bottom_right_corner {
-            position: absolute;
-            height: 17px;
-            bottom: 0;
-            right: 0;
-            margin: 0 10px 4px 0;
-            font-size: 10px;
-            font-weight: 400;
-            color: #fff;
-            background-color: rgba(162, 162, 182, 0.5);
-          }
-        }
-        .name {
-          display: block;
-          padding: 0 0 0 4px;
-          width: calc(100% - 0px);
-          line-height: 33px;
-          color: #000028;
-          font-size: 14px;
-          font-weight: 400;
-          position: relative;
-        }
-        .summary {
-          display: block;
-          padding: 0 0 11px 4px;
-          width: 46vw;
-          line-height: 14px;
-          color: #a2a2b6;
-          font-size: 13px;
-          font-weight: 400;
-          position: relative;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          word-break: break-all;
-        }
-      }
-    }
-    .video_list_top_container {
-      display: grid;
-      grid-template-columns: 1fr;
-      // border: 1px solid #000;
-      padding: 9px 11px;
-      .video_list_top {
-        // border: 1px solid #000;
-        .img_container {
-          // width: 100%;
-          // height: 195px;
-          display: flex;
-          justify-content: center;
-          // border: 1px solid #000;
-          padding: 0 4px;
-          position: relative;
-          img {
-            object-fit: contain;
-            width: 100%;
-            height: 100%;
-          }
-          .top_left_corner {
-            position: absolute;
-            // border: 1px solid #f09;
-            /* width: 164px; */
-            height: 15px;
-            top: 0;
-            left: 0;
-            margin: 1px 0 0 4px;
-            font-size: 10px;
-            font-weight: 400;
-            color: #fff;
-            padding: 0 0 0 8px;
-            // background-color: rgba(162,162,182,.5);
-            .triangle {
-              // border: 6px solid;
-              // border-color: transparent transparent transparent #FF6600;
-              border-left: 7px solid #FF6600;
-              border-right: 7px solid transparent;
-              border-top: 5px solid transparent;
-              border-bottom: 5px solid transparent;
-              width: 0;
-              height: 0;
-              position: absolute;
-              display: inline-block;
-              top: 3px;
-              left: 0;
-            }
-            span {
-              font-size: 10px;
-              font-weight: 400;
-              color: #fff;
-            }
-          }
-          .bottom_right_corner {
-            position: absolute;
-            height: 17px;
-            bottom: 0;
-            right: 0;
-            margin: 0 10px 4px 0;
-            font-size: 10px;
-            font-weight: 400;
-            color: #fff;
-            background-color: rgba(162, 162, 182, 0.5);
-          }
-        }
-        .name {
-          display: block;
-          padding: 0 0 0 4px;
-          width: calc(100% - 0px);
-          line-height: 33px;
-          color: #000028;
-          font-size: 14px;
-          font-weight: 400;
-          position: relative;
-        }
-        .summary {
-          display: block;
-          padding: 0 0 11px 4px;
-          width: 93vw;
-          line-height: 14px;
-          color: #a2a2b6;
-          font-size: 13px;
-          font-weight: 400;
-          position: relative;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          word-break: break-all;
-        }
-      }
-    }
-    .change {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 14px;
-      // border: 1px solid #000;
-      .change_button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 14px;
-        margin: 0 0 11px 0;
-        // border: 1px solid #000;
-        img {
-          object-fit: fill;
-          width: 16px;
-          height: 13px;
-        }
-        span {
-          color: #a2a2b6;
-          font-size: 12px;
-          width: 43px;
-        }
-      }
-    }  
-    .after_change {
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-      height: 68px;
-      // border: 1px solid #000;
-      .open_app {
-        height: 36px;
-        margin: 12px auto 12px;
-        border: 1px solid #ebebeb;
-        border-radius: 18px;
-        color: #000028;
-        font-size: 13px;
-        line-height: 34px;
-        text-align: center;
-        font-weight: 400;
-        display: block;
-        padding: 0;
-        width: 90%;
-      }
-      .change_button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 14px;
-        margin: 0 0 11px 0;
-        // border: 1px solid #000;
-        img {
-          object-fit: fill;
-          width: 16px;
-          height: 13px;
-        }
-        span {
-          color: #a2a2b6;
-          font-size: 12px;
-          width: 43px;
-        }
-      }
-    }   
+  .title {
+    color: #000028;
+    font-size: 15px;
+    font-weight: 800;
+    margin: 15px 0 0 16px;
+    display: block;
   }
+
+  .privilege_container {
+    overflow: hidden;
+    margin: 14px 0 0 0;
+    height: 202px;
+    white-space: nowrap;
+    .privilege {
+      overflow: hidden;
+      overflow-x: scroll;
+      position: relative;
+      padding: 0 8px 0 16px;
+      height: 212x;
+      
+
+      .privilege_list_container_outside {
+        display: flex;
+        
+        .privilege_list_container {
+          display: grid;
+          grid-template-rows: 100px 100px;
+          grid-template-columns: repeat(16, 178px);
+          grid-auto-flow: column;
+          .privilege_list {
+            // border: 1px solid #000;
+            .list_header {
+
+              .img_container {
+                // width: 100%;
+                // height: 195px;
+                display: flex;
+                justify-content: center;
+                // border: 1px solid #000;
+                padding: 0 4px;
+                position: relative;
+                height: 2.25rem;
+                width: 3.125rem;
+                img {
+                  object-fit: contain;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              .name {
+                display: block;
+                padding: 0 0 0 4px;
+                width: calc(100% - 0px);
+                line-height: 33px;
+                color: #000028;
+                font-size: 14px;
+                font-weight: 400;
+                position: relative;
+              }
+            }
+            .summary {
+              display: block;
+              padding: 0 0 11px 4px;
+              width: 46vw;
+              line-height: 14px;
+              color: #a2a2b6;
+              font-size: 13px;
+              font-weight: 400;
+              position: relative;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              word-break: break-all;
+            }
+          }
+        }
+        .privilege_list_top_container {
+          display: grid;
+          grid-template-columns: 1fr;
+          // border: 1px solid #000;
+          padding: 9px 11px;
+          .privilege_list_top {
+            // border: 1px solid #000;
+            .list_header {
+
+              .img_container {
+                // width: 100%;
+                // height: 195px;
+                display: flex;
+                justify-content: center;
+                // border: 1px solid #000;
+                padding: 0 4px;
+                position: relative;
+                height: 3.125rem;
+                width: 3.125rem;
+                img {
+                  object-fit: contain;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              .name {
+                display: block;
+                padding: 0 0 0 4px;
+                width: calc(100% - 0px);
+                line-height: 33px;
+                color: #000028;
+                font-size: 14px;
+                font-weight: 400;
+                position: relative;
+              }
+            }
+            .ad {
+              display: block;
+              padding: 0 0 11px 4px;
+              width: 93vw;
+              line-height: 14px;
+              color: #a2a2b6;
+              font-size: 13px;
+              font-weight: 400;
+              position: relative;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              word-break: break-all;
+              .ad_name {
+
+              }
+              .ad_summary {
+
+              }
+            }
+          }
+        }
+      }
+
+    }
+  } 
+  
 }
 
 .blank {
