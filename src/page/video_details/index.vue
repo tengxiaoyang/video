@@ -808,217 +808,217 @@ export default {
           summary: "专属折扣及礼包"
         },
         {
-          id: 4,
+          id: 6,
+          img: "https://puui.qpic.cn/vupload/0/20190904_t632g6el5i/0",
+          name: "话费福利",
+          summary: "话费福利免费领"
+        },
+        {
+          id: 7,
+          img: "https://puui.qpic.cn/vupload/0/20181221_r5ilytl4lmm/0",
+          name: "折扣享大屏",
+          summary: "超级影视VIP折扣升"
+        },
+        {
+          id: 8,
+          img: "https://puui.qpic.cn/vupload/0/20180802_0mv9htydljq/0",
+          name: "杜比视听",
+          summary: "高品质视听体验"
+        },
+        {
+          id: 9,
+          img: "https://vfiles.gtimg.cn/wupload/vip.vip_system_privilege_detail_test/20201023_njj19lpafj.png",
+          name: "音频特权",
+          summary: "随时随地，想听就听"
+        },
+        {
+          id: 10,
+          img: "https://puui.qpic.cn/vupload/0/20180802_08sirfjtanz3/0",
+          name: "每月优惠券",
+          summary: "折扣购买更划算"
+        },
+        {
+          id: 11,
+          img: "https://vfiles.gtimg.cn/wupload/vip.vip_system_privilege_detail_online/20200227_1yg7qapu3jwicon1.png",
+          name: "超前点播",
+          summary: "追剧加速快人一步"
+        },
+        {
+          id: 12,
+          img: "https://puui.qpic.cn/vupload/0/20180802_9znejs72ev/0",
+          name: "游戏礼包",
+          summary: "游戏达人快人一步"
+        },
+        {
+          id: 13,
+          img: "https://puui.qpic.cn/vupload/0/20181221_l89s122apil/0",
+          name: "升级礼包",
+          summary: "等级提升有好礼"
+        },
+        {
+          id: 14,
+          img: "https://puui.qpic.cn/vupload/0/20180802_pk2ylffvjz/0",
+          name: "点播折扣看",
+          summary: "精彩内容，尽享折扣优惠"
+        },
+        {
+          id: 15,
+          img: "https://puui.qpic.cn/vupload/0/20200323_qh4wybdvds/0",
+          name: "臻彩视听",
+          summary: "至臻至善最强观影"
+        },
+        {
+          id: 16,
+          img: "https://puui.qpic.cn/vupload/0/20181221_7xbrl7mz11c/0",
+          name: "心跳礼包",
+          summary: "doki打榜心跳加成"
+        },
+        {
+          id: 17,
+          img: "https://puui.qpic.cn/vupload/0/20180802_rbxpld2v2l/0",
+          name: "尊贵身份",
+          summary: "VIP标识亮起来"
+        },
+        {
+          id: 18,
+          img: "https://puui.qpic.cn/vupload/0/20180717_n473qsbe9k/0",
+          name: "内容抢先看",
+          summary: "精彩剧情，先睹为快"
+        },
+        {
+          id: 19,
+          img: "https://puui.qpic.cn/vupload/0/20180802_peib2kllihp/0",
+          name: "直播优惠购",
+          summary: "精彩瞬间不再错过"
+        },
+        {
+          id: 20,
+          img: "https://puui.qpic.cn/vupload/0/20180802_xozw7f1vfl/0",
+          name: "草场地特权",
+          summary: "专享商城折扣"
+        },
+        {
+          id: 21,
+          img: "https://puui.qpic.cn/vupload/0/20180802_pv9uv9cs5ma/0",
+          name: "小说特权",
+          summary: "书籍折扣购买"
+        },
+        {
+          id: 22,
+          img: "https://puui.qpic.cn/vupload/0/20180802_1m5qskacxm1/0",
+          name: "道具折扣",
+          summary: "用爱发电为爱加V"
+        },
+        {
+          id: 23,
+          img: "https://puui.qpic.cn/vupload/0/20180802_0amhp4zdr2e8/0",
+          name: "缓存特权",
+          summary: "独享线路下载提速"
+        },
+        {
+          id: 24,
+          img: "https://puui.qpic.cn/vupload/0/20180801_99da0ag2gth/0",
+          name: "赠片送好友",
+          summary: "一起分享所有新鲜"
+        },
+        {
+          id: 25,
+          img: "https://puui.qpic.cn/vupload/0/20180802_4btj0bqkwxw/0",
+          name: "服务特权",
+          summary: "人工客服免排队"
+        },
+        {
+          id: 26,
+          img: "https://puui.qpic.cn/vupload/0/20180802_0e2nbof32ak5/0",
+          name: "弹幕特权",
+          summary: "和偶像一起刷弹幕"
+        },
+        {
+          id: 27,
+          img: "https://puui.qpic.cn/vupload/0/20190326_a0qruus9tq/0",
+          name: "极光优惠购",
+          summary: "机构快投8折购"
+        },
+        {
+          id: 28,
+          img: "https://puui.qpic.cn/vupload/0/20180802_4eeddbvtux4/0",
+          name: "尊享主题",
+          summary: "独家定制明星主题"
+        },
+        {
+          id: 29,
+          img: "https://puui.qpic.cn/vupload/0/20180801_jag0b63ck8q/0",
+          name: "每月观影券",
+          summary: "用券影片免费看"
+        },
+        {
+          id: 30,
+          img: "https://puui.qpic.cn/vupload/0/20180802_yeeoo1y2rca/0",
+          name: "超级影视特权",
+          summary: "大屏观影更高清"
+        },
+        {
+          id: 31,
+          img: "https://puui.qpic.cn/vupload/0/20180802_t8gv7qhoup/0",
+          name: "VIP免费看",
+          summary: "VIP内容，随时随地，想看就看"
+        },
+        {
+          id: 32,
+          img: "https://puui.qpic.cn/vupload/0/20181221_ai9a6yuhpf/0",
+          name: "会员附属卡",
+          summary: "与亲友共享VIP"
+        },
+        {
+          id: 33,
+          img: "https://puui.qpic.cn/vupload/0/20181221_d4isr3i923t/0",
+          name: "出行黑卡",
+          summary: "限量同程黑鲸会员"
+        },
+        {
+          id: 34,
           img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
+          name: "福利礼包",
+          summary: "会员专属生活福利"
         },
         {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
+          id: 35,
+          img: "https://puui.qpic.cn/vupload/0/20181221_04op378fht9x/0",
+          name: "年度礼盒",
+          summary: "年度纪念实体礼盒"
         },
         {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
+          id: 36,
+          img: "https://puui.qpic.cn/vupload/0/20190411_w8n2aacavg/0",
+          name: "首席体验官",
+          summary: "优先体验最新功能"
         },
         {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
+          id: 37,
+          img: "https://puui.qpic.cn/vupload/0/20190411_9techgja9/0",
+          name: "每月臻选礼",
+          summary: "高端活动专属资格"
         },
         {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
+          id: 38,
+          img: "https://puui.qpic.cn/vupload/0/20180905_j7uo03lfo1p/0",
+          name: "臻彩视界",
+          summary: "真实世界就在眼前"
         },
         {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
+          id: 39,
+          img: "https://puui.qpic.cn/vupload/0/20190411_yxv6fw38coq/0",
+          name: "星光畅享卡",
+          summary: "多屏畅通观影"
         },
         {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
+          id: 40,
+          img: "https://puui.qpic.cn/vupload/0/20190411_we6h2bbe9k/0",
+          name: "星光俱乐部",
+          summary: "高等级用户专享服务"
         },
         {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
-          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
-          name: "漫画特权",
-          summary: "专属折扣及礼包"
-        },
-        {
-          id: 4,
-          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
-          name: "生日礼包",
-          summary: "陪你成长生日快乐"
-        },
-        {
-          id: 5,
+          id: 0,
           img: "static/img/zoom_white.png",
           name: "",
           summary: ""
@@ -2242,12 +2242,17 @@ export default {
               }
               .name {
                 display: block;
+                width: 95px;
                 padding: 0 0 0 2px;
                 line-height: 33px;
                 color: #f2ca5b;
                 font-size: 16px;
                 font-weight: 400;
                 position: relative;
+
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
             }
             .summary {
@@ -2310,6 +2315,10 @@ export default {
                 position: relative;
                 font-size: 19px;
                 color: #cc9629;
+                
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
             }
             .ad {
