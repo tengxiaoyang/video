@@ -794,6 +794,18 @@ export default {
           img: "https://puui.qpic.cn/vupload/0/20181221_vru23f4m80d/0",
           name: "线下活动",
           summary: "享专属线下活动"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
         }
       ],
     }
@@ -1703,15 +1715,7 @@ export default {
               color: #fff;
               z-index: 1;
               
-              // text-shadow: 0 0 4px rgba(0,0,0,.5);
-              
               text-shadow: 0 0 4.5px #000, 0 0 4.5px #000;
-              /* For IE 8 */
-              // -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000')";
-              /* For IE 5.5 - 7 */
-              // filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000');
-              // filter:DropShadow(Color=#000, OffX=0, OffY=4);
-              // zoom: 1;
             }
           }
           .img_container::before {
@@ -1963,7 +1967,7 @@ export default {
   // top: 91px;
   .title {
     color: #000028;
-    font-size: 15px;
+    font-size: .9375rem;
     font-weight: 800;
     margin: 15px 0 0 16px;
     display: block;
@@ -1993,7 +1997,8 @@ export default {
           .privilege_list {
             // border: 1px solid #000;
             .list_header {
-
+              display: flex;
+              align-items: center;
               .img_container {
                 // width: 100%;
                 // height: 195px;
@@ -2013,7 +2018,6 @@ export default {
               .name {
                 display: block;
                 padding: 0 0 0 4px;
-                width: calc(100% - 0px);
                 line-height: 33px;
                 color: #000028;
                 font-size: 14px;
@@ -2043,9 +2047,16 @@ export default {
           // border: 1px solid #000;
           padding: 9px 11px;
           .privilege_list_top {
+            width: 202px;
             // border: 1px solid #000;
             .list_header {
-
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 101px;
+              background: #ffedbf;
+              border-top-left-radius: .375rem;
+              border-top-right-radius: .375rem;
               .img_container {
                 // width: 100%;
                 // height: 195px;
@@ -2054,8 +2065,8 @@ export default {
                 // border: 1px solid #000;
                 padding: 0 4px;
                 position: relative;
-                height: 3.125rem;
-                width: 3.125rem;
+                height: 62px;
+                width: 62px;
                 img {
                   object-fit: contain;
                   width: 100%;
@@ -2065,32 +2076,47 @@ export default {
               .name {
                 display: block;
                 padding: 0 0 0 4px;
-                width: calc(100% - 0px);
                 line-height: 33px;
                 color: #000028;
                 font-size: 14px;
                 font-weight: 400;
                 position: relative;
+                font-size: 19px;
+                color: #cc9629;
               }
             }
             .ad {
-              display: block;
-              padding: 0 0 11px 4px;
-              width: 93vw;
-              line-height: 14px;
-              color: #a2a2b6;
-              font-size: 13px;
-              font-weight: 400;
-              position: relative;
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              overflow: hidden;
-              word-break: break-all;
-              .ad_name {
 
+              height: 109px;
+              padding: 0;
+              width: 202px;
+              .ad_name {
+                display: block;
+                width: 202px;
+                text-align: center;
+                font-size: 16px;
+                color: #000;
+                font-weight: 800;
               }
               .ad_summary {
+                width: 202px;
+                padding: 5px 0 0 0;
+                color: #000000;
+                font-weight: 400;
+                position: relative;
+                text-align: left;
+                font: 14px/1.5em PingFangSC-Regular, Helvetica Neue, tahoma, arial, sans-serif;
+                
+                
+                display: -webkit-box;
+                /* -webkit-box-orient: vertical; */
+                /*! autoprefixer: off */
+                -webkit-box-orient: vertical;
+                /* autoprefixer: on */
+                -webkit-line-clamp: 2;
+                overflow: hidden;
 
+                white-space: normal;
               }
             }
           }
