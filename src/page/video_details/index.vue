@@ -1019,7 +1019,7 @@ export default {
         },
         {
           id: 5,
-          img: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2583009322,1892544792&fm=26&gp=0.jpg",
+          img: "static/img/zoom_white.png",
           name: "",
           summary: ""
         }
@@ -2185,7 +2185,7 @@ export default {
     color: #000028;
     font-size: 19px;
     font-weight: 800;
-    margin: 15px 0 0 16px;
+    margin: 15px 0 0 21px;
     display: block;
   }
 
@@ -2204,24 +2204,23 @@ export default {
 
       .privilege_list_container_outside {
         display: flex;
-        
         .privilege_list_container {
           display: grid;
-          grid-template-rows: 97.5px 99.5px;
+          grid-template-rows: 97px 97px;
           // grid-template-columns: repeat(16, 155px);
-          grid-template-columns: 155px;
+          // grid-template-columns: 155px;
           grid-auto-flow: column;
           background: #f2f2f2;
-          height: 195px;
+          height: 191px;
           position: relative;
-          bottom: 1px;
+          top: 11px;
           .privilege_list {
             // border: 1px solid #000;
             background: #fff;
-            margin: 0 0.5px 0.5px 0;
+            margin: -1px 0 2px 1px;
             position: relative;
-            right: 1px;
-
+            right: 2px;
+            width: 155px;
             .list_header {
               display: flex;
               align-items: center;
@@ -2231,10 +2230,10 @@ export default {
                 display: flex;
                 justify-content: center;
                 // border: 1px solid #000;
-                padding: 0 4px;
+                padding: 0 4px 0 10px;
                 position: relative;
-                height: 2.25rem;
-                width: 3.125rem;
+                height: 45px;
+                width: 55px;
                 img {
                   object-fit: contain;
                   width: 100%;
@@ -2243,27 +2242,29 @@ export default {
               }
               .name {
                 display: block;
-                padding: 0 0 0 4px;
+                padding: 0 0 0 2px;
                 line-height: 33px;
-                color: #000028;
-                font-size: 14px;
+                color: #f2ca5b;
+                font-size: 16px;
                 font-weight: 400;
                 position: relative;
               }
             }
             .summary {
               display: block;
-              padding: 0 0 11px 4px;
-              width: 46vw;
+              padding: 11px 7px 0 0;
+              // width: 46vw;
               line-height: 14px;
-              color: #a2a2b6;
-              font-size: 13px;
+              color: #979797;
+              font-size: 15px;
               font-weight: 400;
               position: relative;
               white-space: nowrap;
               text-overflow: ellipsis;
               overflow: hidden;
               word-break: break-all;
+              text-align: center;
+              width: 100%;
             }
           }
         }
@@ -2279,7 +2280,7 @@ export default {
               display: flex;
               justify-content: center;
               align-items: center;
-              height: 101px;
+              height: 86px;
               background: #ffedbf;
               border-top-left-radius: 11px;
               border-top-right-radius: 11px;
