@@ -484,9 +484,36 @@
         
       </div>
 
-
-
-      <div class="blank"></div>
+      
+      
+      <div class="peripheral_recommended">
+        <div class="benefit_content">
+          <div class="top">
+            <div class="title">周边推荐</div>
+          </div>
+          <div class="benefit_container">
+            <div class="benefit_outside">
+              <a class="benefit" 
+                v-for="(item, index) of peripheral_content" 
+                :key="index" 
+                @click="get_trailer(item.id)"
+              >
+              
+                <div class="img_container">
+                  <img lazyload :src="item.img" alt="">
+                </div>
+                <span class="name">
+                  {{item.name}}
+                </span>
+                <span class="download">
+                  下载
+                </span>
+                  
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
   	</div>
 </template>
@@ -1023,6 +1050,58 @@ export default {
           name: "",
           summary: ""
         }
+      ],
+      peripheral_content: [
+        {
+          id: 1,
+          img: "https://puui.qpic.cn/iwan_cloud/1/89762c5c7c0c618a32fbb5d0d197aab3?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "天涯明月刀",
+        },
+        {
+          id: 2,
+          img: "https://puui.qpic.cn/iwan/0/8e00d1027ea2ec3d7111b0db9aca5252/0?max_age=7776000",
+          name: "斗罗大陆",
+        },
+        {
+          id: 3,
+          img: "https://puui.qpic.cn/iwan/0/32a2927756ac43000182131aabf84280/0?max_age=7776000",
+          name: "全民漂移",
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/iwan_cloud/1/c517693534f6d742a184118a6c367bba?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "剑侠情缘2：剑歌行",
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/iwan_cloud/1/ce6777dd12370386d6842876a6d8cf72?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "一人之下",
+        },
+        {
+          id: 6,
+          img: "https://puui.qpic.cn/iwan_cloud/1/d9e558d9107bd43fbb00e356e266a29f?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "猎人",
+        },
+        {
+          id: 7,
+          img: "https://puui.qpic.cn/iwan_cloud/1/c748c9e79b4a8bc7e38824c4d4085f5b?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "妖怪名单之前世今生",
+        },
+        {
+          id: 8,
+          img: "https://puui.qpic.cn/iwan_cloud/1/925c1a2da15e9c4d30c342e1fccb35ce?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "龙之谷2",
+        },
+        {
+          id: 9,
+          img: "https://puui.qpic.cn/iwan_cloud/1/0fde857a8f422921e0da7f5aa2e95dc0?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "画境长恨歌",
+        },
+        {
+          id: 10,
+          img: "https://puui.qpic.cn/iwan_cloud/1/7658c1bbcc6218329aa39fd47a3026b4?imageView2/3/w/150/h/150?max_age=7776000",
+          name: "战歌竞技场",
+        },
       ],
     }
   },
@@ -2365,8 +2444,91 @@ export default {
   
 }
 
-.blank {
-  width: 100px;
-  height: 400px;
+
+.peripheral_recommended {
+  margin: 15px 0 0 0;
+  padding: 0 0 13px 0;
+  height: 275px;
+  // border-bottom: 1px solid #F0F0F0;
+  .benefit_content {
+    .top {
+      display: flex;
+      align-items: flex-end;
+      margin: 0 15px;
+      .title {
+        color: #000028;
+        font-size: 15px;
+        font-weight: 800;
+        flex: 1;
+      }
+    }
+    .benefit_container {
+      overflow: hidden;
+      margin: 14px 0 0 0;
+      height: 136px;
+      white-space: nowrap;
+      .benefit_outside {
+        overflow: hidden;
+        overflow-x: scroll;
+        position: relative;
+        padding: 0 8px 0 16px;
+        height: 146px;
+        .benefit {
+          display: inline-block;
+          width: 113px;
+          vertical-align: middle;
+          text-align: center;
+          height: 136px;
+          
+          .img_container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 64px;
+            margin: 0 auto;
+            border-radius: 10px;
+            img {
+              object-fit: contain;
+              width: 100%;
+              height: 100%;
+              border-radius: 10px;
+            }
+          }
+          .name {
+            display: block;
+            margin: 0 auto;
+            width: 108px;
+            padding: 9px 0 0 0;
+            color: #000028;
+            font-weight: 400;
+            position: relative;
+            text-align: center;
+            font-size: 14px;
+            
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            word-break: break-all;
+          }
+          .download {
+            display: block;
+            width: 64px;
+            height: 32px;
+            margin: 10px auto 0;
+            text-align: center;
+            line-height: 29px;
+            color: #000;
+            font-weight: 400;
+            opacity: .5;
+            position: relative;
+            font-size: 14px;
+            border: 1px solid #ebebeb;
+          }
+          
+        }
+      }
+    }
+  }
 }
+
 </style>
