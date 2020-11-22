@@ -806,6 +806,222 @@ export default {
           img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
           name: "漫画特权",
           summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://puui.qpic.cn/vupload/0/20180802_edbt41mwzfv/0",
+          name: "漫画特权",
+          summary: "专属折扣及礼包"
+        },
+        {
+          id: 4,
+          img: "https://puui.qpic.cn/vupload/0/20181221_jun00s86v8o/0",
+          name: "生日礼包",
+          summary: "陪你成长生日快乐"
+        },
+        {
+          id: 5,
+          img: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2583009322,1892544792&fm=26&gp=0.jpg",
+          name: "",
+          summary: ""
         }
       ],
     }
@@ -1991,11 +2207,21 @@ export default {
         
         .privilege_list_container {
           display: grid;
-          grid-template-rows: 100px 100px;
-          grid-template-columns: repeat(16, 178px);
+          grid-template-rows: 97.5px 99.5px;
+          // grid-template-columns: repeat(16, 155px);
+          grid-template-columns: 155px;
           grid-auto-flow: column;
+          background: #f2f2f2;
+          height: 195px;
+          position: relative;
+          bottom: 1px;
           .privilege_list {
             // border: 1px solid #000;
+            background: #fff;
+            margin: 0 0.5px 0.5px 0;
+            position: relative;
+            right: 1px;
+
             .list_header {
               display: flex;
               align-items: center;
@@ -2087,14 +2313,13 @@ export default {
             }
             .ad {
               height: 109px;
-              padding: 0;
+              padding: 0 10px;
               width: 202px;
               border: 1px solid #f0f0f0;
               border-bottom-left-radius: 11px;
               border-bottom-right-radius: 11px;
               .ad_name {
                 display: block;
-                width: 202px;
                 text-align: center;
                 font-size: 16px;
                 color: #000;
@@ -2102,13 +2327,12 @@ export default {
                 margin: 8px 0 0 0;
               }
               .ad_summary {
-                width: 202px;
                 padding: 5px 0 0 0;
-                color: #000000;
                 font-weight: 400;
                 position: relative;
                 text-align: left;
-                font: 14px/1.5em PingFangSC-Regular, Helvetica Neue, tahoma, arial, sans-serif;
+                color: #979797;
+                font-size: 15px;
                 
                 
                 display: -webkit-box;
