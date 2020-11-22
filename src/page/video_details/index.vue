@@ -1967,7 +1967,7 @@ export default {
   // top: 91px;
   .title {
     color: #000028;
-    font-size: .9375rem;
+    font-size: 19px;
     font-weight: 800;
     margin: 15px 0 0 16px;
     display: block;
@@ -1976,14 +1976,14 @@ export default {
   .privilege_container {
     overflow: hidden;
     margin: 14px 0 0 0;
-    height: 202px;
+    height: 224px;
     white-space: nowrap;
     .privilege {
       overflow: hidden;
       overflow-x: scroll;
       position: relative;
-      padding: 0 8px 0 16px;
-      height: 212x;
+      padding: 0 8px 0 8px;
+      height: 234px;
       
 
       .privilege_list_container_outside {
@@ -2055,8 +2055,8 @@ export default {
               align-items: center;
               height: 101px;
               background: #ffedbf;
-              border-top-left-radius: .375rem;
-              border-top-right-radius: .375rem;
+              border-top-left-radius: 11px;
+              border-top-right-radius: 11px;
               .img_container {
                 // width: 100%;
                 // height: 195px;
@@ -2086,17 +2086,20 @@ export default {
               }
             }
             .ad {
-
               height: 109px;
               padding: 0;
               width: 202px;
+              border: 1px solid #f0f0f0;
+              border-bottom-left-radius: 11px;
+              border-bottom-right-radius: 11px;
               .ad_name {
                 display: block;
                 width: 202px;
                 text-align: center;
                 font-size: 16px;
                 color: #000;
-                font-weight: 800;
+                font-weight: 600;
+                margin: 8px 0 0 0;
               }
               .ad_summary {
                 width: 202px;
