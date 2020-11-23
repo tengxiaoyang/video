@@ -44,14 +44,21 @@
         </div>
       </div>
       <div class="footer">
-        <div class="open_app_top">
-          <div class="left">
-            <div class="icon">
-              <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
+        <div class="open_app_top_container">
+          <div
+            :class="{ 
+              open_app_top:!show_bottom_open_app,
+              open_app_bottom:show_bottom_open_app
+            }"
+          >
+            <div class="left">
+              <div class="icon">
+                <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
+              </div>
+              <span class="text">看全集高清完整版</span>
             </div>
-            <span class="text">看全集高清完整版</span>
+            <div class="right">打开</div>
           </div>
-          <div class="right">打开</div>
         </div>
         <div class="video_introduction">
           <div class="video_name">
@@ -313,17 +320,6 @@
           </div>
         </div>
       </div>
-      
-      <div class="open_app_bottom" v-if="show_bottom_open_app">
-        <div class="left">
-          <div class="icon">
-            <img class="icon_img" src="https://i.gtimg.cn/qqlive/images/20190710/i1562744530_1.jpg" alt="">
-          </div>
-          <span class="text">看全集高清完整版</span>
-        </div>
-        <div class="right">打开</div>
-      </div>
-
       <div class="trailer_information">
         <div class="trailer_content">
           <div class="top">
@@ -1161,7 +1157,7 @@ export default {
     },
     set_bottom_open_app() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      let offsetTop = document.querySelector(".open_app_top").offsetTop;
+      let offsetTop = document.querySelector(".open_app_top_container").offsetTop;
       if (scrollTop > offsetTop) {
         this.show_bottom_open_app = true;
       } else {
@@ -1337,54 +1333,122 @@ export default {
   }
 }
 .footer {
-  .open_app_top {
-    // border: 1px solid #000;
-    border-bottom: 1px solid #F0F0F0;
-    width: 100%;
+  .open_app_top_container {
     height: 68px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    .left {
+    .open_app_top {
+      position: absolute;
+      top: 263px;
       // border: 1px solid #000;
-      flex: 1;
-      height: 38px;
+      border-bottom: 1px solid #F0F0F0;
+      width: 100%;
+      height: 68px;
+      padding: 0 12px;
       display: flex;
       align-items: center;
-      .icon {
-        width: 38px;
+      .left {
+        // border: 1px solid #000;
+        flex: 1;
         height: 38px;
-        background: #f5f5f5;
-        position: relative;
-        .icon_img {
-          border: 1px solid rgba(0,0,40,.1);
-          border-radius: 6px;
-          object-fit: contain;
-          width: 100%;
-          height: 100%;
-          position: absolute;
+        display: flex;
+        align-items: center;
+        .icon {
+          width: 38px;
+          height: 38px;
+          background: #f5f5f5;
+          position: relative;
+          .icon_img {
+            border: 1px solid rgba(0,0,40,.1);
+            border-radius: 6px;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+          }
+        }
+        .text {
+          // border: 1px solid #000;
+          display: block;
+          color: #000028;
+          font-size: 13px;
+          font-weight: 400;
+          padding: 0 10px;
         }
       }
-      .text {
+      .right {
         // border: 1px solid #000;
-        display: block;
-        color: #000028;
-        font-size: 13px;
+        width: 56px;
+        height: 28px;
+        background: rgba(255,96,34,.06);
+        color: #ff6022;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        border-radius: 16px;
         font-weight: 400;
-        padding: 0 10px;
       }
     }
-    .right {
+    .open_app_bottom {
+      position: fixed;
+      bottom: -1px;
       // border: 1px solid #000;
-      width: 56px;
-      height: 28px;
-      background: rgba(255,96,34,.06);
-      color: #ff6022;
-      font-size: 12px;
-      line-height: 28px;
-      text-align: center;
-      border-radius: 16px;
-      font-weight: 400;
+      border-bottom: 1px solid #F0F0F0;
+      width: 100%;
+      height: 68px;
+      padding: 0 12px 11px 12px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      z-index: 3;
+      box-shadow: 0 -2px 10px 0 rgba(0,0,0,.08);
+
+      animation: fadeIn .3s ease-in-out;
+      animation-fill-mode: both;
+      -webkit-animation: fadeIn .3s ease-in-out;
+      -webkit-animation-fill-mode: both;
+
+      .left {
+        // border: 1px solid #000;
+        flex: 1;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        .icon {
+          width: 36px;
+          height: 36px;
+          background: #f5f5f5;
+          position: relative;
+          .icon_img {
+            border: 1px solid rgba(0,0,40,.1);
+            border-radius: 6px;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+          }
+        }
+        .text {
+          // border: 1px solid #000;
+          display: block;
+          color: #000028;
+          font-size: 13px;
+          font-weight: 400;
+          padding: 2px 12px 0px 12px;
+        }
+      }
+      .right {
+        // border: 1px solid #000;
+        width: 56px;
+        height: 28px;
+        background: rgba(255,96,34,.06);
+        color: #ff6022;
+        font-size: 12px;
+        line-height: 28px;
+        text-align: center;
+        border-radius: 16px;
+        font-weight: 400;
+      }
+    
+
     }
   }
   .video_introduction {
@@ -1862,69 +1926,6 @@ export default {
     }   
   }
 }
-
-.open_app_bottom {
-  position: fixed;
-  bottom: -1px;
-  // border: 1px solid #000;
-  border-bottom: 1px solid #F0F0F0;
-  width: 100%;
-  height: 68px;
-  padding: 0 12px 11px 12px;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  z-index: 3;
-  box-shadow: 0 -2px 10px 0 rgba(0,0,0,.08);
-
-  animation: fadeIn .3s ease-in-out;
-  animation-fill-mode: both;
-  -webkit-animation: fadeIn .3s ease-in-out;
-  -webkit-animation-fill-mode: both;
-
-  .left {
-    // border: 1px solid #000;
-    flex: 1;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    .icon {
-      width: 36px;
-      height: 36px;
-      background: #f5f5f5;
-      position: relative;
-      .icon_img {
-        border: 1px solid rgba(0,0,40,.1);
-        border-radius: 6px;
-        object-fit: contain;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-      }
-    }
-    .text {
-      // border: 1px solid #000;
-      display: block;
-      color: #000028;
-      font-size: 13px;
-      font-weight: 400;
-      padding: 2px 12px 0px 12px;
-    }
-  }
-  .right {
-    // border: 1px solid #000;
-    width: 56px;
-    height: 28px;
-    background: rgba(255,96,34,.06);
-    color: #ff6022;
-    font-size: 12px;
-    line-height: 28px;
-    text-align: center;
-    border-radius: 16px;
-    font-weight: 400;
-  }
-}
-
 .trailer_information {
   margin: 15px 0 0 0;
   padding: 0 0 13px 0;
