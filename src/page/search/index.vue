@@ -19,7 +19,7 @@
       </div>
       <div class="content">
         <div class="item" 
-          v-for="(item, index) of search_history" 
+          v-for="(item, index) of search_history_short" 
           :key="index"
         >
           {{item.name}}
@@ -76,6 +76,7 @@ export default {
           name: "从结婚开始恋爱"
         },
       ],
+      search_history_short: [],
       selected_type: 1,
       search_option: [
         
@@ -129,6 +130,7 @@ export default {
   },
   created() {
     this.get_search(this.selected_type)
+    this.get_search_history_short(this.search_history)
   },
   mounted() {
     window.addEventListener('scroll', this.set_tab_fixed)
@@ -153,6 +155,20 @@ export default {
       // console.log(scrollTop)
       // console.log(offsetTop)
       // console.log(this.set_tab_fixed)
+    },
+    get_search_history_short(e) {
+      console.log("开始执行get_search_history_short")
+      let str_length = 0;
+      let short_e = [];
+      for (let i = 0; i < e.length; ++ i) {
+        str_length += e[i].name.length
+        if (str_length <= 35) {
+          short_e = e.slice(e.length - i - 1, e.length)
+        }
+      }
+      this.search_history_short = short_e;
+      console.log(this.search_history)
+      console.log(this.search_history_short)
     }
   }
 }
