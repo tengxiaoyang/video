@@ -16,10 +16,10 @@ export default [{
   path: '/video_details',
   component: r => require.ensure([], () => r(require('../page/video_details')), 'video_details')
 },
-// {
-//   path: '/search',
-//   component: r => require.ensure([], () => r(require('../page/search')), 'search')
-// }, 
+{
+  path: '/search',
+  component: r => require.ensure([], () => r(require('../page/search')), 'search')
+}, 
 // {
 //   path: '/more',
 //   component: r => require.ensure([], () => r(require('../page/more')), 'more')

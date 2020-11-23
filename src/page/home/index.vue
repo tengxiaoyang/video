@@ -4,7 +4,9 @@
       <div class="top">
         <div class="logo" @click="return_home"></div>
         <div class="blank"></div>
-        <div class="search">
+        <div class="search" 
+          @click="route_to('search')"
+        >
           <span class="text">{{search_text}}</span>
           <div class="icon"></div>
         </div>

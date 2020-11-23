@@ -409,25 +409,18 @@
                 <span class="ad">
                   {{item.ad}}
                 </span>
-                  
               </a>
             </div>
           </div>
         </div>
       </div>
-
       <div class="vip_all_privileges">
-        
         <span class="title">VIP全部特权</span>
-
         <div class="privilege_container">
           <div class="privilege">
-
-            
             <div 
               class="privilege_list_container_outside"
             >
-              
               <div class="privilege_list_top_container">
                 <div class="privilege_list_top" 
                   v-for="(privilege_content_item, privilege_content_index) of privilege_content.slice(0, 1)"
@@ -435,7 +428,6 @@
                   @click="route_to('privilege_details')"
                 >
                   <div class="list_header">
-
                     <div class="img_container">
                       <img lazyload :src="privilege_content_item.img" alt="">
                     </div>
@@ -453,8 +445,6 @@
                   </div>
                 </div>
               </div>
-
-
               <div class="privilege_list_container">
                 <div class="privilege_list" 
                   v-for="(privilege_content_item, privilege_content_index) of privilege_content.slice(1,privilege_content.length)"
@@ -462,7 +452,6 @@
                   @click="route_to('privilege_details')"
                 >
                   <div class="list_header">
-
                     <div class="img_container">
                       <img lazyload :src="privilege_content_item.img" alt="">
                     </div>
@@ -476,29 +465,21 @@
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
-
-          
-        
       </div>
-
-      
-      
       <div class="peripheral_recommended">
-        <div class="benefit_content">
+        <div class="peripheral_content">
           <div class="top">
             <div class="title">周边推荐</div>
           </div>
-          <div class="benefit_container">
-            <div class="benefit_outside">
-              <a class="benefit" 
+          <div class="peripheral_container">
+            <div class="peripheral_outside">
+              <a class="peripheral" 
                 v-for="(item, index) of peripheral_content" 
                 :key="index" 
-                @click="get_trailer(item.id)"
+                @click="get_peripheral(item.id)"
               >
-              
                 <div class="img_container">
                   <img lazyload :src="item.img" alt="">
                 </div>
@@ -508,7 +489,6 @@
                 <span class="download">
                   下载
                 </span>
-                  
               </a>
             </div>
           </div>
@@ -1044,12 +1024,6 @@ export default {
           name: "星光俱乐部",
           summary: "高等级用户专享服务"
         },
-        {
-          id: 0,
-          img: "static/img/zoom_white.png",
-          name: "",
-          summary: ""
-        }
       ],
       peripheral_content: [
         {
@@ -2279,8 +2253,6 @@ export default {
       position: relative;
       padding: 0 8px 0 8px;
       height: 234px;
-      
-
       .privilege_list_container_outside {
         display: flex;
         .privilege_list_container {
@@ -2289,17 +2261,18 @@ export default {
           // grid-template-columns: repeat(16, 155px);
           // grid-template-columns: 155px;
           grid-auto-flow: column;
-          background: #f2f2f2;
           height: 191px;
           position: relative;
           top: 11px;
           .privilege_list {
             // border: 1px solid #000;
             background: #fff;
-            margin: -1px 0 2px 1px;
+            // margin: -1px 0 2px 1px;
             position: relative;
-            right: 2px;
+            // right: 2px;
             width: 155px;
+            border-right: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
             .list_header {
               display: flex;
               align-items: center;
@@ -2450,7 +2423,7 @@ export default {
   padding: 0 0 13px 0;
   height: 275px;
   // border-bottom: 1px solid #F0F0F0;
-  .benefit_content {
+  .peripheral_content {
     .top {
       display: flex;
       align-items: flex-end;
@@ -2462,18 +2435,18 @@ export default {
         flex: 1;
       }
     }
-    .benefit_container {
+    .peripheral_container {
       overflow: hidden;
       margin: 14px 0 0 0;
       height: 136px;
       white-space: nowrap;
-      .benefit_outside {
+      .peripheral_outside {
         overflow: hidden;
         overflow-x: scroll;
         position: relative;
         padding: 0 8px 0 16px;
         height: 146px;
-        .benefit {
+        .peripheral {
           display: inline-block;
           width: 113px;
           vertical-align: middle;
