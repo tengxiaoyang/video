@@ -43,7 +43,7 @@ export default {
     .search_logo {
       background: url(https://vm.gtimg.cn/tencentvideo/vstyle/mobile/v2/style/img/common/search_logo.png);
       background-size: cover;
-      width: 75px;
+      width: 78px;
       height: 29px;
     }
     .search_box {

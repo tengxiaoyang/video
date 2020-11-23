@@ -1160,15 +1160,15 @@ export default {
       console.log(this.video_content)
     },
     set_bottom_open_app() {
-      let page_scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      let open_app_top_scroll_demand = document.querySelector(".open_app_top").offsetTop;
-      if (page_scroll > open_app_top_scroll_demand) {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      let offsetTop = document.querySelector(".open_app_top").offsetTop;
+      if (scrollTop > offsetTop) {
         this.show_bottom_open_app = true;
       } else {
         this.show_bottom_open_app = false;
       };
-      // console.log(page_scroll)
-      // console.log(open_app_top_scroll_demand)
+      // console.log(scrollTop)
+      // console.log(offsetTop)
       // console.log(this.show_bottom_open_app)
     }
   }
@@ -1341,7 +1341,7 @@ export default {
     // border: 1px solid #000;
     border-bottom: 1px solid #F0F0F0;
     width: 100%;
-    height: 65px;
+    height: 68px;
     padding: 0 12px;
     display: flex;
     align-items: center;
