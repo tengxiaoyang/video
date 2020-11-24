@@ -154,7 +154,7 @@ export default {
         {
           num: 1,
           name: "演员请就位 第2季",
-          rise: true,
+          rise: undefined,
         },
         {
           num: 2,
@@ -169,22 +169,22 @@ export default {
         {
           num: 4,
           name: "爱的厘米",
-          rise: false,
+          rise: true,
         },
         {
           num: 5,
           name: "狼殿下",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 6,
           name: "燕云台",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 7,
           name: "隐秘而伟大",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 8,
@@ -194,7 +194,7 @@ export default {
         {
           num: 9,
           name: "令人心动的offer 第2季",
-          rise: false,
+          rise: true,
         },
         {
           num: 10,
@@ -209,12 +209,12 @@ export default {
         {
           num: 12,
           name: "2020中国好声音",
-          rise: false,
+          rise: true,
         },
         {
           num: 13,
           name: "小猪佩奇第7季",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 14,
@@ -224,17 +224,17 @@ export default {
         {
           num: 15,
           name: "奥特银河格斗 巨大阴谋 日语版",
-          rise: false,
+          rise: true,
         },
         {
           num: 16,
           name: "红色",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 17,
           name: "最初的相遇，最后的别离",
-          rise: false,
+          rise: true,
         },
         {
           num: 18,
@@ -249,7 +249,7 @@ export default {
         {
           num: 20,
           name: "瞄准",
-          rise: false,
+          rise: true,
         },
         {
           num: 21,
@@ -264,12 +264,12 @@ export default {
         {
           num: 23,
           name: "陈情令",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 24,
           name: "鹿鼎记",
-          rise: false,
+          rise: true,
         },
         {
           num: 25,
@@ -284,17 +284,17 @@ export default {
         {
           num: 27,
           name: "使徒行者3[普通话版]",
-          rise: false,
+          rise: true,
         },
         {
           num: 28,
           name: "全职高手 第2季",
-          rise: false,
+          rise: true,
         },
         {
           num: 29,
           name: "王牌对王牌",
-          rise: false,
+          rise: undefined,
         },
         {
           num: 30,
