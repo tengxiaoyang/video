@@ -439,6 +439,7 @@
                       {{privilege_content_item.ad_summary}}
                     </span>
                   </div>
+                  <div class="privilege_blank" :style="{width: blank_width*privilege_content.length/2 + 'px'}"></div>
                 </div>
               </div>
               <div class="privilege_list_container">
@@ -1073,6 +1074,7 @@ export default {
           name: "战歌竞技场",
         },
       ],
+      blank_width: 156
     }
   },
   created() {
@@ -2408,6 +2410,15 @@ export default {
 
                 white-space: normal;
               }
+            }
+            .privilege_blank {
+              width: 156px;
+              height: 7px;
+              background: #fff;
+              z-index: 1;
+              position: absolute;
+              top: 201px;
+              left: 232px;
             }
           }
         }

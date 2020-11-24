@@ -13,7 +13,7 @@
       <div class="search_cancel">返回</div>
     </div>
     <div class="search_history">
-      <div class="title">
+      <div class="title" v-if="search_history.length!==0">
         <div class="text">搜索历史</div>
         <div class="clear"></div>
       </div>
@@ -161,7 +161,7 @@ export default {
       let str_length = 0;
       let short_e = [];
       for (let i = 0; i < e.length; ++ i) {
-        str_length += e[i].name.length
+        str_length += e[i].name.length;
         if (str_length <= 35) {
           short_e = e.slice(e.length - i - 1, e.length)
         }
@@ -284,7 +284,7 @@ export default {
     height: 37px;
     background: #fff;
     z-index: 1;
-    top: 53px;
+    top: 56px;
     overflow: hidden;
     overflow-x: auto;
     background: #fff;
