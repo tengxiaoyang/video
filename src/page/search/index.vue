@@ -45,7 +45,19 @@
     </div>
     <div class="list" 
       :class="{list_margin:tab_fixed}"
-    ></div>
+    >
+      <div class="list_item"
+        v-for="(item, index) of hot_list" 
+        :key="index" 
+      >
+        <div class="num">{{item.num}}</div>
+        <div class="name">{{item.name}}</div>
+        <div class="rise">
+          <img src="" alt="" v-if="item.rise===true">
+          <img src="" alt="" v-if="item.rise===false">
+        </div>
+      </div>
+    </div>
     
   </div>
 </template>
@@ -126,6 +138,158 @@ export default {
         },
       ],
       tab_fixed: false,
+      hot_list: [
+        {
+          num: 1,
+          name: "演员请就位 第2季",
+          rise: true,
+        },
+        {
+          num: 2,
+          name: "哈哈哈哈哈",
+          rise: true,
+        },
+        {
+          num: 3,
+          name: "斗罗大陆",
+          rise: false,
+        },
+        {
+          num: 4,
+          name: "爱的厘米",
+          rise: false,
+        },
+        {
+          num: 5,
+          name: "狼殿下",
+          rise: false,
+        },
+        {
+          num: 6,
+          name: "燕云台",
+          rise: false,
+        },
+        {
+          num: 7,
+          name: "隐秘而伟大",
+          rise: false,
+        },
+        {
+          num: 8,
+          name: "从结婚开始恋爱",
+          rise: false,
+        },
+        {
+          num: 9,
+          name: "令人心动的offer 第2季",
+          rise: false,
+        },
+        {
+          num: 10,
+          name: "我们的歌 第2季",
+          rise: false,
+        },
+        {
+          num: 11,
+          name: "姜子牙",
+          rise: false,
+        },
+        {
+          num: 12,
+          name: "2020中国好声音",
+          rise: false,
+        },
+        {
+          num: 13,
+          name: "小猪佩奇第7季",
+          rise: false,
+        },
+        {
+          num: 14,
+          name: "德云斗笑社",
+          rise: false,
+        },
+        {
+          num: 15,
+          name: "奥特银河格斗 巨大阴谋 日语版",
+          rise: false,
+        },
+        {
+          num: 16,
+          name: "红色",
+          rise: false,
+        },
+        {
+          num: 17,
+          name: "最初的相遇，最后的别离",
+          rise: false,
+        },
+        {
+          num: 18,
+          name: "幸福三重奏 第3季",
+          rise: false,
+        },
+        {
+          num: 19,
+          name: "汪汪队立大功第二季",
+          rise: undefined,
+        },
+        {
+          num: 20,
+          name: "瞄准",
+          rise: false,
+        },
+        {
+          num: 21,
+          name: "令人心动的offer",
+          rise: false,
+        },
+        {
+          num: 22,
+          name: "八佰",
+          rise: false,
+        },
+        {
+          num: 23,
+          name: "陈情令",
+          rise: false,
+        },
+        {
+          num: 24,
+          name: "鹿鼎记",
+          rise: false,
+        },
+        {
+          num: 25,
+          name: "熊出没之丛林总动员",
+          rise: false,
+        },
+        {
+          num: 26,
+          name: "奔跑吧 第4季",
+          rise: false,
+        },
+        {
+          num: 27,
+          name: "使徒行者3[普通话版]",
+          rise: false,
+        },
+        {
+          num: 28,
+          name: "全职高手 第2季",
+          rise: false,
+        },
+        {
+          num: 29,
+          name: "王牌对王牌",
+          rise: false,
+        },
+        {
+          num: 30,
+          name: "斗破苍穹 第3季",
+          rise: false,
+        },
+      ]
     }
   },
   created() {
@@ -277,6 +441,7 @@ export default {
     }
   }
   .tab {
+    margin: -3px 0 0 0;
     position: sticky;
     display: flex;
     align-items: center;
@@ -361,12 +526,41 @@ export default {
 
   .list {
     width: 100%;
-    height: 1200px;
-    border: 1px solid #000;
+    // height: 1200px;
+    // border: 1px solid #000;
     position: relative;
+    padding: 0 0 0 10px;
+    margin: 8px 0 0 0;
+    .list_item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ebebeb;
+      height: 41px;
+      .num {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        background: #e6e6e6;
+        color: #878787;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+      }
+      .name {
+        flex: 1;
+        color: #4c4c4c;
+        font-size: 14px;
+        font-weight: 400;
+        height: 16px;
+        line-height: 16px;
+      }
+    }
   }
   .list_margin {
-    margin: 36px 0 0 0;
+    margin: 45px 0 0 0;
   }
 }
 
