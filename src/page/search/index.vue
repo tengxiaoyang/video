@@ -10,12 +10,16 @@
           </div>
         </div>
       </div>
-      <div class="search_cancel">返回</div>
+      <div class="search_cancel" 
+        @click="route_to('/')"
+      >返回</div>
     </div>
     <div class="search_history">
       <div class="title" v-if="search_history.length!==0">
         <div class="text">搜索历史</div>
-        <div class="clear"></div>
+        <div class="clear" 
+          @click="clear_search_history"
+        ></div>
       </div>
       <div class="content">
         <div class="item" 
@@ -49,12 +53,20 @@
       <div class="list_item"
         v-for="(item, index) of hot_list" 
         :key="index" 
+        @click="add_to_search_history(item.num)"
       >
-        <div class="num">{{item.num}}</div>
+        <div 
+          class="num" :class="{
+            num_red: item.num === 1,
+            num_orange: item.num === 2,
+            num_yellow: item.num === 3,
+          }"
+        >{{item.num}}</div>
         <div class="name">{{item.name}}</div>
         <div class="rise">
-          <img src="" alt="" v-if="item.rise===true">
-          <img src="" alt="" v-if="item.rise===false">
+          <img src="../../../public/static/img/rise.png" alt="" v-if="item.rise===true">
+          <img src="../../../public/static/img/fall.png" alt="" v-if="item.rise===false">
+          <img src="../../../public/static/img/undefined.png" alt="" v-if="item.rise===undefined">
         </div>
       </div>
     </div>
@@ -333,6 +345,23 @@ export default {
       this.search_history_short = short_e;
       console.log(this.search_history)
       console.log(this.search_history_short)
+    },
+    route_to(e) {
+      this.$router.push({path: e});
+    },
+    clear_search_history() {
+      this.search_history = [];
+      this.search_history_short = [];
+    },
+    add_to_search_history(e) {
+      for (let i = 0; i < this.hot_list.length; ++ i) {
+        if (this.hot_list[i].num === e) {
+          this.search_history.push(this.hot_list[i]);
+        }
+      }
+      console.log(this.hot_list)
+      console.log(this.search_history)
+      this.get_search_history_short(this.search_history);
     }
   }
 }
@@ -441,7 +470,7 @@ export default {
     }
   }
   .tab {
-    margin: -3px 0 0 0;
+    // margin: -3px 0 0 0;
     position: sticky;
     display: flex;
     align-items: center;
@@ -449,7 +478,7 @@ export default {
     height: 37px;
     background: #fff;
     z-index: 1;
-    top: 56px;
+    top: 53px;
     overflow: hidden;
     overflow-x: auto;
     background: #fff;
@@ -529,13 +558,13 @@ export default {
     // height: 1200px;
     // border: 1px solid #000;
     position: relative;
-    padding: 0 0 0 10px;
+    padding: 0 3px 0 12px;
     margin: 8px 0 0 0;
     .list_item {
       display: flex;
       align-items: center;
       border-bottom: 1px solid #ebebeb;
-      height: 41px;
+      height: 50px;
       .num {
         display: inline-block;
         width: 16px;
@@ -544,7 +573,54 @@ export default {
         background: #e6e6e6;
         color: #878787;
         font-size: 12px;
-        line-height: 16px;
+        font-weight: 400;
+        font-family: PingFangSC-Regular, "Helvetica Neue", tahoma, arial, sans-serif;
+        line-height: 17px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+      }
+      .num_red {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        background: #e42818;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: PingFangSC-Regular, "Helvetica Neue", tahoma, arial, sans-serif;
+        line-height: 17px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+      }
+      .num_orange {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        background: #ff7100;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: PingFangSC-Regular, "Helvetica Neue", tahoma, arial, sans-serif;
+        line-height: 17px;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0 5px 0 0;
+      }
+      .num_yellow {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        background: #ffb900;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        font-family: PingFangSC-Regular, "Helvetica Neue", tahoma, arial, sans-serif;
+        line-height: 17px;
         text-align: center;
         vertical-align: middle;
         margin: 0 5px 0 0;
@@ -556,6 +632,18 @@ export default {
         font-weight: 400;
         height: 16px;
         line-height: 16px;
+      }
+      .rise {
+        width: 11px;
+        height: 11px;
+        display: flex;
+        align-items: center;
+        margin: 0 11px 0 0;
+        img {
+          object-fit: contain;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
