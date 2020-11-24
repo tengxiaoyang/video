@@ -4,8 +4,12 @@
       <div class="search_logo"></div>
       <div class="search_box">
         <div class="search_box_inner">
-          <input class="search_text" type="search" :placeholder="search_text">
-          <div class="clear_button">
+          <input class="search_text"  
+            v-model="search_text" 
+            :placeholder="search_text">
+          <div class="clear_button"         
+            @click="claer_search_text"
+          >
             <img src="../../../public/static/img/close.png" alt="">
           </div>
         </div>
@@ -362,6 +366,9 @@ export default {
       console.log(this.hot_list)
       console.log(this.search_history)
       this.get_search_history_short(this.search_history);
+    },
+    claer_search_text() {
+      this.search_text = "";
     }
   }
 }
