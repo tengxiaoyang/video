@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
+  <div class="feeds_block_container">
     <div class="feeds_block" 
-      v-for="(video_content_item, video_content_index) of video_content" 
+      v-for="(video_content_item, video_content_index) of video_content.slice(1,video_content.length)" 
       :key="video_content_index"  
     >
       <div class="feeds_block_container" 
@@ -208,7 +208,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.main {
+.feeds_block_container {
   .feeds_block {
     .title {
       color: #000;

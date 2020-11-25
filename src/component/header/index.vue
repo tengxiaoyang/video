@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div class="header_container">
     <div class="header">
       <div class="top">
         <div class="logo" @click="return_home"></div>
@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.main {
+.header_container {
   .header {
     position: fixed;
     top: 0;

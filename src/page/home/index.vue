@@ -5,7 +5,7 @@
       <SwiperSix :video_content="video_content"></SwiperSix>
       <FeedsBlock :video_content="video_content"></FeedsBlock>
     </div>
-    <ListView v-if="selected_type===5"></ListView>
+    <ListView :video_content="video_content" v-if="selected_type===5"></ListView>
   </div>
 </template>
 
@@ -15,7 +15,6 @@ import Header from "../../component/header";
 import SwiperSix from "../../component/swiper-six";
 import FeedsBlock from "../../component/feeds_block";
 import ListView from "../../component/list_view";
-
 export default {
   components: {
     Header,

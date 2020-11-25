@@ -1,8 +1,8 @@
 <template>
-  <div class="main">
-    <div class="swiper_container"
-      v-for="(video_content_item, video_content_index) of video_content" 
-      :key="video_content_index"
+  <div class="swiper">
+    <div class="top_swiper"
+      v-for="(video_content_item, video_content_index) of video_content.slice(0, 1)" 
+      :key="'swiper-'+video_content_index"
     >
       <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions" v-if="video_content.indexOf(video_content_item)===0">
         <swiper-slide 
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.main {
+.swiper {
   .video_swiper {
     background: -webkit-linear-gradient(90deg,#f2f4f5,#fff 59%);
     margin: 6px 0 0 0;

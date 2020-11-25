@@ -1,6 +1,6 @@
 <template>
-  <div class="main">
-    <div class="list_view" v-if="selected_type===5">
+  <div class="list_view_container">
+    <div class="list_view">
       <div class="video_list_container" 
         v-for="(video_content_item, video_content_index) of video_content" 
         :key="'list_view-'+video_content_index"
@@ -49,67 +49,28 @@
 </template>
 
 <script>
-import HttpClient from '../../config/ajax.js';
 export default {
   name: 'ListView',
-  data() {
-    return {
-      selected_type: 5,
-      video_content: [],
+  props: {
+    video_content: {
+      type: Array
     }
   },
-  created() {
-    this.get_video(this.selected_type)
+  data() {
+    return {
+      
+    }
   },
   methods: {
-    return_home() {
-      this.selected_type = 1;
-      this.get_video(this.selected_type)
-    },
     route_to(e) {
       this.$router.push({path: e})
-    },
-    get_video(e) {
-      console.log("执行get_video")
-      HttpClient.getList({  
-        params: { type:  e },  
-        callback: (res) => {
-          console.log("执行callback");
-          console.log(e);
-          console.log(res);
-          console.log(res.data);
-          console.log(res.data.data);
-          console.log(this.video_content);
-          this.video_content = res.data.data;
-          if (e === 1) {
-            console.log(this.video_content[1].title)
-            this.video_content[1].title = "重磅热播";
-            console.log(this.video_content[1].title)
-          }
-          console.log(this.video_content.length);
-          for (let i = 0; i < this.video_content.length; ++ i) {
-            console.log(this.video_content[i])
-            if (!this.video_content[i].change_block_list) {
-              this.$set(this.video_content[i], "change_block_list", false)
-            } 
-          }
-          console.log(this.video_content)
-          console.log(res.data.data[0].list)
-          // this.swiper_content = res.data.data[0].list;
-          console.log(this.video_content)
-          this.selected_type = e;
-          this.swiper.slideTo(1, 0, false)
-          console.log("执行完callback");
-        } 
-      });
-      console.log("执行完get_video")
     },
   }
 }
 </script>
 
 <style lang="less" scoped>
-.main {
+.list_view_container {
   .list_view {
     background-color: #f5f7f9;
     position: relative;
