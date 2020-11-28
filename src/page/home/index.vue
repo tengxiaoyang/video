@@ -16,6 +16,23 @@
         @change_type="change_data($event)"
       ></Nav>
     </div>
+
+    <div class="item"
+      v-for="(video_content_item, video_content_index) of video_content" 
+      :key="video_content_index"
+    >
+      <div class="type_channel" 
+        v-if="video_content_item.type!==5"
+      >
+      
+      </div>
+      <div class="type_list" 
+        v-if="video_content_item.type===5"
+      >
+      
+      </div>
+    </div>
+
     <div class="channel">
       <MainSwiper 
         :video_content="swiper_content"
