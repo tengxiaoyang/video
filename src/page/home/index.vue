@@ -1,24 +1,51 @@
 <template>
-  <div class="home_container">
-    <Header @change_type="change_data($event)"></Header>
-    <div class="channel" v-if="selected_type!==5">
-      <SwiperSix :video_content="video_content"></SwiperSix>
-      <FeedsBlock :video_content="video_content"></FeedsBlock>
+  <div class="home">
+    <div class="header">
+      <div class="top">
+        <div class="logo" @click="return_home"></div>
+        <div class="blank"></div>
+        <div class="search" 
+          @click="route_to('search')"
+        >
+          <span class="text">{{search_text}}</span>
+          <div class="icon"></div>
+        </div>
+      </div>
+      <Nav 
+        :video_option="video_option"
+        @change_type="change_data($event)"
+      ></Nav>
     </div>
-    <ListView :video_content="video_content" v-if="selected_type===5"></ListView>
+    <div class="channel">
+      <MainSwiper 
+        :video_content="swiper_content"
+      ></MainSwiper>
+      <div 
+        class="FeedsBlockContainer" 
+      >
+        <FeedsBlock 
+          v-for="(video_content_item, video_content_index) of video_content.slice(1, video_content.length)" 
+          :key="video_content_index"
+          :video_content="video_content_item"
+        ></FeedsBlock>
+      </div>
+      <div class="ListViewContainer"></div>
+      <ListView 
+        :video_content="video_content"></ListView>
+    </div>
   </div>
 </template>
 
 <script>
 import HttpClient from '../../config/ajax.js';
-import Header from "../../component/header";
-import SwiperSix from "../../component/swiper-six";
-import FeedsBlock from "../../component/feeds_block";
-import ListView from "../../component/list_view";
+import Nav from "../../component/Nav";
+import MainSwiper from "../../component/MainSwiper";
+import FeedsBlock from "../../component/FeedsBlock";
+import ListView from "../../component/ListView";
 export default {
   components: {
-    Header,
-    SwiperSix,
+    Nav,
+    MainSwiper,
     FeedsBlock,
     ListView
   },
@@ -26,7 +53,47 @@ export default {
   data() {
     return {
       selected_type: 1,
+      search_text: "使徒行者3",
+      video_option: [
+        {
+          type: 1,
+          option_name: "电影",
+        },
+        {
+          type: 2,
+          option_name: "电视剧",
+        },
+        {
+          type: 3,
+          option_name: "综艺",
+        },
+        {
+          type: 4,
+          option_name: "动漫",
+        },
+        {
+          type: 5,
+          option_name: "娱乐",
+        },
+        {
+          type: 6,
+          option_name: "少儿",
+        },
+        {
+          type: 7,
+          option_name: "VIP",
+        },
+        {
+          type: 8,
+          option_name: "潮音",
+        },
+        {
+          type: 9,
+          option_name: "游戏",
+        },
+      ],
       video_content: [],
+      swiper_content: []
     }
   },
   computed: {
@@ -56,6 +123,7 @@ export default {
           console.log(res.data.data);
           console.log(this.video_content);
           this.video_content = res.data.data;
+          this.swiper_content = res.data.data[0].list
           if (e === 1) {
             console.log(this.video_content[1].title)
             this.video_content[1].title = "重磅热播";
@@ -78,6 +146,7 @@ export default {
         } 
       });
       console.log("执行完get_video")
+      console.log(this.video_content)
     },
     show_change_list(video_content_index,$event) {
       this.current = video_content_index;

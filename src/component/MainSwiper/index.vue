@@ -1,37 +1,32 @@
 <template>
-  <div class="swiper">
-    <div class="top_swiper"
-      v-for="(video_content_item, video_content_index) of video_content.slice(0, 1)" 
-      :key="'swiper-'+video_content_index"
-    >
-      <swiper class="video_swiper" ref="mySwiper" :options="swiperOptions" v-if="video_content.indexOf(video_content_item)===0">
-        <swiper-slide 
-        v-for="(item, index) of video_content_item.list" 
-        :key="index" 
-        @click="route_to('video_details')"
-        >
-          <div class="img_container">
-            <img lazyload 
-              :src="item.img" alt="" @click="route_to('video_details')"
-            >
-            <div class="top_left_corner">
-              <div class="triangle"></div>
-              <span class="free" v-if="item.vip===0">独播</span>
-              <span class="vip" v-if="item.vip===10">VIP</span>
-            </div>
-            <div class="bottom_right_corner">{{item.score}}</div>
+  <div class="video_swiper">
+    <swiper class="swiper" ref="mySwiper" :options="swiperOptions" >
+      <swiper-slide 
+      v-for="(item, index) of video_content" 
+      :key="index" 
+      @click="route_to('video_details')"
+      >
+        <div class="img_container">
+          <img lazyload 
+            :src="item.img" alt="" @click="route_to('video_details')"
+          >
+          <div class="top_left_corner">
+            <div class="triangle"></div>
+            <span class="free" v-if="item.vip===0">独播</span>
+            <span class="vip" v-if="item.vip===10">VIP</span>
           </div>
-          <span class="title">【{{item.name}}】{{item.summary}}</span>
-        </swiper-slide>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
-    </div>
+          <div class="bottom_right_corner">{{item.score}}</div>
+        </div>
+        <span class="title">【{{item.name}}】{{item.summary}}</span>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SwiperSix',
+  name: 'MainSwiper',
   props: {
     video_content: {
       type: Array
@@ -70,20 +65,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.swiper {
-  .video_swiper {
+.video_swiper {
+  .swiper {
     background: -webkit-linear-gradient(90deg,#f2f4f5,#fff 59%);
     margin: 6px 0 0 0;
     .swiper-slide {
-      // width: 100%;
-      // height: 240px;
-      // border: 1px solid #000;
       .img_container {
-        // width: 100%;
-        // height: 195px;
         display: flex;
         justify-content: center;
-        // border: 1px solid #000;
         padding: 0 15px;
         img {
           object-fit: contain;
@@ -92,8 +81,6 @@ export default {
         }
         .top_left_corner {
           position: absolute;
-          // border: 1px solid #f09;
-          /* width: 164px; */
           height: 15px;
           top: 0;
           left: 0;
@@ -102,10 +89,7 @@ export default {
           font-weight: 400;
           color: #fff;
           padding: 0 0 0 8px;
-          // background-color: rgba(162,162,182,.5);
           .triangle {
-            // border: 6px solid;
-            // border-color: transparent transparent transparent #FF6600;
             border-left: 7px solid #FF6600;
             border-right: 7px solid transparent;
             border-top: 5px solid transparent;
@@ -125,8 +109,6 @@ export default {
         }
         .bottom_right_corner {
           position: absolute;
-          // border: 1px solid #f09;
-          // width: 30px;
           height: 16px;
           bottom: 0;
           right: 0;
@@ -139,7 +121,6 @@ export default {
       }
       .title {
         display: block;
-        // border: 1px solid #000;
         padding: 0 0 0 21px;
         height: 43px;
         width: calc(100% - 54px);
@@ -164,7 +145,6 @@ export default {
       word-spacing: -4.5px;
       letter-spacing: 0px;
       display: inline-block;
-      // border: 1px solid #000;
       width: 54px;
       height: 43px;
       left: calc(100% - 54px);
