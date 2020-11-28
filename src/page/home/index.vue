@@ -1,20 +1,22 @@
 <template>
   <div class="home">
-    <div class="header">
-      <div class="top">
-        <div class="logo" @click="return_home"></div>
-        <div class="blank"></div>
-        <div class="search" 
-          @click="route_to('search')"
-        >
-          <span class="text">{{search_text}}</span>
-          <div class="icon"></div>
+    <div class="header_container">
+      <div class="header">
+        <div class="top">
+          <div class="logo" @click="return_home"></div>
+          <div class="blank"></div>
+          <div class="search" 
+            @click="route_to('search')"
+          >
+            <span class="text">{{search_text}}</span>
+            <div class="icon"></div>
+          </div>
         </div>
+        <Nav 
+          :video_option="video_option"
+          @change_type="change_data($event)"
+        ></Nav>
       </div>
-      <Nav 
-        :video_option="video_option"
-        @change_type="change_data($event)"
-      ></Nav>
     </div>
 
     <div class="item"
@@ -24,7 +26,15 @@
       <div class="type_channel" 
         v-if="video_content_item.type!==5"
       >
-      
+        <MainSwiper 
+          v-if="video_content.indexOf(video_content_item)===0"
+          :video_content="video_content_item.list"
+        ></MainSwiper>
+        
+        <FeedsBlock 
+          v-if="video_content.indexOf(video_content_item)!==0" 
+          :video_content="video_content_item"
+        ></FeedsBlock>
       </div>
       <div class="type_list" 
         v-if="video_content_item.type===5"
@@ -33,7 +43,7 @@
       </div>
     </div>
 
-    <div class="channel">
+    <!-- <div class="channel">
       <MainSwiper 
         :video_content="swiper_content"
       ></MainSwiper>
@@ -49,7 +59,7 @@
       <div class="ListViewContainer"></div>
       <ListView 
         :video_content="video_content"></ListView>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -342,6 +352,9 @@ export default {
       }
     }
   }
+}
+.header_container {
+  height: 91px;
 }
 .channel {
   position: relative;
