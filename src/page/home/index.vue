@@ -39,7 +39,9 @@
       <div class="type_list" 
         v-if="video_content_item.type===5"
       >
-      
+        <ListView 
+          :video_content="video_content_item.list[0]"
+        ></ListView>
       </div>
     </div>
 
