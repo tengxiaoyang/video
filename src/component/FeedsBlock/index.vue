@@ -10,7 +10,7 @@
           @click="route_to('video_details')"
         >
           <div class="img_container">
-            <img lazyload :src="video_list_item.img" alt="">
+            <img :src="video_list_item.img" alt="">
             <div class="top_left_corner">
               <div class="triangle"></div>
               <span class="free" v-if="video_list_item.vip===0">独播</span>
@@ -38,7 +38,7 @@
           @click="route_to('video_details')"
         >
           <div class="img_container">
-            <img lazyload :src="video_list_item.img" alt="">
+            <img :src="video_list_item.img" alt="">
             <div class="top_left_corner">
               <div class="triangle"></div>
               <span class="free" v-if="video_list_item.vip===0">独播</span>
@@ -62,7 +62,7 @@
           @click="route_to('video_details')"
         >
           <div class="img_container">
-            <img lazyload :src="video_list_item.img" alt="">
+            <img :src="video_list_item.img" alt="">
             <div class="top_left_corner">
               <div class="triangle"></div>
               <span class="free" v-if="video_list_item.vip===0">独播</span>

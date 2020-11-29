@@ -1,24 +1,21 @@
 <template>
   <div class="home">
-    <div class="header_container">
-      <div class="header">
-        <div class="top">
-          <div class="logo" @click="return_home"></div>
-          <div class="blank"></div>
-          <div class="search" 
-            @click="route_to('search')"
-          >
-            <span class="text">{{search_text}}</span>
-            <div class="icon"></div>
-          </div>
+    <div class="top">
+      <div class="top_inner">
+        <div class="logo" @click="return_home"></div>
+        <div class="blank"></div>
+        <div class="search" 
+          @click="route_to('search')"
+        >
+          <span class="text">{{search_text}}</span>
+          <div class="icon"></div>
         </div>
-        <Nav 
-          :video_option="video_option"
-          @change_type="change_data($event)"
-        ></Nav>
       </div>
     </div>
-
+    <Nav 
+      :video_option="video_option"
+      @change_type="change_data($event)"
+    ></Nav>
     <div class="item"
       v-for="(video_content_item, video_content_index) of video_content" 
       :key="video_content_index"
@@ -188,21 +185,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background: #fff;
-  height: 91px;
-  .top {
-    position: relative;
+.top {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  .top_inner {
+    position: fixed;
     height: 45px;
     background: #fff;
     width: 100vw;
-    // display: flex;
-    // align-items: center;
-    // border: 1px solid #000;
+    z-index: 2;
     .logo {
       display: inline-block;
       position: absolute;
@@ -247,98 +239,95 @@ export default {
       }
     }
   }
-  .nav {
+}
+.nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  background: #fff;
+  margin: 3px 0 0 0;
+  position: relative;
+  top: 6px;
+  // border: 1px solid #000;
+  .option_outside {
+    width: 97vw;
+    height: 47px;
+    overflow: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    position: relative;
+    // padding: 0 0 0 13px;
+    // left: 13px;
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 35px;
-    overflow: hidden;
-    background: #fff;
-    margin: 3px 0 0 0;
-    position: relative;
-    top: 6px;
     // border: 1px solid #000;
-    .option_outside {
-      width: 97vw;
-      height: 47px;
-      overflow: hidden;
-      overflow-x: scroll;
-      white-space: nowrap;
-      position: relative;
-      // padding: 0 0 0 13px;
-      // left: 13px;
-      display: flex;
-      align-items: center;
+    .active_option {
+      display: inline-block;
+      // width: 51px;
+      height: 45px;
+      // margin: 0 20px 0 0;
+      // text-align: center;
       // border: 1px solid #000;
-      .active_option {
-        display: inline-block;
-        // width: 51px;
-        height: 45px;
-        // margin: 0 20px 0 0;
-        // text-align: center;
-        // border: 1px solid #000;
+      line-height: 38px;
+      font-size: 17px;
+      color: #ff6022;
+      font-weight: 800;
+      margin: 0 10px;
+      span {
         line-height: 38px;
         font-size: 17px;
         color: #ff6022;
         font-weight: 800;
-        margin: 0 10px;
-        span {
-          line-height: 38px;
-          font-size: 17px;
-          color: #ff6022;
-          font-weight: 800;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          
-          i {
-            display: block;
-            width: 12px;
-            border-bottom: 2px solid #ff6022;
-            // margin: 0 11px;
-            position: relative;
-            bottom: 5px;
-            // border: 1px solid #000;
-          }
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+        i {
+          display: block;
+          width: 12px;
+          border-bottom: 2px solid #ff6022;
+          // margin: 0 11px;
+          position: relative;
+          bottom: 5px;
+          // border: 1px solid #000;
         }
       }
-      a {
-        display: inline-block;
-        // width: 51px;
-        height: 45px;
-        // margin: 0 20px 0 0;
-        // text-align: center;
-        // border: 1px solid #000;
+    }
+    a {
+      display: inline-block;
+      // width: 51px;
+      height: 45px;
+      // margin: 0 20px 0 0;
+      // text-align: center;
+      // border: 1px solid #000;
+      line-height: 38px;
+      font-size: 17px;
+      color: #000;
+      font-weight: 800;
+      margin: 0 10px;
+      span {
         line-height: 38px;
         font-size: 17px;
         color: #000;
         font-weight: 800;
-        margin: 0 10px;
-        span {
-          line-height: 38px;
-          font-size: 17px;
-          color: #000;
-          font-weight: 800;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          
-          i {
-            display: block;
-            width: 12px;
-            border-bottom: 2px solid #fff;
-            // margin: 0 11px;
-            position: relative;
-            bottom: 5px;
-            // border: 1px solid #000;
-          }
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+        i {
+          display: block;
+          width: 12px;
+          border-bottom: 2px solid #fff;
+          // margin: 0 11px;
+          position: relative;
+          bottom: 5px;
+          // border: 1px solid #000;
         }
       }
     }
   }
-}
-.header_container {
-  height: 91px;
 }
 .channel {
   position: relative;
