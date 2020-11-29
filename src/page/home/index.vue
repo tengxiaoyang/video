@@ -26,10 +26,10 @@
       <div class="type_channel" 
         v-if="video_content_item.type!==5"
       >
-        <MainSwiper 
+        <VideoSwiper
           v-if="video_content.indexOf(video_content_item)===0"
           :video_content="video_content_item.list"
-        ></MainSwiper>
+        ></VideoSwiper>
         
         <FeedsBlock 
           v-if="video_content.indexOf(video_content_item)!==0" 
@@ -44,37 +44,19 @@
         ></ListView>
       </div>
     </div>
-
-    <!-- <div class="channel">
-      <MainSwiper 
-        :video_content="swiper_content"
-      ></MainSwiper>
-      <div 
-        class="FeedsBlockContainer" 
-      >
-        <FeedsBlock 
-          v-for="(video_content_item, video_content_index) of video_content.slice(1, video_content.length)" 
-          :key="video_content_index"
-          :video_content="video_content_item"
-        ></FeedsBlock>
-      </div>
-      <div class="ListViewContainer"></div>
-      <ListView 
-        :video_content="video_content"></ListView>
-    </div> -->
   </div>
 </template>
 
 <script>
 import HttpClient from '../../config/ajax.js';
 import Nav from "../../component/Nav";
-import MainSwiper from "../../component/MainSwiper";
+import VideoSwiper from "../../component/VideoSwiper";
 import FeedsBlock from "../../component/FeedsBlock";
 import ListView from "../../component/ListView";
 export default {
   components: {
     Nav,
-    MainSwiper,
+    VideoSwiper,
     FeedsBlock,
     ListView
   },

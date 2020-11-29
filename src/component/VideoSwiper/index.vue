@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'MainSwiper',
+  name: 'VideoSwiper',
   props: {
     video_content: {
       type: Array
