@@ -51,13 +51,13 @@ import VideoSwiper from "../../component/VideoSwiper";
 import FeedsBlock from "../../component/FeedsBlock";
 import ListView from "../../component/ListView";
 export default {
+  name: 'home',
   components: {
     Nav,
     VideoSwiper,
     FeedsBlock,
     ListView
   },
-  name: 'home',
   data() {
     return {
       selected_type: 1,

@@ -17,35 +17,8 @@
           </div>
         </div>
       </div>
-      <div class="player_container">
-        <div class="video_img_container">
-          <img class="video_img" src="https://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideohori/m/mzc00200x0no5q6_big.jpg" alt=""
-          >
-          <div class="shade" 
-            v-if="selected_num > 2"
-          >
-          </div>
-        </div>
-        <div class="button" 
-          v-if="selected_num < 3"
-        >
-          <img class="button_img" src="../../../public/static/img/detail_play.png" alt="">
-          <img class="button_img_center" src="../../../public/static/img/detail_play_center.png" alt="">
-        </div>
-        <div class="open_vip" 
-          v-if="selected_num > 2"
-        >
-          <div class="content">
-            <span class="title">
-              VIP会员可免费观看，开通VIP会员前往APP看完整版
-            </span>
-            <div class="button_container">
-              <div class="button">登录/开通VIP会员</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="footer">
+      <Player :selected_num="selected_num"></Player>
+      <div class="video_info">
         <div class="open_app_top_container">
           <div
             :class="{ 
@@ -125,383 +98,50 @@
           </div>
         </div>
       </div>
-      <div class="channel">
-        <div class="feeds_block" 
-          v-for="(video_content_item, video_content_index) of video_content" 
-          :key="video_content_index"  
-        >
-          <div class="feeds_block_container" 
-            v-if="video_content.indexOf(video_content_item)===1"
-          >
-            <span class="title">{{video_content_item.title}}</span>
-            <div v-if="video_content_item.list.length%2===0">
-
-              <!-- <div class="video_list_container"> -->
-              <div class="video_list_container" 
-                v-if="!video_content_item.change_block_list"
-              >
-                <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, video_content_item.list.length/2)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-
-              <div class="video_list_container" 
-                v-if="video_content_item.change_block_list"
-              >
-                <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            
-            <div v-if="video_content_item.list.length%2!==0">
-
-              <div class="video_list_top_container"
-                v-if="!video_content_item.change_block_list"
-              >
-                <div class="video_list_top" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, 1)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-
-              <!-- <div class="video_list_container"> -->
-              <div class="video_list_container" 
-                v-if="!video_content_item.change_block_list"
-              >
-                <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1, (video_content_item.list.length)/2)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-
-
-              <div class="video_list_top_container"
-                v-if="video_content_item.change_block_list"
-              >
-                <div class="video_list_top" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(0, 1)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-
-              <!-- <div class="video_list_container"> -->
-              <div class="video_list_container" 
-                v-if="video_content_item.change_block_list"
-              >
-                <div class="video_list" 
-                  v-for="(video_list_item, video_list_index) of video_content_item.list.slice(1,video_content_item.list.length)"
-                  :key="video_list_index" 
-                  @click="route_to('video_details')"
-                >
-                  <div class="img_container">
-                    <img lazyload :src="video_list_item.img" alt="">
-                    <div class="top_left_corner">
-                      <div class="triangle"></div>
-                      <span class="free" v-if="video_list_item.vip===0">独播</span>
-                      <span class="vip" v-if="video_list_item.vip===10">VIP</span>
-                    </div>
-                    <div class="bottom_right_corner">{{video_list_item.score}}</div>
-                  </div>
-                  <span class="name">
-                    {{video_list_item.name}}
-                  </span>
-                  <span class="summary">
-                    {{video_list_item.summary}}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="change" 
-              v-if="!video_content_item.change_block_list"
-            >
-              <div class="change_button" @click="show_change_list(video_content_index,$event)">
-                <img src="../../../public/static/img/down_arrow.png" alt="">
-                <!-- <span>换一换</span> -->
-              </div>
-            </div>
-
-            <div class="after_change" 
-              v-if="video_content_item.change_block_list"
-            >
-              <div class="open_app">打开腾讯视频，看更多精彩内容</div>
-              <div class="change_button" @click="show_change_list(video_content_index,$event)">
-                <img src="../../../public/static/img/up_arrow.png" alt="">
-                <!-- <span>换一换</span> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="trailer_information">
-        <div class="trailer_content">
-          <div class="top">
-            <div class="title">片花资讯</div>
-          </div>
-          <div class="trailer_container">
-            <div class="trailer_outside">
-              <a class="trailer" 
-                v-for="(item, index) of trailer_content" 
-                :key="index" 
-                @click="get_trailer(item.id)"
-              >
-              
-                <div class="img_container">
-                  <img lazyload :src="item.img" alt="">
-                  <div class="bottom_right_corner">{{item.duration}}</div>
-                </div>
-                <span class="name">
-                  {{item.name}}
-                </span>
-                  
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="comment">
-        <div class="top">
-          <div class="title">评论</div>
-        </div>
-        <div class="middle">
-          <div class="comment_content"
-            v-for="(item, index) of comment_content" 
-            :key="index" 
-            @click="show_comment(item.id)"
-          >
-            <div class="user">
-              <div class="user_icon">
-                <img :src="item.user_icon" alt="">
-              </div>
-              <div class="user_name">{{item.name}}</div>
-              <i class="user_rank_lv1" v-if="item.rank===1">
-                <i class="user_rank_lv1_num"></i>
-              </i>
-            </div>
-            <div class="user_comment">{{item.comment}}</div>
-          </div>
-        </div>
-        <div class="bottom">
-          <div class="open_app">
-            <div class="icon">
-              <img src="https://puui.qpic.cn/vupload/0/common_logo_square.png/0" alt="">
-            </div>
-            <span>
-              打开腾讯视频，参与
-              {{number_of_hot_reviews}}
-              条热评大讨论
-            </span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="member_benefit">
-        <div class="benefit_content">
-          <div class="top">
-            <div class="title">会员福利</div>
-          </div>
-          <div class="benefit_container">
-            <div class="benefit_outside">
-              <a class="benefit" 
-                v-for="(item, index) of benefit_content" 
-                :key="index" 
-                @click="get_trailer(item.id)"
-              >
-              
-                <div class="img_container">
-                  <img lazyload :src="item.img" alt="">
-                </div>
-                <span class="name">
-                  {{item.name}}
-                </span>
-                <span class="ad">
-                  {{item.ad}}
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="vip_all_privileges">
-        <span class="title">VIP全部特权</span>
-        <div class="privilege_container">
-          <div class="privilege">
-            <div 
-              class="privilege_list_container_outside"
-            >
-              <div class="privilege_list_top_container">
-                <div class="privilege_list_top" 
-                  v-for="(privilege_content_item, privilege_content_index) of privilege_content.slice(0, 1)"
-                  :key="privilege_content_index" 
-                  @click="route_to('privilege_details')"
-                >
-                  <div class="list_header">
-                    <div class="img_container">
-                      <img lazyload :src="privilege_content_item.img" alt="">
-                    </div>
-                    <span class="name">
-                      {{privilege_content_item.name}}
-                    </span>
-                  </div>
-                  <div class="ad">
-                    <span class="ad_name">
-                      {{privilege_content_item.ad_name}}
-                    </span>
-                    <span class="ad_summary">
-                      {{privilege_content_item.ad_summary}}
-                    </span>
-                  </div>
-                  <div class="privilege_blank" :style="{width: 156*privilege_content.length/2 + 'px'}"></div>
-                </div>
-              </div>
-              <div class="privilege_list_container">
-                <div class="privilege_list" 
-                  v-for="(privilege_content_item, privilege_content_index) of privilege_content.slice(1,privilege_content.length)"
-                  :key="privilege_content_index" 
-                  @click="route_to('privilege_details')"
-                >
-                  <div class="list_header">
-                    <div class="img_container">
-                      <img lazyload :src="privilege_content_item.img" alt="">
-                    </div>
-                    <span class="name">
-                      {{privilege_content_item.name}}
-                    </span>
-                  </div>
-                  <span class="summary">
-                    {{privilege_content_item.summary}}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="peripheral_recommended">
-        <div class="peripheral_content">
-          <div class="top">
-            <div class="title">周边推荐</div>
-          </div>
-          <div class="peripheral_container">
-            <div class="peripheral_outside">
-              <a class="peripheral" 
-                v-for="(item, index) of peripheral_content" 
-                :key="index" 
-                @click="get_peripheral(item.id)"
-              >
-                <div class="img_container">
-                  <img lazyload :src="item.img" alt="">
-                </div>
-                <span class="name">
-                  {{item.name}}
-                </span>
-                <span class="download">
-                  下载
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <RecommendedForYou 
+        :video_content="video_content"
+        @video_content="change_video_content($event)"
+      ></RecommendedForYou>
+      <TrailerInformation
+        :trailer_content="trailer_content"
+      ></TrailerInformation>
+      <Comment
+        :comment_content="comment_content"
+        :number_of_hot_reviews="number_of_hot_reviews"
+      ></Comment>
+      <MemberBenefit
+        :benefit_content="benefit_content"
+      ></MemberBenefit>
+      <VipAllPrivileges
+        :privilege_content="privilege_content"
+      ></VipAllPrivileges>
+      <PeripheralRecommended
+        :peripheral_content="peripheral_content"
+      ></PeripheralRecommended>
   	</div>
 </template>
 
 <script>
 import HttpClient from '../../config/ajax.js';
+import Player from "../../component/Player";
+import RecommendedForYou from "../../component/RecommendedForYou";
+import TrailerInformation from "../../component/TrailerInformation";
+import Comment from "../../component/Comment";
+import MemberBenefit from "../../component/MemberBenefit";
+import VipAllPrivileges from "../../component/VipAllPrivileges";
+import PeripheralRecommended from "../../component/PeripheralRecommended";
 
 export default {
   name: 'video_details',
+  components: {
+    Player,
+    RecommendedForYou,
+    TrailerInformation,
+    Comment,
+    MemberBenefit,
+    VipAllPrivileges,
+    PeripheralRecommended
+  },
   data() {
     return {
       selected_num: 1,
@@ -1097,6 +737,11 @@ export default {
     window.removeEventListener('scroll', this.set_bottom_open_app)
   },
   methods: {
+    change_video_content(e) {
+      this.video_content = e;
+      console.log(this.video_content);
+      // this.get_video(this.selected_type)
+    },
     return_home() {
       this.route_to("/");
     },
@@ -1141,7 +786,7 @@ export default {
       });
       console.log("执行完get_video")
     },
-    show_change_list(video_content_index,$event) {
+    show_change_list(video_content_index) {
       this.current = video_content_index;
       console.log(this.current)
       let el = event.currentTarget;
@@ -1339,7 +984,7 @@ export default {
     }
   }
 }
-.footer {
+.video_info {
   .open_app_top_container {
     height: 68px;
     .open_app_top {
@@ -1396,6 +1041,7 @@ export default {
     }
     .open_app_bottom {
       position: fixed;
+      left: 2px;
       bottom: -1px;
       // border: 1px solid #000;
       border-bottom: 1px solid #F0F0F0;
@@ -1671,7 +1317,7 @@ export default {
   }
 }
 
-.channel {
+.recommended_for_you {
   position: relative;
   margin: 16px 0 0 0;
   padding: 0 0 13px 0;
