@@ -1041,11 +1041,11 @@ export default {
     }
     .open_app_bottom {
       position: fixed;
-      left: 2px;
+      left: -1px;
       bottom: -1px;
       // border: 1px solid #000;
       border-bottom: 1px solid #F0F0F0;
-      width: 100%;
+      width: calc(100% + 3px);
       height: 68px;
       padding: 0 12px 11px 12px;
       display: flex;
