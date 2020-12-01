@@ -16,6 +16,7 @@
       :video_option="video_option"
       @change_type="change_data($event)"
     ></Nav>
+    <!-- <div>{{abc}}</div> -->
     <div class="item"
       v-for="(video_content_item, video_content_index) of video_content" 
       :key="video_content_index"
@@ -60,7 +61,7 @@ export default {
   },
   data() {
     return {
-      selected_type: 1,
+      // selected_type: this.$store.state.SelectedType,
       search_text: "使徒行者3",
       video_option: [
         {
@@ -105,20 +106,23 @@ export default {
     }
   },
   computed: {
-    
+    // abc() {
+    //   return this.$store.state.num
+    // },
+    selected_type() {
+      return this.$store.state.SelectedType
+    },
+    // video_content() {
+    //   return this.$store.state.VideoContent
+    // }
   },
   created() {
-    this.get_video(this.selected_type)
+    this.get_video(this.$store.state.SelectedType)
   },
   mounted() {
     // this.swiper.slideTo(1, 0, false)
   },
   methods: {
-    change_data(e) {
-      this.selected_type = e;
-      console.log(this.selected_type);
-      this.get_video(this.selected_type)
-    },
     get_video(e) {
       console.log("执行get_video")
       HttpClient.getList({  
@@ -130,6 +134,7 @@ export default {
           console.log(res.data);
           console.log(res.data.data);
           console.log(this.video_content);
+          // this.$store.commit("set_video_content", res.data.data)
           this.video_content = res.data.data;
           this.swiper_content = res.data.data[0].list
           if (e === 1) {
@@ -138,17 +143,18 @@ export default {
             console.log(this.video_content[1].title)
           }
           console.log(this.video_content.length);
-          for (let i = 0; i < this.video_content.length; ++ i) {
-            console.log(this.video_content[i])
-            if (!this.video_content[i].change_block_list) {
-              this.$set(this.video_content[i], "change_block_list", false)
-            } 
-          }
+          // for (let i = 0; i < this.video_content.length; ++ i) {
+          //   console.log(this.video_content[i])
+          //   if (!this.video_content[i].change_block_list) {
+          //     this.$set(this.video_content[i], "change_block_list", false)
+          //   } 
+          // }
           console.log(this.video_content)
           console.log(res.data.data[0].list)
           // this.swiper_content = res.data.data[0].list;
           console.log(this.video_content)
-          this.selected_type = e;
+          // this.selected_type = e;
+          // console.log(this.selected_type)
           this.swiper.slideTo(1, 0, false)
           console.log("执行完callback");
         } 
@@ -173,9 +179,18 @@ export default {
       console.log(this.video_content[this.current].change_block_list)
       console.log(this.video_content)
     },
+    change_data(e) {
+      // this.selected_type = e;
+      // console.log(this.selected_type);
+      this.get_video(this.$store.state.SelectedType)
+      console.log(this.$store.state.SelectedType);
+    },
     return_home() {
       this.selected_type = 1;
-      this.get_video(this.selected_type)
+      // this.get_video(this.selected_type)
+      this.$store.commit("ADD_NUM", 3)
+      this.$store.commit("set_selected_type", 1)
+      this.get_video(this.$store.state.SelectedType)
     },
     route_to(e) {
       this.$router.push({path: e})

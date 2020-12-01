@@ -30,13 +30,26 @@ export default {
   },
   data() {
     return {
-      selected_type: 1,
+      // selected_type: 1,
     }
+  },
+  computed: {
+    // abc() {
+    //   return this.$store.state.num
+    // },
+    selected_type() {
+      return this.$store.state.SelectedType
+    },
+    // video_option() {
+    //   return this.$store.state.VideoOption
+    // }
   },
   methods: {
     change_type(e) {
-      this.selected_type = e;
-      this.$emit('change_type', this.selected_type)
+      // this.selected_type = e;
+      // this.$emit('change_type', this.selected_type)
+      this.$store.commit("set_selected_type", e)
+      this.$emit('change_type')
     },
   }
 }
