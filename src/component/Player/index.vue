@@ -11,8 +11,8 @@
     <div class="button" 
       v-if="selected_num < 3"
     >
-      <img class="button_img" src="../../../public/static/img/detail_play.png" alt="">
-      <img class="button_img_center" src="../../../public/static/img/detail_play_center.png" alt="">
+      <img class="button_img" src="../../../src/static/img/detail_play.png" alt="">
+      <img class="button_img_center" src="../../../src/static/img/detail_play_center.png" alt="">
     </div>
     <div class="open_vip" 
       v-if="selected_num > 2"

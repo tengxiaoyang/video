@@ -179,7 +179,7 @@
           v-if="!video_content_item.change_block_list"
         >
           <div class="change_button" @click="show_change_list(video_content_index)">
-            <img src="../../../public/static/img/down_arrow.png" alt="">
+            <img src="../../../src/static/img/down_arrow.png" alt="">
             <!-- <span>换一换</span> -->
           </div>
         </div>
@@ -189,7 +189,7 @@
         >
           <div class="open_app">打开腾讯视频，看更多精彩内容</div>
           <div class="change_button" @click="show_change_list(video_content_index)">
-            <img src="../../../public/static/img/up_arrow.png" alt="">
+            <img src="../../../src/static/img/up_arrow.png" alt="">
             <!-- <span>换一换</span> -->
           </div>
         </div>

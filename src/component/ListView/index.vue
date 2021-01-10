@@ -11,7 +11,7 @@
         <!-- {{video_list_item.score}} -->
       </div>
       <div class="play_button_container">
-        <img class="play_button" src="../../../public/static/img/play.png" alt="">
+        <img class="play_button" src="../../../src/static/img/play.png" alt="">
       </div>
     </div>
     
@@ -26,11 +26,11 @@
       </div>
       <div class="right">
         <div class="comment">
-          <img class="comment_icon" src="../../../public/static/img/letter.png" alt="">
+          <img class="comment_icon" src="../../../src/static/img/letter.png" alt="">
         </div>
         <span class="num_of_comments">{{video_content.score}}</span>
         <div class="more">
-          <img class="more_icon" src="../../../public/static/img/more.png" alt="">
+          <img class="more_icon" src="../../../src/static/img/more.png" alt="">
         </div>
       </div>
     </div>

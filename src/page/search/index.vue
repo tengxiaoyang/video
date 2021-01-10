@@ -10,7 +10,7 @@
           <div class="clear_button"         
             @click="claer_search_text"
           >
-            <img src="../../../public/static/img/close.png" alt="">
+            <img src="../../../src/static/img/close.png" alt="">
           </div>
         </div>
       </div>
@@ -68,9 +68,9 @@
         >{{item.num}}</div>
         <div class="name">{{item.name}}</div>
         <div class="rise">
-          <img src="../../../public/static/img/rise.png" alt="" v-if="item.rise===true">
-          <img src="../../../public/static/img/fall.png" alt="" v-if="item.rise===false">
-          <img src="../../../public/static/img/undefined.png" alt="" v-if="item.rise===undefined">
+          <img src="../../../src/static/img/rise.png" alt="" v-if="item.rise===true">
+          <img src="../../../src/static/img/fall.png" alt="" v-if="item.rise===false">
+          <img src="../../../src/static/img/undefined.png" alt="" v-if="item.rise===undefined">
         </div>
       </div>
     </div>

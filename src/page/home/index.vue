@@ -245,7 +245,7 @@ export default {
         font-weight: 400;
       }
       .icon {
-        background: url(../../../public/static/img/zoom.png) no-repeat;
+        background: url(../../../src/static/img/zoom.png) no-repeat;
         background-size: 100%;
         width: 13px;
         height: 13px;

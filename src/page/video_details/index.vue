@@ -5,7 +5,7 @@
           <div class="logo" @click="return_home"></div>
           <div class="right">
             <img class="search_icon" 
-              src="../../../public/static/img/zoom_white.png" alt="" 
+              src="../../../src/static/img/zoom_white.png" alt="" 
               @click="route_to('search')"
             >
             <span class="login" 
@@ -48,18 +48,18 @@
           <div class="video_function">
             <div class="left">
               <div class="blue_ray">
-                <img class="blue_ray_icon" src="../../../public/static/img/blue_ray.png" alt="">
+                <img class="blue_ray_icon" src="../../../src/static/img/blue_ray.png" alt="">
               </div>
             </div>
             <div class="right">
               <div class="add_to_favorites">
-                <img class="add_to_favorites_icon" src="../../../public/static/img/add_to_favorites.png" alt="">
+                <img class="add_to_favorites_icon" src="../../../src/static/img/add_to_favorites.png" alt="">
               </div>
               <div class="download">
-                <img class="download_icon" src="../../../public/static/img/download.png" alt="">
+                <img class="download_icon" src="../../../src/static/img/download.png" alt="">
               </div>
               <div class="option">
-                <img class="option_icon" src="../../../public/static/img/option.png" alt="">
+                <img class="option_icon" src="../../../src/static/img/option.png" alt="">
               </div>
             </div>
           </div>

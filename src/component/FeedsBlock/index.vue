@@ -83,7 +83,7 @@
 
     <div class="change">
       <div class="change_button">
-        <img src="../../../public/static/img/change.png" alt="">
+        <img src="../../../src/static/img/change.png" alt="">
         <span>换一换</span>
       </div>
     </div>
