@@ -51,64 +51,64 @@ export default {
 <style lang="less" scoped>
 .container {
   height: 41px;
-  .nav {
-    height: 41px;
-    position: fixed;
-    overflow: hidden;
-    z-index: 2;
+}
+.nav {
+  height: 41px;
+  position: fixed;
+  overflow: hidden;
+  z-index: 2;
+  background: #fff;
+  .nav_inner {
+    overflow-x: auto;
+    padding-left: 3px;
     background: #fff;
-    .nav_inner {
-      overflow-x: auto;
-      padding-left: 3px;
-      background: #fff;
-      ul {
-        width: 200%;
-        .active_option {
-          float: left;
-          padding: 0 13px 9px;
+    ul {
+      width: 200%;
+      .active_option {
+        float: left;
+        padding: 0 13px 9px;
+        line-height: 38px;
+        font-size: 17px;
+        color: #ff6022;
+        font-weight: 800;
+        span {
           line-height: 38px;
           font-size: 17px;
           color: #ff6022;
           font-weight: 800;
-          span {
-            line-height: 38px;
-            font-size: 17px;
-            color: #ff6022;
-            font-weight: 800;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            i {
-              display: block;
-              width: 12px;
-              border-bottom: 2px solid #ff6022;
-              position: relative;
-              bottom: 5px;
-            }
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          i {
+            display: block;
+            width: 12px;
+            border-bottom: 2px solid #ff6022;
+            position: relative;
+            bottom: 5px;
           }
         }
-        li {
-          float: left;
-          padding: 0 13px 9px;
+      }
+      li {
+        float: left;
+        padding: 0 13px 9px;
+        line-height: 38px;
+        font-size: 17px;
+        color: #000;
+        font-weight: 800;
+        span {
           line-height: 38px;
           font-size: 17px;
           color: #000;
           font-weight: 800;
-          span {
-            line-height: 38px;
-            font-size: 17px;
-            color: #000;
-            font-weight: 800;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            i {
-              display: block;
-              width: 12px;
-              border-bottom: 2px solid #fff;
-              position: relative;
-              bottom: 5px;
-            }
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          i {
+            display: block;
+            width: 12px;
+            border-bottom: 2px solid #fff;
+            position: relative;
+            bottom: 5px;
           }
         }
       }

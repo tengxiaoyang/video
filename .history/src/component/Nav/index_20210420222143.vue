@@ -51,6 +51,7 @@ export default {
 <style lang="less" scoped>
 .container {
   height: 41px;
+    
   .nav {
     height: 41px;
     position: fixed;

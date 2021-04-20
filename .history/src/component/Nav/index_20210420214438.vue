@@ -1,10 +1,9 @@
 <template>
-  <div class="container">
+  <div class="nav_container">
     <div class="nav">
       <div class="nav_inner">
-        <ul>
-          <li 
-            class="option" 
+        <div class="option_outside">
+          <a class="option" 
             :class="{ active_option: item.type === selected_type }"
             v-for="(item, index) of video_option" 
             :key="index" 
@@ -14,8 +13,8 @@
             <span>
               <i></i>
             </span>
-          </li>
-        </ul>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -31,16 +30,24 @@ export default {
   },
   data() {
     return {
-      
+      // selected_type: 1,
     }
   },
   computed: {
+    // abc() {
+    //   return this.$store.state.num
+    // },
     selected_type() {
       return this.$store.state.SelectedType
     },
+    // video_option() {
+    //   return this.$store.state.VideoOption
+    // }
   },
   methods: {
     change_type(e) {
+      // this.selected_type = e;
+      // this.$emit('change_type', this.selected_type)
       this.$store.commit("set_selected_type", e)
       this.$emit('change_type')
     },
@@ -49,27 +56,46 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.container {
-  height: 41px;
+* {
+  font-size: 12px;
+}
+
+  // height: 35px;
+  // width: 100%;
+  // position: relative;
   .nav {
     height: 41px;
+    width: 100%;
     position: fixed;
-    overflow: hidden;
     z-index: 2;
     background: #fff;
     .nav_inner {
-      overflow-x: auto;
-      padding-left: 3px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 35px;
+      overflow: hidden;
       background: #fff;
-      ul {
-        width: 200%;
+      margin: 3px 0 0 0;
+      position: relative;
+      top: 6px;
+      .option_outside {
+        width: 97vw;
+        height: 47px;
+        overflow: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+        position: relative;
+        display: flex;
+        align-items: center;
         .active_option {
-          float: left;
-          padding: 0 13px 9px;
+          display: inline-block;
+          height: 45px;
           line-height: 38px;
           font-size: 17px;
           color: #ff6022;
           font-weight: 800;
+          margin: 0 10px;
           span {
             line-height: 38px;
             font-size: 17px;
@@ -78,6 +104,7 @@ export default {
             width: 100%;
             display: flex;
             justify-content: center;
+            
             i {
               display: block;
               width: 12px;
@@ -87,13 +114,14 @@ export default {
             }
           }
         }
-        li {
-          float: left;
-          padding: 0 13px 9px;
+        a {
+          display: inline-block;
+          height: 45px;
           line-height: 38px;
           font-size: 17px;
           color: #000;
           font-weight: 800;
+          margin: 0 10px;
           span {
             line-height: 38px;
             font-size: 17px;
@@ -102,6 +130,7 @@ export default {
             width: 100%;
             display: flex;
             justify-content: center;
+            
             i {
               display: block;
               width: 12px;
@@ -115,7 +144,6 @@ export default {
     }
   }
 }
-
   
 
 </style>
