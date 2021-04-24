@@ -3,7 +3,6 @@
     <div class="top">
       <div class="top_inner">
         <div class="logo" @click="return_home"></div>
-        <div class="blank"></div>
         <div class="search" 
           @click="route_to('search')"
         >
@@ -210,27 +209,23 @@ export default {
     background: #fff;
     width: 100vw;
     z-index: 2;
+    padding: 14px 31px 0 17px;
     .logo {
-      display: inline-block;
-      position: absolute;
-      top: 14px;
-      left: 12px;
+      float: left;
+      position: relative;
+      top: 0;
+      left: 0;
       width: 103px;
       height: 24px;
       // float: left;
       background: url(//puui.qpic.cn/vupload/0/1570516378024_vr59hnsql8.png/0) no-repeat;
       background-size: 100%;
     }
-    .blank {
-      display: inline-block;
-      // flex: 1;
-    }
     .search {
-      display: inline-block;
-      // float: right;
-      position: absolute;
-      top: 14px;
-      right: 12px;
+      float: right;
+      position: relative;
+      top: 0;
+      right: 0;
       width: 150px;
       height: 30px;
       border-radius: 5px;

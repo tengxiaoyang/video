@@ -56,11 +56,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-* {
-  f
-}
 .nav_container {
-  height: 35px;
+  height: 100%;
   width: 100%;
   position: relative;
   .nav {
